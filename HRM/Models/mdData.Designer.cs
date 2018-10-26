@@ -469,7 +469,7 @@ namespace HRM.Models
 
         #endregion
 
-        #region Primitive Properties
+        #region Simple Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -488,7 +488,7 @@ namespace HRM.Models
                 {
                     Onid_mjestoChanging(value);
                     ReportPropertyChanging("id_mjesto");
-                    _id_mjesto = StructuralObject.SetValidValue(value);
+                    _id_mjesto = StructuralObject.SetValidValue(value, "id_mjesto");
                     ReportPropertyChanged("id_mjesto");
                     Onid_mjestoChanged();
                 }
@@ -513,7 +513,7 @@ namespace HRM.Models
             {
                 OnNazivChanging(value);
                 ReportPropertyChanging("Naziv");
-                _Naziv = StructuralObject.SetValidValue(value, false);
+                _Naziv = StructuralObject.SetValidValue(value, false, "Naziv");
                 ReportPropertyChanged("Naziv");
                 OnNazivChanged();
             }
@@ -524,7 +524,6 @@ namespace HRM.Models
 
         #endregion
 
-    
         #region Navigation Properties
     
         /// <summary>
@@ -582,7 +581,7 @@ namespace HRM.Models
 
         #endregion
 
-        #region Primitive Properties
+        #region Simple Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -601,7 +600,7 @@ namespace HRM.Models
                 {
                     Onid_odChanging(value);
                     ReportPropertyChanging("id_od");
-                    _id_od = StructuralObject.SetValidValue(value);
+                    _id_od = StructuralObject.SetValidValue(value, "id_od");
                     ReportPropertyChanged("id_od");
                     Onid_odChanged();
                 }
@@ -626,7 +625,7 @@ namespace HRM.Models
             {
                 OnNazivChanging(value);
                 ReportPropertyChanging("Naziv");
-                _Naziv = StructuralObject.SetValidValue(value, false);
+                _Naziv = StructuralObject.SetValidValue(value, false, "Naziv");
                 ReportPropertyChanged("Naziv");
                 OnNazivChanged();
             }
@@ -650,7 +649,7 @@ namespace HRM.Models
             {
                 OnOznakaChanging(value);
                 ReportPropertyChanging("Oznaka");
-                _Oznaka = StructuralObject.SetValidValue(value, false);
+                _Oznaka = StructuralObject.SetValidValue(value, false, "Oznaka");
                 ReportPropertyChanged("Oznaka");
                 OnOznakaChanged();
             }
@@ -674,7 +673,7 @@ namespace HRM.Models
             {
                 OnAdresaChanging(value);
                 ReportPropertyChanging("Adresa");
-                _Adresa = StructuralObject.SetValidValue(value, true);
+                _Adresa = StructuralObject.SetValidValue(value, true, "Adresa");
                 ReportPropertyChanged("Adresa");
                 OnAdresaChanged();
             }
@@ -698,7 +697,7 @@ namespace HRM.Models
             {
                 Onid_mjestoChanging(value);
                 ReportPropertyChanging("id_mjesto");
-                _id_mjesto = StructuralObject.SetValidValue(value);
+                _id_mjesto = StructuralObject.SetValidValue(value, "id_mjesto");
                 ReportPropertyChanged("id_mjesto");
                 Onid_mjestoChanged();
             }
@@ -722,7 +721,7 @@ namespace HRM.Models
             {
                 Onid_opcinaChanging(value);
                 ReportPropertyChanging("id_opcina");
-                _id_opcina = StructuralObject.SetValidValue(value);
+                _id_opcina = StructuralObject.SetValidValue(value, "id_opcina");
                 ReportPropertyChanged("id_opcina");
                 Onid_opcinaChanged();
             }
@@ -746,7 +745,7 @@ namespace HRM.Models
             {
                 Onid_IzvSurChanging(value);
                 ReportPropertyChanging("id_IzvSur");
-                _id_IzvSur = StructuralObject.SetValidValue(value);
+                _id_IzvSur = StructuralObject.SetValidValue(value, "id_IzvSur");
                 ReportPropertyChanged("id_IzvSur");
                 Onid_IzvSurChanged();
             }
@@ -770,7 +769,7 @@ namespace HRM.Models
             {
                 Onid_voditeljChanging(value);
                 ReportPropertyChanging("id_voditelj");
-                _id_voditelj = StructuralObject.SetValidValue(value);
+                _id_voditelj = StructuralObject.SetValidValue(value, "id_voditelj");
                 ReportPropertyChanged("id_voditelj");
                 Onid_voditeljChanged();
             }
@@ -794,7 +793,7 @@ namespace HRM.Models
             {
                 OnregobChanging(value);
                 ReportPropertyChanging("regob");
-                _regob = StructuralObject.SetValidValue(value, true);
+                _regob = StructuralObject.SetValidValue(value, true, "regob");
                 ReportPropertyChanged("regob");
                 OnregobChanged();
             }
@@ -818,7 +817,7 @@ namespace HRM.Models
             {
                 Onid_odnadChanging(value);
                 ReportPropertyChanging("id_odnad");
-                _id_odnad = StructuralObject.SetValidValue(value);
+                _id_odnad = StructuralObject.SetValidValue(value, "id_odnad");
                 ReportPropertyChanged("id_odnad");
                 Onid_odnadChanged();
             }
@@ -842,7 +841,7 @@ namespace HRM.Models
             {
                 OnnivoChanging(value);
                 ReportPropertyChanging("nivo");
-                _nivo = StructuralObject.SetValidValue(value);
+                _nivo = StructuralObject.SetValidValue(value, "nivo");
                 ReportPropertyChanged("nivo");
                 OnnivoChanged();
             }
@@ -853,7 +852,6 @@ namespace HRM.Models
 
         #endregion
 
-    
         #region Navigation Properties
     
         /// <summary>
@@ -1133,7 +1131,7 @@ namespace HRM.Models
 
         #endregion
 
-        #region Primitive Properties
+        #region Simple Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1152,7 +1150,7 @@ namespace HRM.Models
                 {
                     OnOdjaveIdChanging(value);
                     ReportPropertyChanging("OdjaveId");
-                    _OdjaveId = StructuralObject.SetValidValue(value);
+                    _OdjaveId = StructuralObject.SetValidValue(value, "OdjaveId");
                     ReportPropertyChanged("OdjaveId");
                     OnOdjaveIdChanged();
                 }
@@ -1177,7 +1175,7 @@ namespace HRM.Models
             {
                 Ondatum_iniciranjaChanging(value);
                 ReportPropertyChanging("datum_iniciranja");
-                _datum_iniciranja = StructuralObject.SetValidValue(value);
+                _datum_iniciranja = StructuralObject.SetValidValue(value, "datum_iniciranja");
                 ReportPropertyChanged("datum_iniciranja");
                 Ondatum_iniciranjaChanged();
             }
@@ -1201,7 +1199,7 @@ namespace HRM.Models
             {
                 Ondatum_zavrsetkaChanging(value);
                 ReportPropertyChanging("datum_zavrsetka");
-                _datum_zavrsetka = StructuralObject.SetValidValue(value);
+                _datum_zavrsetka = StructuralObject.SetValidValue(value, "datum_zavrsetka");
                 ReportPropertyChanged("datum_zavrsetka");
                 Ondatum_zavrsetkaChanged();
             }
@@ -1225,7 +1223,7 @@ namespace HRM.Models
             {
                 Onid_zaposlenikChanging(value);
                 ReportPropertyChanging("id_zaposlenik");
-                _id_zaposlenik = StructuralObject.SetValidValue(value);
+                _id_zaposlenik = StructuralObject.SetValidValue(value, "id_zaposlenik");
                 ReportPropertyChanged("id_zaposlenik");
                 Onid_zaposlenikChanged();
             }
@@ -1249,7 +1247,7 @@ namespace HRM.Models
             {
                 Onid_voditeljChanging(value);
                 ReportPropertyChanging("id_voditelj");
-                _id_voditelj = StructuralObject.SetValidValue(value);
+                _id_voditelj = StructuralObject.SetValidValue(value, "id_voditelj");
                 ReportPropertyChanged("id_voditelj");
                 Onid_voditeljChanged();
             }
@@ -1273,7 +1271,7 @@ namespace HRM.Models
             {
                 Onid_odChanging(value);
                 ReportPropertyChanging("id_od");
-                _id_od = StructuralObject.SetValidValue(value);
+                _id_od = StructuralObject.SetValidValue(value, "id_od");
                 ReportPropertyChanged("id_od");
                 Onid_odChanged();
             }
@@ -1297,7 +1295,7 @@ namespace HRM.Models
             {
                 Onid_rmChanging(value);
                 ReportPropertyChanging("id_rm");
-                _id_rm = StructuralObject.SetValidValue(value);
+                _id_rm = StructuralObject.SetValidValue(value, "id_rm");
                 ReportPropertyChanged("id_rm");
                 Onid_rmChanged();
             }
@@ -1308,7 +1306,6 @@ namespace HRM.Models
 
         #endregion
 
-    
         #region Navigation Properties
     
         /// <summary>
@@ -1520,7 +1517,7 @@ namespace HRM.Models
 
         #endregion
 
-        #region Primitive Properties
+        #region Simple Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1539,7 +1536,7 @@ namespace HRM.Models
                 {
                     Onid_odjave_aplChanging(value);
                     ReportPropertyChanging("id_odjave_apl");
-                    _id_odjave_apl = StructuralObject.SetValidValue(value);
+                    _id_odjave_apl = StructuralObject.SetValidValue(value, "id_odjave_apl");
                     ReportPropertyChanged("id_odjave_apl");
                     Onid_odjave_aplChanged();
                 }
@@ -1564,7 +1561,7 @@ namespace HRM.Models
             {
                 Onid_odjaveChanging(value);
                 ReportPropertyChanging("id_odjave");
-                _id_odjave = StructuralObject.SetValidValue(value);
+                _id_odjave = StructuralObject.SetValidValue(value, "id_odjave");
                 ReportPropertyChanged("id_odjave");
                 Onid_odjaveChanged();
             }
@@ -1588,7 +1585,7 @@ namespace HRM.Models
             {
                 Onid_prijava_aplChanging(value);
                 ReportPropertyChanging("id_prijava_apl");
-                _id_prijava_apl = StructuralObject.SetValidValue(value);
+                _id_prijava_apl = StructuralObject.SetValidValue(value, "id_prijava_apl");
                 ReportPropertyChanged("id_prijava_apl");
                 Onid_prijava_aplChanged();
             }
@@ -1612,7 +1609,7 @@ namespace HRM.Models
             {
                 Onpotvrda_itChanging(value);
                 ReportPropertyChanging("potvrda_it");
-                _potvrda_it = StructuralObject.SetValidValue(value);
+                _potvrda_it = StructuralObject.SetValidValue(value, "potvrda_it");
                 ReportPropertyChanged("potvrda_it");
                 Onpotvrda_itChanged();
             }
@@ -1636,7 +1633,7 @@ namespace HRM.Models
             {
                 Ondatum_itChanging(value);
                 ReportPropertyChanging("datum_it");
-                _datum_it = StructuralObject.SetValidValue(value);
+                _datum_it = StructuralObject.SetValidValue(value, "datum_it");
                 ReportPropertyChanged("datum_it");
                 Ondatum_itChanged();
             }
@@ -1660,7 +1657,7 @@ namespace HRM.Models
             {
                 Onpotvrda_vodChanging(value);
                 ReportPropertyChanging("potvrda_vod");
-                _potvrda_vod = StructuralObject.SetValidValue(value);
+                _potvrda_vod = StructuralObject.SetValidValue(value, "potvrda_vod");
                 ReportPropertyChanged("potvrda_vod");
                 Onpotvrda_vodChanged();
             }
@@ -1684,7 +1681,7 @@ namespace HRM.Models
             {
                 Ondatum_voditeljChanging(value);
                 ReportPropertyChanging("datum_voditelj");
-                _datum_voditelj = StructuralObject.SetValidValue(value);
+                _datum_voditelj = StructuralObject.SetValidValue(value, "datum_voditelj");
                 ReportPropertyChanged("datum_voditelj");
                 Ondatum_voditeljChanged();
             }
@@ -1695,7 +1692,6 @@ namespace HRM.Models
 
         #endregion
 
-    
         #region Navigation Properties
     
         /// <summary>
@@ -1821,7 +1817,7 @@ namespace HRM.Models
 
         #endregion
 
-        #region Primitive Properties
+        #region Simple Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1840,7 +1836,7 @@ namespace HRM.Models
                 {
                     Onid_prijaveChanging(value);
                     ReportPropertyChanging("id_prijave");
-                    _id_prijave = StructuralObject.SetValidValue(value);
+                    _id_prijave = StructuralObject.SetValidValue(value, "id_prijave");
                     ReportPropertyChanged("id_prijave");
                     Onid_prijaveChanged();
                 }
@@ -1865,7 +1861,7 @@ namespace HRM.Models
             {
                 Onid_zaposlenikChanging(value);
                 ReportPropertyChanging("id_zaposlenik");
-                _id_zaposlenik = StructuralObject.SetValidValue(value);
+                _id_zaposlenik = StructuralObject.SetValidValue(value, "id_zaposlenik");
                 ReportPropertyChanged("id_zaposlenik");
                 Onid_zaposlenikChanged();
             }
@@ -1889,7 +1885,7 @@ namespace HRM.Models
             {
                 Onid_odChanging(value);
                 ReportPropertyChanging("id_od");
-                _id_od = StructuralObject.SetValidValue(value);
+                _id_od = StructuralObject.SetValidValue(value, "id_od");
                 ReportPropertyChanged("id_od");
                 Onid_odChanged();
             }
@@ -1913,7 +1909,7 @@ namespace HRM.Models
             {
                 Onid_rmChanging(value);
                 ReportPropertyChanging("id_rm");
-                _id_rm = StructuralObject.SetValidValue(value);
+                _id_rm = StructuralObject.SetValidValue(value, "id_rm");
                 ReportPropertyChanged("id_rm");
                 Onid_rmChanged();
             }
@@ -1937,7 +1933,7 @@ namespace HRM.Models
             {
                 OnsysdateChanging(value);
                 ReportPropertyChanging("sysdate");
-                _sysdate = StructuralObject.SetValidValue(value);
+                _sysdate = StructuralObject.SetValidValue(value, "sysdate");
                 ReportPropertyChanged("sysdate");
                 OnsysdateChanged();
             }
@@ -1961,7 +1957,7 @@ namespace HRM.Models
             {
                 Onpotvrda_em_adChanging(value);
                 ReportPropertyChanging("potvrda_em_ad");
-                _potvrda_em_ad = StructuralObject.SetValidValue(value);
+                _potvrda_em_ad = StructuralObject.SetValidValue(value, "potvrda_em_ad");
                 ReportPropertyChanged("potvrda_em_ad");
                 Onpotvrda_em_adChanged();
             }
@@ -1985,7 +1981,7 @@ namespace HRM.Models
             {
                 Onpotvrda_bmcChanging(value);
                 ReportPropertyChanging("potvrda_bmc");
-                _potvrda_bmc = StructuralObject.SetValidValue(value);
+                _potvrda_bmc = StructuralObject.SetValidValue(value, "potvrda_bmc");
                 ReportPropertyChanged("potvrda_bmc");
                 Onpotvrda_bmcChanged();
             }
@@ -2009,7 +2005,7 @@ namespace HRM.Models
             {
                 Onpotvrda_vodChanging(value);
                 ReportPropertyChanging("potvrda_vod");
-                _potvrda_vod = StructuralObject.SetValidValue(value);
+                _potvrda_vod = StructuralObject.SetValidValue(value, "potvrda_vod");
                 ReportPropertyChanged("potvrda_vod");
                 Onpotvrda_vodChanged();
             }
@@ -2033,7 +2029,7 @@ namespace HRM.Models
             {
                 Onpotvrda_ostale_appChanging(value);
                 ReportPropertyChanging("potvrda_ostale_app");
-                _potvrda_ostale_app = StructuralObject.SetValidValue(value);
+                _potvrda_ostale_app = StructuralObject.SetValidValue(value, "potvrda_ostale_app");
                 ReportPropertyChanged("potvrda_ostale_app");
                 Onpotvrda_ostale_appChanged();
             }
@@ -2057,7 +2053,7 @@ namespace HRM.Models
             {
                 Onpotvrda_allChanging(value);
                 ReportPropertyChanging("potvrda_all");
-                _potvrda_all = StructuralObject.SetValidValue(value);
+                _potvrda_all = StructuralObject.SetValidValue(value, "potvrda_all");
                 ReportPropertyChanged("potvrda_all");
                 Onpotvrda_allChanged();
             }
@@ -2081,7 +2077,7 @@ namespace HRM.Models
             {
                 Onid_voditeljChanging(value);
                 ReportPropertyChanging("id_voditelj");
-                _id_voditelj = StructuralObject.SetValidValue(value);
+                _id_voditelj = StructuralObject.SetValidValue(value, "id_voditelj");
                 ReportPropertyChanged("id_voditelj");
                 Onid_voditeljChanged();
             }
@@ -2092,7 +2088,6 @@ namespace HRM.Models
 
         #endregion
 
-    
         #region Navigation Properties
     
         /// <summary>
@@ -2306,7 +2301,7 @@ namespace HRM.Models
 
         #endregion
 
-        #region Primitive Properties
+        #region Simple Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2325,7 +2320,7 @@ namespace HRM.Models
                 {
                     Onid_praplChanging(value);
                     ReportPropertyChanging("id_prapl");
-                    _id_prapl = StructuralObject.SetValidValue(value);
+                    _id_prapl = StructuralObject.SetValidValue(value, "id_prapl");
                     ReportPropertyChanged("id_prapl");
                     Onid_praplChanged();
                 }
@@ -2350,7 +2345,7 @@ namespace HRM.Models
             {
                 Onid_prijaveChanging(value);
                 ReportPropertyChanging("id_prijave");
-                _id_prijave = StructuralObject.SetValidValue(value);
+                _id_prijave = StructuralObject.SetValidValue(value, "id_prijave");
                 ReportPropertyChanged("id_prijave");
                 Onid_prijaveChanged();
             }
@@ -2374,7 +2369,7 @@ namespace HRM.Models
             {
                 Onid_aplikacijeChanging(value);
                 ReportPropertyChanging("id_aplikacije");
-                _id_aplikacije = StructuralObject.SetValidValue(value);
+                _id_aplikacije = StructuralObject.SetValidValue(value, "id_aplikacije");
                 ReportPropertyChanged("id_aplikacije");
                 Onid_aplikacijeChanged();
             }
@@ -2398,7 +2393,7 @@ namespace HRM.Models
             {
                 OnprofilChanging(value);
                 ReportPropertyChanging("profil");
-                _profil = StructuralObject.SetValidValue(value);
+                _profil = StructuralObject.SetValidValue(value, "profil");
                 ReportPropertyChanged("profil");
                 OnprofilChanged();
             }
@@ -2422,7 +2417,7 @@ namespace HRM.Models
             {
                 OnprofiliChanging(value);
                 ReportPropertyChanging("profili");
-                _profili = StructuralObject.SetValidValue(value, true);
+                _profili = StructuralObject.SetValidValue(value, true, "profili");
                 ReportPropertyChanged("profili");
                 OnprofiliChanged();
             }
@@ -2446,7 +2441,7 @@ namespace HRM.Models
             {
                 OnusernameChanging(value);
                 ReportPropertyChanging("username");
-                _username = StructuralObject.SetValidValue(value, true);
+                _username = StructuralObject.SetValidValue(value, true, "username");
                 ReportPropertyChanged("username");
                 OnusernameChanged();
             }
@@ -2470,7 +2465,7 @@ namespace HRM.Models
             {
                 OnpasswordChanging(value);
                 ReportPropertyChanging("password");
-                _password = StructuralObject.SetValidValue(value, true);
+                _password = StructuralObject.SetValidValue(value, true, "password");
                 ReportPropertyChanged("password");
                 OnpasswordChanged();
             }
@@ -2494,7 +2489,7 @@ namespace HRM.Models
             {
                 OnserverChanging(value);
                 ReportPropertyChanging("server");
-                _server = StructuralObject.SetValidValue(value, true);
+                _server = StructuralObject.SetValidValue(value, true, "server");
                 ReportPropertyChanged("server");
                 OnserverChanged();
             }
@@ -2518,7 +2513,7 @@ namespace HRM.Models
             {
                 OnsysdateChanging(value);
                 ReportPropertyChanging("sysdate");
-                _sysdate = StructuralObject.SetValidValue(value);
+                _sysdate = StructuralObject.SetValidValue(value, "sysdate");
                 ReportPropertyChanged("sysdate");
                 OnsysdateChanged();
             }
@@ -2542,7 +2537,7 @@ namespace HRM.Models
             {
                 Ondat_it_potvrdeChanging(value);
                 ReportPropertyChanging("dat_it_potvrde");
-                _dat_it_potvrde = StructuralObject.SetValidValue(value);
+                _dat_it_potvrde = StructuralObject.SetValidValue(value, "dat_it_potvrde");
                 ReportPropertyChanged("dat_it_potvrde");
                 Ondat_it_potvrdeChanged();
             }
@@ -2566,7 +2561,7 @@ namespace HRM.Models
             {
                 Onad_itChanging(value);
                 ReportPropertyChanging("ad_it");
-                _ad_it = StructuralObject.SetValidValue(value, true);
+                _ad_it = StructuralObject.SetValidValue(value, true, "ad_it");
                 ReportPropertyChanged("ad_it");
                 Onad_itChanged();
             }
@@ -2590,7 +2585,7 @@ namespace HRM.Models
             {
                 Onpotvrda_itChanging(value);
                 ReportPropertyChanging("potvrda_it");
-                _potvrda_it = StructuralObject.SetValidValue(value);
+                _potvrda_it = StructuralObject.SetValidValue(value, "potvrda_it");
                 ReportPropertyChanged("potvrda_it");
                 Onpotvrda_itChanged();
             }
@@ -2614,7 +2609,7 @@ namespace HRM.Models
             {
                 Ondat_odg_osobeChanging(value);
                 ReportPropertyChanging("dat_odg_osobe");
-                _dat_odg_osobe = StructuralObject.SetValidValue(value);
+                _dat_odg_osobe = StructuralObject.SetValidValue(value, "dat_odg_osobe");
                 ReportPropertyChanged("dat_odg_osobe");
                 Ondat_odg_osobeChanged();
             }
@@ -2638,7 +2633,7 @@ namespace HRM.Models
             {
                 Onad_odg_osobeChanging(value);
                 ReportPropertyChanging("ad_odg_osobe");
-                _ad_odg_osobe = StructuralObject.SetValidValue(value, true);
+                _ad_odg_osobe = StructuralObject.SetValidValue(value, true, "ad_odg_osobe");
                 ReportPropertyChanged("ad_odg_osobe");
                 Onad_odg_osobeChanged();
             }
@@ -2662,7 +2657,7 @@ namespace HRM.Models
             {
                 Onpotvrda_odg_osobeChanging(value);
                 ReportPropertyChanging("potvrda_odg_osobe");
-                _potvrda_odg_osobe = StructuralObject.SetValidValue(value);
+                _potvrda_odg_osobe = StructuralObject.SetValidValue(value, "potvrda_odg_osobe");
                 ReportPropertyChanged("potvrda_odg_osobe");
                 Onpotvrda_odg_osobeChanged();
             }
@@ -2686,7 +2681,7 @@ namespace HRM.Models
             {
                 Onaccess_codeChanging(value);
                 ReportPropertyChanging("access_code");
-                _access_code = StructuralObject.SetValidValue(value, true);
+                _access_code = StructuralObject.SetValidValue(value, true, "access_code");
                 ReportPropertyChanged("access_code");
                 Onaccess_codeChanged();
             }
@@ -2710,7 +2705,7 @@ namespace HRM.Models
             {
                 Ondat_voditeljChanging(value);
                 ReportPropertyChanging("dat_voditelj");
-                _dat_voditelj = StructuralObject.SetValidValue(value);
+                _dat_voditelj = StructuralObject.SetValidValue(value, "dat_voditelj");
                 ReportPropertyChanged("dat_voditelj");
                 Ondat_voditeljChanged();
             }
@@ -2734,7 +2729,7 @@ namespace HRM.Models
             {
                 Onpotvrda_voditeljChanging(value);
                 ReportPropertyChanging("potvrda_voditelj");
-                _potvrda_voditelj = StructuralObject.SetValidValue(value);
+                _potvrda_voditelj = StructuralObject.SetValidValue(value, "potvrda_voditelj");
                 ReportPropertyChanged("potvrda_voditelj");
                 Onpotvrda_voditeljChanged();
             }
@@ -2758,7 +2753,7 @@ namespace HRM.Models
             {
                 Onpotvrde_allChanging(value);
                 ReportPropertyChanging("potvrde_all");
-                _potvrde_all = StructuralObject.SetValidValue(value);
+                _potvrde_all = StructuralObject.SetValidValue(value, "potvrde_all");
                 ReportPropertyChanged("potvrde_all");
                 Onpotvrde_allChanged();
             }
@@ -2782,7 +2777,7 @@ namespace HRM.Models
             {
                 OnkomentarChanging(value);
                 ReportPropertyChanging("komentar");
-                _komentar = StructuralObject.SetValidValue(value, true);
+                _komentar = StructuralObject.SetValidValue(value, true, "komentar");
                 ReportPropertyChanged("komentar");
                 OnkomentarChanged();
             }
@@ -2806,7 +2801,7 @@ namespace HRM.Models
             {
                 OnaktivnaChanging(value);
                 ReportPropertyChanging("aktivna");
-                _aktivna = StructuralObject.SetValidValue(value);
+                _aktivna = StructuralObject.SetValidValue(value, "aktivna");
                 ReportPropertyChanged("aktivna");
                 OnaktivnaChanged();
             }
@@ -2817,7 +2812,6 @@ namespace HRM.Models
 
         #endregion
 
-    
         #region Navigation Properties
     
         /// <summary>
@@ -2909,7 +2903,7 @@ namespace HRM.Models
 
         #endregion
 
-        #region Primitive Properties
+        #region Simple Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2928,7 +2922,7 @@ namespace HRM.Models
                 {
                     Onid_pripadnostChanging(value);
                     ReportPropertyChanging("id_pripadnost");
-                    _id_pripadnost = StructuralObject.SetValidValue(value);
+                    _id_pripadnost = StructuralObject.SetValidValue(value, "id_pripadnost");
                     ReportPropertyChanged("id_pripadnost");
                     Onid_pripadnostChanged();
                 }
@@ -2953,7 +2947,7 @@ namespace HRM.Models
             {
                 OnnazivChanging(value);
                 ReportPropertyChanging("naziv");
-                _naziv = StructuralObject.SetValidValue(value, false);
+                _naziv = StructuralObject.SetValidValue(value, false, "naziv");
                 ReportPropertyChanged("naziv");
                 OnnazivChanged();
             }
@@ -2964,7 +2958,6 @@ namespace HRM.Models
 
         #endregion
 
-    
         #region Navigation Properties
     
         /// <summary>
@@ -3020,7 +3013,7 @@ namespace HRM.Models
 
         #endregion
 
-        #region Primitive Properties
+        #region Simple Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -3039,7 +3032,7 @@ namespace HRM.Models
                 {
                     Onid_rmChanging(value);
                     ReportPropertyChanging("id_rm");
-                    _id_rm = StructuralObject.SetValidValue(value);
+                    _id_rm = StructuralObject.SetValidValue(value, "id_rm");
                     ReportPropertyChanged("id_rm");
                     Onid_rmChanged();
                 }
@@ -3064,7 +3057,7 @@ namespace HRM.Models
             {
                 OnNazivChanging(value);
                 ReportPropertyChanging("Naziv");
-                _Naziv = StructuralObject.SetValidValue(value, false);
+                _Naziv = StructuralObject.SetValidValue(value, false, "Naziv");
                 ReportPropertyChanged("Naziv");
                 OnNazivChanged();
             }
@@ -3088,7 +3081,7 @@ namespace HRM.Models
             {
                 OnStrucnaSpremaChanging(value);
                 ReportPropertyChanging("StrucnaSprema");
-                _StrucnaSprema = StructuralObject.SetValidValue(value, false);
+                _StrucnaSprema = StructuralObject.SetValidValue(value, false, "StrucnaSprema");
                 ReportPropertyChanged("StrucnaSprema");
                 OnStrucnaSpremaChanged();
             }
@@ -3099,7 +3092,6 @@ namespace HRM.Models
 
         #endregion
 
-    
         #region Navigation Properties
     
         /// <summary>
@@ -3197,7 +3189,7 @@ namespace HRM.Models
 
         #endregion
 
-        #region Primitive Properties
+        #region Simple Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -3216,7 +3208,7 @@ namespace HRM.Models
                 {
                     Onid_TipOdChanging(value);
                     ReportPropertyChanging("id_TipOd");
-                    _id_TipOd = StructuralObject.SetValidValue(value);
+                    _id_TipOd = StructuralObject.SetValidValue(value, "id_TipOd");
                     ReportPropertyChanged("id_TipOd");
                     Onid_TipOdChanged();
                 }
@@ -3241,7 +3233,7 @@ namespace HRM.Models
             {
                 OnNazivChanging(value);
                 ReportPropertyChanging("Naziv");
-                _Naziv = StructuralObject.SetValidValue(value, false);
+                _Naziv = StructuralObject.SetValidValue(value, false, "Naziv");
                 ReportPropertyChanged("Naziv");
                 OnNazivChanged();
             }
@@ -3252,7 +3244,6 @@ namespace HRM.Models
 
         #endregion
 
-    
     }
     
     /// <summary>
@@ -3288,7 +3279,7 @@ namespace HRM.Models
 
         #endregion
 
-        #region Primitive Properties
+        #region Simple Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -3307,7 +3298,7 @@ namespace HRM.Models
                 {
                     Onid_praplChanging(value);
                     ReportPropertyChanging("id_prapl");
-                    _id_prapl = StructuralObject.SetValidValue(value);
+                    _id_prapl = StructuralObject.SetValidValue(value, "id_prapl");
                     ReportPropertyChanged("id_prapl");
                     Onid_praplChanged();
                 }
@@ -3334,7 +3325,7 @@ namespace HRM.Models
                 {
                     Onid_prijaveChanging(value);
                     ReportPropertyChanging("id_prijave");
-                    _id_prijave = StructuralObject.SetValidValue(value);
+                    _id_prijave = StructuralObject.SetValidValue(value, "id_prijave");
                     ReportPropertyChanged("id_prijave");
                     Onid_prijaveChanged();
                 }
@@ -3361,7 +3352,7 @@ namespace HRM.Models
                 {
                     OnnazivChanging(value);
                     ReportPropertyChanging("naziv");
-                    _naziv = StructuralObject.SetValidValue(value, false);
+                    _naziv = StructuralObject.SetValidValue(value, false, "naziv");
                     ReportPropertyChanged("naziv");
                     OnnazivChanged();
                 }
@@ -3386,7 +3377,7 @@ namespace HRM.Models
             {
                 Ondat_it_potvrdeChanging(value);
                 ReportPropertyChanging("dat_it_potvrde");
-                _dat_it_potvrde = StructuralObject.SetValidValue(value);
+                _dat_it_potvrde = StructuralObject.SetValidValue(value, "dat_it_potvrde");
                 ReportPropertyChanged("dat_it_potvrde");
                 Ondat_it_potvrdeChanged();
             }
@@ -3410,7 +3401,7 @@ namespace HRM.Models
             {
                 Onpotvrda_itChanging(value);
                 ReportPropertyChanging("potvrda_it");
-                _potvrda_it = StructuralObject.SetValidValue(value);
+                _potvrda_it = StructuralObject.SetValidValue(value, "potvrda_it");
                 ReportPropertyChanged("potvrda_it");
                 Onpotvrda_itChanged();
             }
@@ -3434,7 +3425,7 @@ namespace HRM.Models
             {
                 Ondat_voditeljChanging(value);
                 ReportPropertyChanging("dat_voditelj");
-                _dat_voditelj = StructuralObject.SetValidValue(value);
+                _dat_voditelj = StructuralObject.SetValidValue(value, "dat_voditelj");
                 ReportPropertyChanged("dat_voditelj");
                 Ondat_voditeljChanged();
             }
@@ -3458,7 +3449,7 @@ namespace HRM.Models
             {
                 Onpotvrda_voditeljChanging(value);
                 ReportPropertyChanging("potvrda_voditelj");
-                _potvrda_voditelj = StructuralObject.SetValidValue(value);
+                _potvrda_voditelj = StructuralObject.SetValidValue(value, "potvrda_voditelj");
                 ReportPropertyChanged("potvrda_voditelj");
                 Onpotvrda_voditeljChanged();
             }
@@ -3484,7 +3475,7 @@ namespace HRM.Models
                 {
                     Onpotvrde_allChanging(value);
                     ReportPropertyChanging("potvrde_all");
-                    _potvrde_all = StructuralObject.SetValidValue(value);
+                    _potvrde_all = StructuralObject.SetValidValue(value, "potvrde_all");
                     ReportPropertyChanged("potvrde_all");
                     Onpotvrde_allChanged();
                 }
@@ -3511,7 +3502,7 @@ namespace HRM.Models
                 {
                     OnaktivnaChanging(value);
                     ReportPropertyChanging("aktivna");
-                    _aktivna = StructuralObject.SetValidValue(value);
+                    _aktivna = StructuralObject.SetValidValue(value, "aktivna");
                     ReportPropertyChanged("aktivna");
                     OnaktivnaChanged();
                 }
@@ -3538,7 +3529,7 @@ namespace HRM.Models
                 {
                     OnsysdateChanging(value);
                     ReportPropertyChanging("sysdate");
-                    _sysdate = StructuralObject.SetValidValue(value);
+                    _sysdate = StructuralObject.SetValidValue(value, "sysdate");
                     ReportPropertyChanged("sysdate");
                     OnsysdateChanged();
                 }
@@ -3550,7 +3541,6 @@ namespace HRM.Models
 
         #endregion
 
-    
     }
     
     /// <summary>
@@ -3590,7 +3580,7 @@ namespace HRM.Models
 
         #endregion
 
-        #region Primitive Properties
+        #region Simple Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -3609,7 +3599,7 @@ namespace HRM.Models
                 {
                     Onid_prijaveChanging(value);
                     ReportPropertyChanging("id_prijave");
-                    _id_prijave = StructuralObject.SetValidValue(value);
+                    _id_prijave = StructuralObject.SetValidValue(value, "id_prijave");
                     ReportPropertyChanged("id_prijave");
                     Onid_prijaveChanged();
                 }
@@ -3636,7 +3626,7 @@ namespace HRM.Models
                 {
                     OnImePrezimeChanging(value);
                     ReportPropertyChanging("ImePrezime");
-                    _ImePrezime = StructuralObject.SetValidValue(value, false);
+                    _ImePrezime = StructuralObject.SetValidValue(value, false, "ImePrezime");
                     ReportPropertyChanged("ImePrezime");
                     OnImePrezimeChanged();
                 }
@@ -3663,7 +3653,7 @@ namespace HRM.Models
                 {
                     OnODChanging(value);
                     ReportPropertyChanging("OD");
-                    _OD = StructuralObject.SetValidValue(value, false);
+                    _OD = StructuralObject.SetValidValue(value, false, "OD");
                     ReportPropertyChanged("OD");
                     OnODChanged();
                 }
@@ -3690,7 +3680,7 @@ namespace HRM.Models
                 {
                     OnVoditeljChanging(value);
                     ReportPropertyChanging("Voditelj");
-                    _Voditelj = StructuralObject.SetValidValue(value, false);
+                    _Voditelj = StructuralObject.SetValidValue(value, false, "Voditelj");
                     ReportPropertyChanged("Voditelj");
                     OnVoditeljChanged();
                 }
@@ -3717,7 +3707,7 @@ namespace HRM.Models
                 {
                     OnRadnoMjestoChanging(value);
                     ReportPropertyChanging("RadnoMjesto");
-                    _RadnoMjesto = StructuralObject.SetValidValue(value, false);
+                    _RadnoMjesto = StructuralObject.SetValidValue(value, false, "RadnoMjesto");
                     ReportPropertyChanged("RadnoMjesto");
                     OnRadnoMjestoChanged();
                 }
@@ -3744,7 +3734,7 @@ namespace HRM.Models
                 {
                     OnsysdateChanging(value);
                     ReportPropertyChanging("sysdate");
-                    _sysdate = StructuralObject.SetValidValue(value);
+                    _sysdate = StructuralObject.SetValidValue(value, "sysdate");
                     ReportPropertyChanged("sysdate");
                     OnsysdateChanged();
                 }
@@ -3771,7 +3761,7 @@ namespace HRM.Models
                 {
                     Onpotvrda_allChanging(value);
                     ReportPropertyChanging("potvrda_all");
-                    _potvrda_all = StructuralObject.SetValidValue(value);
+                    _potvrda_all = StructuralObject.SetValidValue(value, "potvrda_all");
                     ReportPropertyChanged("potvrda_all");
                     Onpotvrda_allChanged();
                 }
@@ -3798,7 +3788,7 @@ namespace HRM.Models
                 {
                     Onid_odChanging(value);
                     ReportPropertyChanging("id_od");
-                    _id_od = StructuralObject.SetValidValue(value);
+                    _id_od = StructuralObject.SetValidValue(value, "id_od");
                     ReportPropertyChanged("id_od");
                     Onid_odChanged();
                 }
@@ -3810,7 +3800,6 @@ namespace HRM.Models
 
         #endregion
 
-    
     }
     
     /// <summary>
@@ -3854,7 +3843,7 @@ namespace HRM.Models
 
         #endregion
 
-        #region Primitive Properties
+        #region Simple Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -3873,7 +3862,7 @@ namespace HRM.Models
                 {
                     Onid_zaposleniciChanging(value);
                     ReportPropertyChanging("id_zaposlenici");
-                    _id_zaposlenici = StructuralObject.SetValidValue(value);
+                    _id_zaposlenici = StructuralObject.SetValidValue(value, "id_zaposlenici");
                     ReportPropertyChanged("id_zaposlenici");
                     Onid_zaposleniciChanged();
                 }
@@ -3898,7 +3887,7 @@ namespace HRM.Models
             {
                 OnImeChanging(value);
                 ReportPropertyChanging("Ime");
-                _Ime = StructuralObject.SetValidValue(value, false);
+                _Ime = StructuralObject.SetValidValue(value, false, "Ime");
                 ReportPropertyChanged("Ime");
                 OnImeChanged();
             }
@@ -3922,7 +3911,7 @@ namespace HRM.Models
             {
                 OnPrezimeChanging(value);
                 ReportPropertyChanging("Prezime");
-                _Prezime = StructuralObject.SetValidValue(value, false);
+                _Prezime = StructuralObject.SetValidValue(value, false, "Prezime");
                 ReportPropertyChanged("Prezime");
                 OnPrezimeChanged();
             }
@@ -3946,7 +3935,7 @@ namespace HRM.Models
             {
                 OnImePrezimeChanging(value);
                 ReportPropertyChanging("ImePrezime");
-                _ImePrezime = StructuralObject.SetValidValue(value, true);
+                _ImePrezime = StructuralObject.SetValidValue(value, true, "ImePrezime");
                 ReportPropertyChanged("ImePrezime");
                 OnImePrezimeChanged();
             }
@@ -3970,7 +3959,7 @@ namespace HRM.Models
             {
                 Onid_odChanging(value);
                 ReportPropertyChanging("id_od");
-                _id_od = StructuralObject.SetValidValue(value);
+                _id_od = StructuralObject.SetValidValue(value, "id_od");
                 ReportPropertyChanged("id_od");
                 Onid_odChanged();
             }
@@ -3994,7 +3983,7 @@ namespace HRM.Models
             {
                 Onid_rmChanging(value);
                 ReportPropertyChanging("id_rm");
-                _id_rm = StructuralObject.SetValidValue(value);
+                _id_rm = StructuralObject.SetValidValue(value, "id_rm");
                 ReportPropertyChanged("id_rm");
                 Onid_rmChanged();
             }
@@ -4018,7 +4007,7 @@ namespace HRM.Models
             {
                 Onid_pripadnostChanging(value);
                 ReportPropertyChanging("id_pripadnost");
-                _id_pripadnost = StructuralObject.SetValidValue(value);
+                _id_pripadnost = StructuralObject.SetValidValue(value, "id_pripadnost");
                 ReportPropertyChanged("id_pripadnost");
                 Onid_pripadnostChanged();
             }
@@ -4042,7 +4031,7 @@ namespace HRM.Models
             {
                 OnjmbgChanging(value);
                 ReportPropertyChanging("jmbg");
-                _jmbg = StructuralObject.SetValidValue(value, false);
+                _jmbg = StructuralObject.SetValidValue(value, false, "jmbg");
                 ReportPropertyChanged("jmbg");
                 OnjmbgChanged();
             }
@@ -4066,7 +4055,7 @@ namespace HRM.Models
             {
                 Ondatum_pocetka_radaChanging(value);
                 ReportPropertyChanging("datum_pocetka_rada");
-                _datum_pocetka_rada = StructuralObject.SetValidValue(value);
+                _datum_pocetka_rada = StructuralObject.SetValidValue(value, "datum_pocetka_rada");
                 ReportPropertyChanged("datum_pocetka_rada");
                 Ondatum_pocetka_radaChanged();
             }
@@ -4090,7 +4079,7 @@ namespace HRM.Models
             {
                 OnprivremenoChanging(value);
                 ReportPropertyChanging("privremeno");
-                _privremeno = StructuralObject.SetValidValue(value);
+                _privremeno = StructuralObject.SetValidValue(value, "privremeno");
                 ReportPropertyChanged("privremeno");
                 OnprivremenoChanged();
             }
@@ -4114,7 +4103,7 @@ namespace HRM.Models
             {
                 Ondatum_prestankaChanging(value);
                 ReportPropertyChanging("datum_prestanka");
-                _datum_prestanka = StructuralObject.SetValidValue(value);
+                _datum_prestanka = StructuralObject.SetValidValue(value, "datum_prestanka");
                 ReportPropertyChanged("datum_prestanka");
                 Ondatum_prestankaChanged();
             }
@@ -4138,7 +4127,7 @@ namespace HRM.Models
             {
                 Onhrm_brojChanging(value);
                 ReportPropertyChanging("hrm_broj");
-                _hrm_broj = StructuralObject.SetValidValue(value);
+                _hrm_broj = StructuralObject.SetValidValue(value, "hrm_broj");
                 ReportPropertyChanged("hrm_broj");
                 Onhrm_brojChanged();
             }
@@ -4162,7 +4151,7 @@ namespace HRM.Models
             {
                 Ontip_zaposlenjaChanging(value);
                 ReportPropertyChanging("tip_zaposlenja");
-                _tip_zaposlenja = StructuralObject.SetValidValue(value);
+                _tip_zaposlenja = StructuralObject.SetValidValue(value, "tip_zaposlenja");
                 ReportPropertyChanged("tip_zaposlenja");
                 Ontip_zaposlenjaChanged();
             }
@@ -4186,7 +4175,7 @@ namespace HRM.Models
             {
                 OnemailChanging(value);
                 ReportPropertyChanging("email");
-                _email = StructuralObject.SetValidValue(value, true);
+                _email = StructuralObject.SetValidValue(value, true, "email");
                 ReportPropertyChanged("email");
                 OnemailChanged();
             }
@@ -4210,7 +4199,7 @@ namespace HRM.Models
             {
                 OnadChanging(value);
                 ReportPropertyChanging("ad");
-                _ad = StructuralObject.SetValidValue(value, true);
+                _ad = StructuralObject.SetValidValue(value, true, "ad");
                 ReportPropertyChanged("ad");
                 OnadChanged();
             }
@@ -4234,7 +4223,7 @@ namespace HRM.Models
             {
                 OnsysdateChanging(value);
                 ReportPropertyChanging("sysdate");
-                _sysdate = StructuralObject.SetValidValue(value);
+                _sysdate = StructuralObject.SetValidValue(value, "sysdate");
                 ReportPropertyChanged("sysdate");
                 OnsysdateChanged();
             }
@@ -4258,7 +4247,7 @@ namespace HRM.Models
             {
                 OnNapomenaChanging(value);
                 ReportPropertyChanging("Napomena");
-                _Napomena = StructuralObject.SetValidValue(value, true);
+                _Napomena = StructuralObject.SetValidValue(value, true, "Napomena");
                 ReportPropertyChanged("Napomena");
                 OnNapomenaChanged();
             }
@@ -4282,7 +4271,7 @@ namespace HRM.Models
             {
                 OnNotesEmailChanging(value);
                 ReportPropertyChanging("NotesEmail");
-                _NotesEmail = StructuralObject.SetValidValue(value, true);
+                _NotesEmail = StructuralObject.SetValidValue(value, true, "NotesEmail");
                 ReportPropertyChanged("NotesEmail");
                 OnNotesEmailChanged();
             }
@@ -4293,7 +4282,6 @@ namespace HRM.Models
 
         #endregion
 
-    
         #region Navigation Properties
     
         /// <summary>
@@ -4573,7 +4561,7 @@ namespace HRM.Models
 
         #endregion
 
-        #region Primitive Properties
+        #region Simple Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -4590,7 +4578,7 @@ namespace HRM.Models
             {
                 Onid_autoChanging(value);
                 ReportPropertyChanging("id_auto");
-                _id_auto = StructuralObject.SetValidValue(value);
+                _id_auto = StructuralObject.SetValidValue(value, "id_auto");
                 ReportPropertyChanged("id_auto");
                 Onid_autoChanged();
             }
@@ -4614,7 +4602,7 @@ namespace HRM.Models
             {
                 OnLokacijaChanging(value);
                 ReportPropertyChanging("Lokacija");
-                _Lokacija = StructuralObject.SetValidValue(value, true);
+                _Lokacija = StructuralObject.SetValidValue(value, true, "Lokacija");
                 ReportPropertyChanged("Lokacija");
                 OnLokacijaChanged();
             }
@@ -4629,5 +4617,4 @@ namespace HRM.Models
 
     #endregion
 
-    
 }

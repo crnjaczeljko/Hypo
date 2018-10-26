@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
   <!-- EF Runtime content -->
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="EvidencijaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="EvidencijaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="EvidencijaModelStoreContainer">
-          <EntitySet Name="Mjesta" EntityType="EvidencijaModel.Store.Mjesta" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="OD" EntityType="EvidencijaModel.Store.OD" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Odjave" EntityType="EvidencijaModel.Store.Odjave" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="OdjaveAplikacija" EntityType="EvidencijaModel.Store.OdjaveAplikacija" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Prijave" EntityType="EvidencijaModel.Store.Prijave" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="PrijaveAplikacija" EntityType="EvidencijaModel.Store.PrijaveAplikacija" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="PripadnostUBihGrupi" EntityType="EvidencijaModel.Store.PripadnostUBihGrupi" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="RadnaMjesta" EntityType="EvidencijaModel.Store.RadnaMjesta" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TipOD" EntityType="EvidencijaModel.Store.TipOD" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Zaposlenici" EntityType="EvidencijaModel.Store.Zaposlenici" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="vAplikacijeDetalj" EntityType="EvidencijaModel.Store.vAplikacijeDetalj" store:Type="Views" store:Schema="dbo" store:Name="vAplikacijeDetalj">
+          <EntitySet Name="Mjesta" EntityType="EvidencijaModel.Store.Mjesta" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="OD" EntityType="EvidencijaModel.Store.OD" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Odjave" EntityType="EvidencijaModel.Store.Odjave" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="OdjaveAplikacija" EntityType="EvidencijaModel.Store.OdjaveAplikacija" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Prijave" EntityType="EvidencijaModel.Store.Prijave" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="PrijaveAplikacija" EntityType="EvidencijaModel.Store.PrijaveAplikacija" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="PripadnostUBihGrupi" EntityType="EvidencijaModel.Store.PripadnostUBihGrupi" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="RadnaMjesta" EntityType="EvidencijaModel.Store.RadnaMjesta" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="TipOD" EntityType="EvidencijaModel.Store.TipOD" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Zaposlenici" EntityType="EvidencijaModel.Store.Zaposlenici" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="vAplikacijeDetalj" EntityType="EvidencijaModel.Store.vAplikacijeDetalj" store:Type="Views" store:Schema="dbo" store:Name="vAplikacijeDetalj" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
             <DefiningQuery>SELECT 
       [vAplikacijeDetalj].[id_prapl] AS [id_prapl], 
       [vAplikacijeDetalj].[id_prijave] AS [id_prijave], 
@@ -30,7 +30,7 @@
       [vAplikacijeDetalj].[sysdate] AS [sysdate]
       FROM [dbo].[vAplikacijeDetalj] AS [vAplikacijeDetalj]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vPrijaveAplikacija" EntityType="EvidencijaModel.Store.vPrijaveAplikacija" store:Type="Views" store:Schema="dbo" store:Name="vPrijaveAplikacija">
+          <EntitySet Name="vPrijaveAplikacija" EntityType="EvidencijaModel.Store.vPrijaveAplikacija" store:Type="Views" store:Schema="dbo" store:Name="vPrijaveAplikacija" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
             <DefiningQuery>SELECT 
       [vPrijaveAplikacija].[id_prijave] AS [id_prijave], 
       [vPrijaveAplikacija].[ImePrezime] AS [ImePrezime], 
@@ -520,7 +520,7 @@
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="EvidencijaModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <Schema Namespace="EvidencijaModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
         <EntityContainer Name="EvidencijaEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
           <EntitySet Name="Mjesta" EntityType="EvidencijaModel.Mjesta" />
           <EntitySet Name="OD" EntityType="EvidencijaModel.OD" />
@@ -1047,7 +1047,7 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="EvidencijaModelStoreContainer" CdmEntityContainer="EvidencijaEntities">
           <EntitySetMapping Name="Mjesta"><EntityTypeMapping TypeName="EvidencijaModel.Mjesta"><MappingFragment StoreEntitySet="Mjesta">
             <ScalarProperty Name="id_mjesto" ColumnName="id_mjesto" />
@@ -1212,7 +1212,7 @@
     </edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
-  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <Connection>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
