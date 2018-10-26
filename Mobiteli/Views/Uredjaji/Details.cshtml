@@ -1,0 +1,60 @@
+﻿@model Mobiteli.Models.Uredjaji
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Uredjaji</legend>
+
+    <div class="display-label">Uredjaj</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Uredjaj)
+    </div>
+
+    <div class="display-label">Modeli_Uredjaja</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Modeli_Uredjaja.Naziv)
+    </div>
+
+    <div class="display-label">IMEI</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IMEI)
+    </div>
+
+    <div class="display-label">SN</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SN)
+    </div>
+
+    <div class="display-label">dat_nabavke</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.dat_nabavke)
+    </div>
+
+    <div class="display-label">ugovor</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ugovor)
+    </div>
+
+    <div class="display-label">trajanje_ugovora</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.trajanje_ugovora)
+    </div>
+
+    <div class="display-label">Operateri</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Operateri.Naziv)
+    </div>
+
+    <div class="display-label">dat_ugovora</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.dat_ugovora)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id_ur }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

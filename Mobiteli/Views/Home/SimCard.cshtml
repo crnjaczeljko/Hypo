@@ -1,0 +1,114 @@
+﻿@using Mobiteli.Models;
+@model PagedList.IPagedList<Telefonija>
+           
+
+    @{
+        ViewBag.Title = "Zaduženje brojeva";
+    }
+
+<table id="hor-minimalist-b">
+    <tr>
+     <th>Zaposlenici</th>
+        <th>Operater</th>
+        <th>broj tel</th>
+        <th>Tip Telefona</th>
+        <th>Govor. usluga</th>
+        <th>data usluga</th>
+        <th>Aktiviran</th>
+        <th>Isključen</th>
+        <th style="text-wrap: ">Limit na cij. izn</th>
+        <th>Limit</th>
+        <th>Grupni rač</th>
+    </tr>
+
+    @foreach (Telefonija item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Zaposlenici.ImePrezime)
+            </td>
+            <td style="text-align: center">
+                <a href='@Url.Action("SumarnoPage", new {id=item.id_tel})'>
+                    @if (item.Operateri.Naziv != null)
+                    {
+                        if (item.Operateri.Naziv == "Eronet")
+                        {
+                            <img src="../../images/eronet.gif" alt="Edit" style="border-style: none; height: 12px;" />
+                        }
+                        if (item.Operateri.Naziv == "BH Mobile")
+                        {
+                            <img src="../../images/bht.png" alt="Edit" style="border-style: none; height: 16px;" />
+                        }
+                        if (item.Operateri.Naziv == "MTel")
+                        {
+                            <img src="../../images/mtel_logo.jpg" alt="Edit" style="border-style: none; height: 18px;" />
+                        }
+                    }
+                </a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.broj_tel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tip_Telefona.Naziv)
+            </td>
+            <td style="text-align: center">
+                @if (item.voice)
+                 {
+                     <img src="../../images/green.png" alt="Edit" style="border-style: none" />
+                 }
+                 else
+                 {
+                     <img src="../../images/red.png" alt="Edit" style="border-style: none" />
+                 }
+            </td>
+            <td style="text-align: center">
+                @if (item.data)
+                 {
+                     <img src="../../images/green.png" alt="Edit" style="border-style: none" />
+                 }
+                 else
+                 { 
+                     <img src="../../images/red.png" alt="Edit" style="border-style: none" />
+                 }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dat_akt)
+            </td>
+            <td>
+                 @Html.DisplayFor(modelItem => item.dat_deakt)
+            </td>
+            <td style="text-align: center">
+                @if (item.UkupnoLimit)
+                 {
+                     <img src="../../images/green.png" alt="Edit" style="border-style: none" />
+                 }
+                 else
+                 { 
+                     <img src="../../images/red.png" alt="Edit" style="border-style: none" />
+                 }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Limit)
+            </td>
+                       <td style="text-align: center">
+                  @if (item.Grupni_racun)
+                  {
+                     <img src="../../images/green.png" alt="Edit" style="border-style: none" />
+                  }
+                  else
+                  { 
+                     <img src="../../images/red.png" alt="Edit" style="border-style: none" />
+                  }
+                       </td>
+        </tr>
+}
+
+</table>
+
+@Html.Partial("PageListView", Model);
+
+@section link
+{
+    @Html.ActionLink("Natrag", "Index")
+}

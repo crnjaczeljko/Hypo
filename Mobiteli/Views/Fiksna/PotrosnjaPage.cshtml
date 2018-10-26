@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Mobiteli.Models.spFisknoPotrosnja_Result>
+
+@{
+    ViewBag.Title = "Pregled potrošnje - Fiksna";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table>
+    <tr>
+        <th>
+            
+        </th>
+        <th>
+            Ugovor
+        </th>
+        <th>
+            godina
+        </th>
+        <th>
+            mjesec
+        </th>
+        <th>
+            Operater
+        </th>
+        <th>
+            Iznos
+        </th>
+        <th>
+            preth. dug
+        </th>
+        <th>
+            Preplaćeno
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+         <td>
+                <a href='@Url.Action("ReportPage", new { id = item.Naziv + "-" + item.godina + "-" + item.mjesec + "-" + item.broj_ugovora })'>
+                    <img src="../../images/print.png" alt="Delete" style="border-style: none" />
+                </a>
+            </td>
+       <td>
+            @Html.DisplayFor(modelItem => item.broj_ugovora)
+       </td>      
+        <td>
+            @Html.DisplayFor(modelItem => item.godina)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mjesec)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Naziv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.iznos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.preth_dug)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.preplaceno)
+        </td>
+    </tr>
+}
+
+</table>

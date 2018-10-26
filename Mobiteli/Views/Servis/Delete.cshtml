@@ -1,0 +1,43 @@
+﻿@model Mobiteli.Models.Servis
+
+@{
+    ViewBag.Title = "Brisanje";
+}
+
+<hr/>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Servis</legend>
+
+    <div class="display-label">Uredjaji</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Uredjaji.Uredjaj)
+    </div>
+
+    <div class="display-label">datum_otp</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.datum_otp)
+    </div>
+
+    <div class="display-label">opis_kvara</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.opis_kvara)
+    </div>
+
+    <div class="display-label">datum_pov</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.datum_pov)
+    </div>
+
+    <div class="display-label">opis_opr</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.opis_opr)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Mobiteli.Models.PotrosnjaSumarnoFiksna>
+
+@{
+    ViewBag.Title = "Potrošnja";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p>
+    <p>@Html.ActionLink("Natrag", "Index") | @Html.ActionLink("Nova potrošnja","SumarnoNewPage",new {id = ViewBag.id_tel})</p>
+</p>
+<table>
+    <tr>
+          <th>
+                </th>
+        <th>
+            godina
+        </th>
+        <th>
+            mjesec
+        </th>        
+        <th>
+            Org. dio
+        </th>       
+        <th>
+            Broj telefona
+        </th>
+        <th>
+            iznos
+        </th>
+        <th>
+            preth. dug
+        </th>
+        <th>
+            Preplaceno
+        </th>
+      
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+          <td>
+                        <a href='@Url.Action("SumarnoEditPage", new { id = item.id_tel })' style="border-style: none">
+                    <img src="../../images/Edit.png" alt="Edit" style="border-style: none" />
+                </a>
+          </td>      
+          <td>
+            @Html.DisplayFor(modelItem => item.godina)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mjesec)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OD.Naziv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.broj_tel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.iznos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.preth_dug)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.preplaceno)
+        </td>
+
+    </tr>
+}
+
+</table>

@@ -1,0 +1,101 @@
+﻿@using Mobiteli.Models
+@model PagedList.IPagedList<Mobiteli.Models.Zaduzenje_Uredjaja>
+
+@{
+    ViewBag.Title = "Pregled zaduženja uređaja";
+}
+
+<div class="selected">
+    @using (Html.BeginForm())
+    {
+        <table style="border: 0px none #FFFFFF;">
+            <tr style="border-style: none">
+                <td style="border-style: none" class="selected">
+                    &nbsp;&nbsp;Pretraga po zaposleniku ili broju: @Html.TextBox("SearchString") 
+                    &nbsp;&nbsp;Izbor :  @Html.RadioButton("rbSve", "svi", true) Svi -
+                    @Html.RadioButton("rbSve", "akt") Aktivni - 
+                    @Html.RadioButton("rbSve", "isk") Razdužen  
+                </td>
+                <td style="border-style: none">
+                    <input type="submit" value="Pretraga" /> 
+                </td>
+            </tr>
+        </table>
+    }
+
+</div>   
+
+
+<table id="hor-minimalist-b">
+    <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>Zaposlenik</th>
+        <th>Broj</th>
+        <th>Uredjaj</th>
+        <th>Zadužen</th>
+        <th>Razdužen</th>
+    </tr>
+
+    @foreach (Zaduzenje_Uredjaja item in Model)
+    {
+        <tr>
+            <td>
+                <a href='@Url.Action("Edit", new {id = item.id_zad})' style="border-style: none">
+                    <img src="../../images/Edit.png" alt="Edit" style="border-style: none" />
+                </a>
+            </td>
+            <td>
+                <a href='@Url.Action("Delete", new {id = item.id_zad})'>
+                    <img src="../../images/delete.png" alt="Delete" style="border-style: none" />
+                </a>
+          
+            </td>
+            <td>
+                <a href='@Url.Action("ReportPage", new {id = item.id_zad})'>
+                    <img src="../../images/print.png" alt="Delete" style="border-style: none" />
+                </a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefonija.Zaposlenici.ImePrezime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefonija.broj_tel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Uredjaji.Uredjaj)
+            </td>
+            <td>
+                @{
+                    DateTime? dat = item.datum_zad;
+                    if (dat != null)
+                    {
+                        string d = dat.Value.ToString("dd.MM.yyyy");
+                        @Html.DisplayFor(modelItem => d)
+                    }
+                }
+            </td>
+            <td>
+                @{
+                    DateTime? dat1 = item.datum_razd;
+                    if (dat1 != null)
+                    {
+                        string d1 = dat1.Value.ToString("dd.MM.yyyy");
+                        @Html.DisplayFor(modelItem => d1)
+                    }
+                }
+            </td>
+        </tr>
+    }
+
+</table>
+<hr/>
+
+@Html.Partial("PageListView", Model)
+
+
+@section link
+{
+    @Html.ActionLink("Novo zaduženje", "Create")
+}

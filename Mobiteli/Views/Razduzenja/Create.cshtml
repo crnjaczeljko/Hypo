@@ -1,0 +1,74 @@
+﻿@model Mobiteli.Models.Razduzenje
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Razduzenje</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.id_tel, "Telefonija")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("id_tel", String.Empty)
+            @Html.ValidationMessageFor(model => model.id_tel)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.datum_razduzenja)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.datum_razduzenja)
+            @Html.ValidationMessageFor(model => model.datum_razduzenja)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.opis)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.opis)
+            @Html.ValidationMessageFor(model => model.opis)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.status)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.status)
+            @Html.ValidationMessageFor(model => model.status)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.zadrzati_broj)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.zadrzati_broj)
+            @Html.ValidationMessageFor(model => model.zadrzati_broj)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.datum_potvrde)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.datum_potvrde)
+            @Html.ValidationMessageFor(model => model.datum_potvrde)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

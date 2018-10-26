@@ -1,0 +1,75 @@
+﻿@model Mobiteli.Models.OD
+
+@{
+    ViewBag.Title = "Brisanje";
+}
+
+<hr/>
+
+<h3>Da li želite izbrisati stavku?</h3>
+<br/>
+<table>
+    <tr>
+        <td class="col1">Naziv</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.Naziv)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">Oznaka</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.Oznaka)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">Adresa</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.Adresa)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">Mjesto</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.id_mjesto)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">Općina</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.id_opcina)
+        </td>
+    </tr>
+    <tr>
+             <td class="col1">Izvršni suradnik</td>
+             <td class="col2">
+                 @Html.DisplayFor(model => model.Zaposlenici1.ImePrezime)
+             </td>
+         </tr>
+    <tr>
+        <td class="col1">Direktor / voditelj</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.Zaposlenici.ImePrezime)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">regob</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.regob)
+        </td>
+    </tr>
+    <tr>
+    <td class="col1">OD2</td>
+    <td class="col2">
+        @Html.DisplayFor(model => model.OD2.Naziv)
+    </td>
+</table>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Brisanje" /> |
+    </p>
+}
+
+@section link
+{
+      @Html.ActionLink("Natrag", "Index")
+}

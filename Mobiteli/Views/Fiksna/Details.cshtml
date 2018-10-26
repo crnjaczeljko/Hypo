@@ -1,0 +1,60 @@
+﻿@model Mobiteli.Models.Fiksna
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Fiksna</legend>
+
+    <div class="display-label">OD</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OD.Naziv)
+    </div>
+
+    <div class="display-label">Operateri</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Operateri.Naziv)
+    </div>
+
+    <div class="display-label">broj_ugovora</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.broj_ugovora)
+    </div>
+
+    <div class="display-label">centrala_broj</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.centrala_broj)
+    </div>
+
+    <div class="display-label">id_tip</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.id_tip)
+    </div>
+
+    <div class="display-label">voice</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.voice)
+    </div>
+
+    <div class="display-label">data</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.data)
+    </div>
+
+    <div class="display-label">dat_akt</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.dat_akt)
+    </div>
+
+    <div class="display-label">dat_deakt</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.dat_deakt)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id_fiks }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

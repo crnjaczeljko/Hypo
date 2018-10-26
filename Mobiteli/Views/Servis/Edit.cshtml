@@ -1,0 +1,67 @@
+﻿@model Mobiteli.Models.Servis
+
+@{
+    ViewBag.Title = "Ažuriranje";
+}
+
+<hr/>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Servis</legend>
+
+        @Html.HiddenFor(model => model.id_srv)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.id_ur, "Uredjaji")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("id_ur", String.Empty)
+            @Html.ValidationMessageFor(model => model.id_ur)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.datum_otp)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.datum_otp)
+            @Html.ValidationMessageFor(model => model.datum_otp)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.opis_kvara)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.opis_kvara)
+            @Html.ValidationMessageFor(model => model.opis_kvara)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.datum_pov)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.datum_pov)
+            @Html.ValidationMessageFor(model => model.datum_pov)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.opis_opr)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.opis_opr)
+            @Html.ValidationMessageFor(model => model.opis_opr)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

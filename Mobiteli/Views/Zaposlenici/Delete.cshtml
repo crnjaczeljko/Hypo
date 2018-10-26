@@ -1,0 +1,112 @@
+﻿@model Mobiteli.Models.Zaposlenici
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+<h3>Da li želite izbrisati stavku?</h3>
+<hr/>
+<table>
+    <tr>
+        <td class="col1">Ime</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.Ime)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">Prezime</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.Prezime)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">ImePrezime</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.ImePrezime)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">Org. dio</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.OD2.Naziv)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">Radno mjesto</td>
+        <div class="col2">
+            @Html.DisplayFor(model => model.id_rm)
+        </div>
+    </tr>
+    <tr>
+        <td class="col1">Tip zaposlenja</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.id_pripadnost)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">jmbg</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.jmbg)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">Datum početka rada</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.datum_pocetka_rada)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">Privremeno zaposlenje</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.privremeno)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">Datum prestanka</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.datum_prestanka)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">hrm broj</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.hrm_broj)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">Zaposlen u</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.tip_zaposlenja)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">email</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.email)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">ad</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.ad)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">sysdate</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.sysdate)
+        </td>
+    </tr>
+</table>
+
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+    </p>
+}
+
+@section link
+{
+      @Html.ActionLink("Natrag", "Index")
+}

@@ -1,0 +1,134 @@
+﻿@model PagedList.IPagedList<Mobiteli.Models.Fiksna>
+
+@{
+    ViewBag.Title = "Fiksna telefonija";
+}
+
+<address>
+<div class="selected">
+    @using (Html.BeginForm())
+    {
+        <table style="border: 0px none #FFFFFF;">
+            <tr style="border-style: none">
+                <td style="border-style: none" class="selected">
+                    &nbsp;&nbsp;Pretraga po Org dijelu ili broju: @Html.TextBox("SearchString") 
+                    
+                </td>
+                <td style="border-style: none">
+                    <input type="submit" value="Pretraga" /> 
+                </td>
+            </tr>
+        </table>
+    }
+
+</div>    </address>
+<p>
+    @Html.ActionLink("Novi telefon", "Create")    |   @Html.ActionLink("Pregled potrošnje", "PotrosnjaPage") 
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>
+            Org. dio
+        </th>
+        <th>
+            Operateri
+        </th>
+        <th>
+            Broj ugovora
+        </th>
+        <th>
+            Centrala broj
+        </th>
+        <th>
+            voice
+        </th>
+        <th>
+            data
+        </th>
+        <th>
+            Aktiviran
+        </th>
+        <th>
+            Isključen
+        </th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                <a href='@Url.Action("Edit", new { id = item.id_fiks })' style="border-style: none">
+                    <img src="../../images/Edit.png" alt="Edit" style="border-style: none" />
+                </a>
+            </td>
+            <td>
+                <a href='@Url.Action("Delete", new { id = item.id_fiks })'>
+                    <img src="../../images/delete.png" alt="Delete" style="border-style: none" />
+                </a>
+            </td>
+            <td style="padding: 5px">
+                <a href='@Url.Action("SumarnoPage", new {id=item.id_fiks})'>
+                    <img src="../../images/detalj.png" alt="Potrošnja" style="border-style: none" />
+                </a>
+            </td> 
+            <td>
+                @Html.DisplayFor(modelItem => item.OD.Naziv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Operateri.Naziv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.broj_ugovora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.centrala_broj)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.voice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dat_akt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dat_deakt)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div align="center"> 
+ @if (Model.HasPreviousPage)
+{
+    @Html.ActionLink("<<", "Index", new { page = 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+    @Html.Raw(" ")
+    @Html.ActionLink("< Prev", "Index", new { page = Model.PageNumber - 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+}
+else
+{
+    @:<< 
+    @Html.Raw(" ")
+    @:< Prev 
+} 
+-  
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) 
+of @Model.PageCount   -  
+@if (Model.HasNextPage)
+{
+    @Html.ActionLink("Next >", "Index", new { page = Model.PageNumber + 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+    @Html.Raw(" ")
+    @Html.ActionLink(">>", "Index", new { page = Model.PageCount, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+}
+else
+{
+    @:Next > 
+    @Html.Raw(" ")
+    @:>> 
+} 
+</div>
+

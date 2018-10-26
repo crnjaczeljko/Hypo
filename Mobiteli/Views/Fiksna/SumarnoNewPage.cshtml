@@ -1,0 +1,87 @@
+﻿@model Mobiteli.Models.PotrosnjaSumarnoFiksna
+
+@{
+    ViewBag.Title = "Nova potrošnja";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+*@
+<div>
+    @Html.ActionLink("Natrag", "Index")
+</div>
+
+@using (Html.BeginForm())
+{
+    
+        <input id="id_tel" type="hidden" name="id_tel"  value="@ViewBag.id_tel"/>
+    <input id="id_od" type="hidden" name="id_od"  value="@ViewBag.id_od"/>
+    <input id="broj_tel" type="hidden" name="broj_tel"  value="@ViewBag.broj"/>
+    @Html.ValidationSummary(true)
+    <table>
+        <tr>
+        <td class="editor-label">
+            Org. dio
+        </td>
+        <td class="editor-field">
+            @ViewBag.korisnik
+        </td>
+               </tr>
+        <tr>
+        <td class="editor-label">
+           Broj telefona
+        </td>
+        <td class="editor-field">
+            @ViewBag.broj
+        </td>
+               </tr>
+        <tr>
+        <td class="editor-label">
+           Godina
+        </td>
+        <td class="editor-field">
+               @Html.DropDownList("godina", String.Empty)
+        </td>
+               </tr>
+        <tr>
+        <td class="editor-label">
+            Mjesec
+        </td>
+        <td class="editor-field">
+              @Html.DropDownList("mjesec", String.Empty)
+        </td>
+               </tr>
+        <tr>
+        <td class="editor-label">
+            @Html.LabelFor(model => model.iznos)
+        </td>
+        <td class="editor-field">
+            @Html.EditorFor(model => model.iznos)
+            @Html.ValidationMessageFor(model => model.iznos)
+        </td>
+               </tr>
+        <tr>
+        <td class="editor-label">
+            @Html.LabelFor(model => model.preth_dug)
+        </td>
+        <td class="editor-field">
+            @Html.EditorFor(model => model.preth_dug)
+            @Html.ValidationMessageFor(model => model.preth_dug)
+        </td>
+               </tr>
+        <tr>
+        <td class="editor-label">
+            @Html.LabelFor(model => model.preplaceno)
+        </td>
+        <td class="editor-field">
+            @Html.EditorFor(model => model.preplaceno)
+            @Html.ValidationMessageFor(model => model.preplaceno)
+        </td>
+               </tr>
+    </table>
+           <p>
+            <input type="submit" value="Create" />
+        </p> 
+}
+

@@ -1,0 +1,66 @@
+﻿@model PagedList.IPagedList<Mobiteli.Models.OD>
+
+@{
+    ViewBag.Title = "Pregled OD";
+}
+
+<div class="blue">
+    @using (Html.BeginForm())
+    {
+        <p>&nbsp;&nbsp;Pretraga po Nazivu, oznaci ili voditelju: @Html.TextBox("SearchString") 
+            <input type="submit" value="Search" /></p>
+    }
+</div>
+
+<table id="hor-minimalist-b">
+    <tr>
+        <th></th>
+        <th></th>
+        <th>Nadređeni OD</th>      
+        <th>@Html.ActionLink("Naziv", "Index", new { sortOrder=ViewBag.NameSortParm })  </th>
+        <th>@Html.ActionLink("Oznaka", "Index", new { sortOrder = ViewBag.BrojSortParm })</th>
+        <th>Adresa</th>
+        <th>izvrsni suradnik</th>
+        <th>Voditelj</th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                <a href='@Url.Action("Edit", new { id = item.id_od })' style="border-style: none">
+                    <img src="../../images/Edit.png" alt="Edit" style="border-style: none" />
+                </a>
+            </td>
+            <td>
+                <a href='@Url.Action("Delete", new { id = item.id_od })'>
+                    <img src="../../images/delete.png" alt="Delete" style="border-style: none" />
+                </a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OD2.Naziv)
+            </td>       
+            <td>
+                @Html.DisplayFor(modelItem => item.Naziv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Oznaka)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adresa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Zaposlenici1.ImePrezime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Zaposlenici.ImePrezime)
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.Partial("PageListView",Model)
+
+@section link
+{
+         @Html.ActionLink("Novi OD", "Create")
+}

@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="EvidencijaConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="EvidencijaConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.EvidencijaConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vOdobrenoListTableAdapter" GeneratorDataComponentClassName="vOdobrenoListTableAdapter" Name="vOdobrenoList" UserDataComponentName="vOdobrenoListTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="EvidencijaConnectionString (Web.config)" DbObjectName="Evidencija.dbo.vOdobrenoList" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Naziv, RegBr, ImePrezime, Polaziste, Odrediste, datum_polaska, datum_dolaska, id_rez FROM dbo.vOdobrenoList</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Naziv" DataSetColumn="Naziv" />
+              <Mapping SourceColumn="RegBr" DataSetColumn="RegBr" />
+              <Mapping SourceColumn="ImePrezime" DataSetColumn="ImePrezime" />
+              <Mapping SourceColumn="Polaziste" DataSetColumn="Polaziste" />
+              <Mapping SourceColumn="Odrediste" DataSetColumn="Odrediste" />
+              <Mapping SourceColumn="datum_polaska" DataSetColumn="datum_polaska" />
+              <Mapping SourceColumn="datum_dolaska" DataSetColumn="datum_dolaska" />
+              <Mapping SourceColumn="id_rez" DataSetColumn="id_rez" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="vOdobrenoList" msprop:Generator_TableClassName="vOdobrenoListDataTable" msprop:Generator_TableVarName="tablevOdobrenoList" msprop:Generator_RowChangedName="vOdobrenoListRowChanged" msprop:Generator_TablePropName="vOdobrenoList" msprop:Generator_RowDeletingName="vOdobrenoListRowDeleting" msprop:Generator_RowChangingName="vOdobrenoListRowChanging" msprop:Generator_RowEvHandlerName="vOdobrenoListRowChangeEventHandler" msprop:Generator_RowDeletedName="vOdobrenoListRowDeleted" msprop:Generator_RowClassName="vOdobrenoListRow" msprop:Generator_UserTableName="vOdobrenoList" msprop:Generator_RowEvArgName="vOdobrenoListRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Naziv" msprop:Generator_ColumnVarNameInTable="columnNaziv" msprop:Generator_ColumnPropNameInRow="Naziv" msprop:Generator_ColumnPropNameInTable="NazivColumn" msprop:Generator_UserColumnName="Naziv" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RegBr" msprop:Generator_ColumnVarNameInTable="columnRegBr" msprop:Generator_ColumnPropNameInRow="RegBr" msprop:Generator_ColumnPropNameInTable="RegBrColumn" msprop:Generator_UserColumnName="RegBr" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ImePrezime" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnImePrezime" msprop:Generator_ColumnPropNameInRow="ImePrezime" msprop:Generator_ColumnPropNameInTable="ImePrezimeColumn" msprop:Generator_UserColumnName="ImePrezime" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="511" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Polaziste" msprop:Generator_ColumnVarNameInTable="columnPolaziste" msprop:Generator_ColumnPropNameInRow="Polaziste" msprop:Generator_ColumnPropNameInTable="PolazisteColumn" msprop:Generator_UserColumnName="Polaziste" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Odrediste" msprop:Generator_ColumnVarNameInTable="columnOdrediste" msprop:Generator_ColumnPropNameInRow="Odrediste" msprop:Generator_ColumnPropNameInTable="OdredisteColumn" msprop:Generator_UserColumnName="Odrediste">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="datum_polaska" msprop:Generator_ColumnVarNameInTable="columndatum_polaska" msprop:Generator_ColumnPropNameInRow="datum_polaska" msprop:Generator_ColumnPropNameInTable="datum_polaskaColumn" msprop:Generator_UserColumnName="datum_polaska" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="datum_dolaska" msprop:Generator_ColumnVarNameInTable="columndatum_dolaska" msprop:Generator_ColumnPropNameInRow="datum_dolaska" msprop:Generator_ColumnPropNameInTable="datum_dolaskaColumn" msprop:Generator_UserColumnName="datum_dolaska" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="id_rez" msprop:Generator_ColumnVarNameInTable="columnid_rez" msprop:Generator_ColumnPropNameInRow="id_rez" msprop:Generator_ColumnPropNameInTable="id_rezColumn" msprop:Generator_UserColumnName="id_rez" type="xs:int" />
+              <xs:element name="datum" msprop:Generator_ColumnVarNameInTable="columndatum" msprop:Generator_ColumnPropNameInRow="datum" msprop:Generator_ColumnPropNameInTable="datumColumn" msprop:Generator_UserColumnName="datum" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:vOdobrenoList" />
+      <xs:field xpath="mstns:id_rez" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

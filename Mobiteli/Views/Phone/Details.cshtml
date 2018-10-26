@@ -1,0 +1,65 @@
+﻿@model Mobiteli.Models.Telefonija
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Telefonija</legend>
+
+    <div class="display-label">Zaposlenici</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Zaposlenici.Ime)
+    </div>
+
+    <div class="display-label">id_oper</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.id_oper)
+    </div>
+
+    <div class="display-label">broj_tel</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.broj_tel)
+    </div>
+
+    <div class="display-label">Tip_Telefona</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Tip_Telefona.Naziv)
+    </div>
+
+    <div class="display-label">voice</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.voice)
+    </div>
+
+    <div class="display-label">data</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.data)
+    </div>
+
+    <div class="display-label">dat_akt</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.dat_akt)
+    </div>
+
+    <div class="display-label">dat_deakt</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.dat_deakt)
+    </div>
+
+    <div class="display-label">UkupnoLimit</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UkupnoLimit)
+    </div>
+
+    <div class="display-label">Limit</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Limit)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id_tel }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

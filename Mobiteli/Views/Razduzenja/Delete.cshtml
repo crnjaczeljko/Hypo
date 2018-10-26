@@ -1,0 +1,49 @@
+﻿@model Mobiteli.Models.Razduzenje
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Razduzenje</legend>
+
+    <div class="display-label">Telefonija</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Telefonija.broj_tel)
+    </div>
+
+    <div class="display-label">datum_razduzenja</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.datum_razduzenja)
+    </div>
+
+    <div class="display-label">opis</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.opis)
+    </div>
+
+    <div class="display-label">status</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.status)
+    </div>
+
+    <div class="display-label">zadrzati_broj</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.zadrzati_broj)
+    </div>
+
+    <div class="display-label">datum_potvrde</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.datum_potvrde)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

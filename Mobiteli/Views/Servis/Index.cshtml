@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Mobiteli.Models.Servis>
+
+@{
+    ViewBag.Title = "Servis";
+}
+
+<hr/>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Uredjaji
+        </th>
+        <th>
+            datum_otp
+        </th>
+        <th>
+            opis_kvara
+        </th>
+        <th>
+            datum_pov
+        </th>
+        <th>
+            opis_opr
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Uredjaji.Uredjaj)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.datum_otp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.opis_kvara)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.datum_pov)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.opis_opr)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_srv }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_srv }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_srv })
+        </td>
+    </tr>
+}
+
+</table>

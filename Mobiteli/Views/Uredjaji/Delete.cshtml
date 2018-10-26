@@ -1,0 +1,75 @@
+﻿@model Mobiteli.Models.Uredjaji
+
+@{
+    ViewBag.Title = "Brisanje";
+}
+
+<hr/>
+<h3>Da li želite brisati sljedeće podatke?</h3>
+<table>
+    <tr>
+        <td class="col1">Uredjaj</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.Uredjaj)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">Modeli</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.Modeli_Uredjaja.Naziv)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">IMEI</td>
+        <td class="col1">
+            @Html.DisplayFor(model => model.IMEI)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">SN</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.SN)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">datum nabavke</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.dat_nabavke)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">Ugovor</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.ugovor)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">Trajanje ugovora</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.trajanje_ugovora)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">Operater</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.Operateri.Naziv)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">Ugovor od</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.dat_ugovora)
+        </td>
+    </tr>
+</table>
+
+@using (Html.BeginForm())
+{
+    <p>
+        <input type="submit" value="Brisanje" /> |
+    </p>
+}
+@section link
+{
+    @Html.ActionLink("Natrag", "Index")
+}

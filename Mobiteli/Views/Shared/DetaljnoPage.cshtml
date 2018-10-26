@@ -1,0 +1,44 @@
+﻿@using Mobiteli.Models
+@model IEnumerable<Mobiteli.Models.vEronetPotrosnja>
+
+@{
+    ViewBag.Title = "Pregled potrošnje za :" + @ViewBag.Korisnik;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<table id="hor-minimalist-b">
+    <tr>
+        <th>SIFRA</th>
+        <th>OPIS STAVKE</th>
+        <th>Iznos KM</th>
+    </tr>
+
+    @foreach (vEronetPotrosnja item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SIFRA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OPIS_STAVKE)
+            </td>
+            <td style="text-align: right">
+                @{
+                    decimal dd = Math.Round((decimal) item.Iznos, 2);
+                    @Html.DisplayFor(modelItem => dd)
+                }
+            </td>
+        </tr>
+    }
+    <tr>
+        <th></th>
+        <th>Ukupno:</th>
+        <th style="text-align: right">@ViewBag.zbroj</th>
+    </tr>
+</table>
+
+@section link
+{
+    @Html.ActionLink("Natrag", "Index")
+}

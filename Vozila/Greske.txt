@@ -1,0 +1,49 @@
+﻿27.11.2012
+
+- ne kopira tip rezervacije pri kreiranju duple
+
+28.11.2012
+- iz popisa zaposlenika izbačeni oni koji su prestali sa radom
+- home/odobrenolist popravljena navigacija
+- dodano parcijalno učitavanje lista na home/create i na rezerv./create
+- ispravljeno prikaz broja ponavljanja na home/create / na rezerv./create
+
+29.11.2012
+
+- dodata mogućnost vraćanja rezervacije na doradu 
+- dodata mogućnost rezervacija koje nije odobrena da se može ažurirati
+- mogućnost promjene već dodijeljenog vozila
+
+30.11.2012
+
+- mogućnost da se izmjeni i djelatnik koji je tražio rezervaciju
+- u detaljnom pregledu dodat i kontakt telefon 
+- dodato da se može vozilo označiti da je na servisu
+
+3.12.2012
+
+- ispravljen prikaz rezervacija kojima treba zapisnik
+- greška pri zbrajanju datuma pri rezervaciji kada se editira 
+
+4.12.2012
+
+- kod pregleda odobrenih rezervacija pretraživač auto, regbr lokacija imeprezime
+- datum povratka mora biti već od datuma polaska kontrola
+
+- ispravljeno pri zapisniku provjera unešenih vrijenosti kilometraže
+
+13.12.2012
+- dodan pretraživač za preglede po zaposleniku, autu i lokaciji
+- ispis uključuje otvorene, i zatvorene rezervacije
+
+14.12.2012
+- brojač u listi
+- obavijest nakon zaključenja rezervacije odg osobe
+
+20.12.2012
+- opcija da se može poslati naknadno obavijest da se rezervacije zaključe
+- ispravka u obavijesti putnika, ubačeno i podaci o putovanju
+
+22.01.2013
+
+- ispravka kod zapisnika datume polaska i povratka nije se moglo upisati

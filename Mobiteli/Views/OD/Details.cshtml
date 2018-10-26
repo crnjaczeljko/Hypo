@@ -1,0 +1,60 @@
+﻿@model Mobiteli.Models.OD
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>OD</legend>
+
+    <div class="display-label">Naziv</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Naziv)
+    </div>
+
+    <div class="display-label">Oznaka</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Oznaka)
+    </div>
+
+    <div class="display-label">Adresa</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Adresa)
+    </div>
+
+    <div class="display-label">id_mjesto</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.id_mjesto)
+    </div>
+
+    <div class="display-label">id_opcina</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.id_opcina)
+    </div>
+
+    <div class="display-label">Zaposlenici1</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Zaposlenici1.Ime)
+    </div>
+
+    <div class="display-label">Zaposlenici</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Zaposlenici.Ime)
+    </div>
+
+    <div class="display-label">regob</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.regob)
+    </div>
+
+    <div class="display-label">OD2</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OD2.Naziv)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id_od }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

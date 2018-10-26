@@ -1,0 +1,2103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EvidencijaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="EvidencijaModelStoreContainer">
+          <EntitySet Name="Fiksna" EntityType="EvidencijaModel.Store.Fiksna" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Modeli_Uredjaja" EntityType="EvidencijaModel.Store.Modeli_Uredjaja" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OD" EntityType="EvidencijaModel.Store.OD" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Operateri" EntityType="EvidencijaModel.Store.Operateri" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PotrosnjaSumarno" EntityType="EvidencijaModel.Store.PotrosnjaSumarno" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PotrosnjaSumarnoFiksna" EntityType="EvidencijaModel.Store.PotrosnjaSumarnoFiksna" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PripadnostUBihGrupi" EntityType="EvidencijaModel.Store.PripadnostUBihGrupi" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RadnaMjesta" EntityType="EvidencijaModel.Store.RadnaMjesta" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Razduzenje" EntityType="EvidencijaModel.Store.Razduzenje" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Servis" EntityType="EvidencijaModel.Store.Servis" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tel_Potrosnja_Bht" EntityType="EvidencijaModel.Store.Tel_Potrosnja_Bht" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tel_Potrosnja_Eronet" EntityType="EvidencijaModel.Store.Tel_Potrosnja_Eronet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Telefonija" EntityType="EvidencijaModel.Store.Telefonija" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tip_Telefona" EntityType="EvidencijaModel.Store.Tip_Telefona" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Uredjaji" EntityType="EvidencijaModel.Store.Uredjaji" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Zaduzenje_Uredjaja" EntityType="EvidencijaModel.Store.Zaduzenje_Uredjaja" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Zaposlenici" EntityType="EvidencijaModel.Store.Zaposlenici" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="vAktivnoZap" EntityType="EvidencijaModel.Store.vAktivnoZap" store:Type="Views" store:Schema="dbo" store:Name="vAktivnoZap">
+            <DefiningQuery>SELECT 
+      [vAktivnoZap].[id_tel] AS [id_tel], 
+      [vAktivnoZap].[ImePrezime] AS [ImePrezime]
+      FROM [dbo].[vAktivnoZap] AS [vAktivnoZap]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vEronetPotrosnja" EntityType="EvidencijaModel.Store.vEronetPotrosnja" store:Type="Views" store:Schema="dbo" store:Name="vEronetPotrosnja">
+            <DefiningQuery>SELECT 
+      [vEronetPotrosnja].[id_potr] AS [id_potr], 
+      [vEronetPotrosnja].[id_tel] AS [id_tel], 
+      [vEronetPotrosnja].[telefon] AS [telefon], 
+      [vEronetPotrosnja].[GODINA] AS [GODINA], 
+      [vEronetPotrosnja].[MJESEC] AS [MJESEC], 
+      [vEronetPotrosnja].[SIFRA] AS [SIFRA], 
+      [vEronetPotrosnja].[OPIS_STAVKE] AS [OPIS_STAVKE], 
+      [vEronetPotrosnja].[Iznos] AS [Iznos], 
+      [vEronetPotrosnja].[idlnk] AS [idlnk]
+      FROM [dbo].[vEronetPotrosnja] AS [vEronetPotrosnja]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vPotrosnja" EntityType="EvidencijaModel.Store.vPotrosnja" store:Type="Views" store:Schema="dbo" store:Name="vPotrosnja">
+            <DefiningQuery>SELECT 
+      [vPotrosnja].[id_sum] AS [id_sum], 
+      [vPotrosnja].[id_tel] AS [id_tel], 
+      [vPotrosnja].[id_zaposlenici] AS [id_zaposlenici], 
+      [vPotrosnja].[broj_tel] AS [broj_tel], 
+      [vPotrosnja].[godina] AS [godina], 
+      [vPotrosnja].[mjesec] AS [mjesec], 
+      [vPotrosnja].[iznos] AS [iznos], 
+      [vPotrosnja].[limit] AS [limit], 
+      [vPotrosnja].[iznos_kor] AS [iznos_kor]
+      FROM [dbo].[vPotrosnja] AS [vPotrosnja]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vPotrosnjaFiksnoMjesec" EntityType="EvidencijaModel.Store.vPotrosnjaFiksnoMjesec" store:Type="Views" store:Schema="dbo" store:Name="vPotrosnjaFiksnoMjesec">
+            <DefiningQuery>SELECT 
+      [vPotrosnjaFiksnoMjesec].[id_sum] AS [id_sum], 
+      [vPotrosnjaFiksnoMjesec].[broj] AS [broj], 
+      [vPotrosnjaFiksnoMjesec].[godina] AS [godina], 
+      [vPotrosnjaFiksnoMjesec].[mjesec] AS [mjesec], 
+      [vPotrosnjaFiksnoMjesec].[Ukupno] AS [Ukupno], 
+      [vPotrosnjaFiksnoMjesec].[Placa_Banka] AS [Placa_Banka], 
+      [vPotrosnjaFiksnoMjesec].[Placa_Kor] AS [Placa_Kor], 
+      [vPotrosnjaFiksnoMjesec].[lnk] AS [lnk], 
+      [vPotrosnjaFiksnoMjesec].[Naziv] AS [Naziv], 
+      [vPotrosnjaFiksnoMjesec].[TC] AS [TC], 
+      [vPotrosnjaFiksnoMjesec].[broj_ugovora] AS [broj_ugovora]
+      FROM [dbo].[vPotrosnjaFiksnoMjesec] AS [vPotrosnjaFiksnoMjesec]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vPotrosnjaMjesec" EntityType="EvidencijaModel.Store.vPotrosnjaMjesec" store:Type="Views" store:Schema="dbo" store:Name="vPotrosnjaMjesec">
+            <DefiningQuery>SELECT 
+      [vPotrosnjaMjesec].[id_sum] AS [id_sum], 
+      [vPotrosnjaMjesec].[broj] AS [broj], 
+      [vPotrosnjaMjesec].[godina] AS [godina], 
+      [vPotrosnjaMjesec].[mjesec] AS [mjesec], 
+      [vPotrosnjaMjesec].[Ukupno] AS [Ukupno], 
+      [vPotrosnjaMjesec].[Placa_Banka] AS [Placa_Banka], 
+      [vPotrosnjaMjesec].[Placa_Kor] AS [Placa_Kor], 
+      [vPotrosnjaMjesec].[lnk] AS [lnk], 
+      [vPotrosnjaMjesec].[ImePrezime] AS [ImePrezime], 
+      [vPotrosnjaMjesec].[TC] AS [TC], 
+      [vPotrosnjaMjesec].[Tekuci_racun] AS [Tekuci_racun]
+      FROM [dbo].[vPotrosnjaMjesec] AS [vPotrosnjaMjesec]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vUredjaji" EntityType="EvidencijaModel.Store.vUredjaji" store:Type="Views" store:Schema="dbo" store:Name="vUredjaji">
+            <DefiningQuery>SELECT 
+      [vUredjaji].[id_ur] AS [id_ur], 
+      [vUredjaji].[Uredjaj] AS [Uredjaj]
+      FROM [dbo].[vUredjaji] AS [vUredjaji]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vZaduzenje" EntityType="EvidencijaModel.Store.vZaduzenje" store:Type="Views" store:Schema="dbo" store:Name="vZaduzenje">
+            <DefiningQuery>SELECT 
+      [vZaduzenje].[ImePrezime] AS [ImePrezime], 
+      [vZaduzenje].[Naziv] AS [Naziv], 
+      [vZaduzenje].[broj_tel] AS [broj_tel], 
+      [vZaduzenje].[datum_zad] AS [datum_zad], 
+      [vZaduzenje].[Uredjaj] AS [Uredjaj], 
+      [vZaduzenje].[IMEI] AS [IMEI], 
+      [vZaduzenje].[id_tel] AS [id_tel], 
+      [vZaduzenje].[id_zad] AS [id_zad]
+      FROM [dbo].[vZaduzenje] AS [vZaduzenje]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Telefonij__id_za__5A1A5A11" Association="EvidencijaModel.Store.FK__Telefonij__id_za__5A1A5A11">
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+            <End Role="Telefonija" EntitySet="Telefonija" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fiksna_OD" Association="EvidencijaModel.Store.FK_Fiksna_OD">
+            <End Role="OD" EntitySet="OD" />
+            <End Role="Fiksna" EntitySet="Fiksna" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fiksna_Operateri" Association="EvidencijaModel.Store.FK_Fiksna_Operateri">
+            <End Role="Operateri" EntitySet="Operateri" />
+            <End Role="Fiksna" EntitySet="Fiksna" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OD_OD" Association="EvidencijaModel.Store.FK_OD_OD">
+            <End Role="OD" EntitySet="OD" />
+            <End Role="OD1" EntitySet="OD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OD_Zaposlenici" Association="EvidencijaModel.Store.FK_OD_Zaposlenici">
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+            <End Role="OD" EntitySet="OD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OD_Zaposlenici1" Association="EvidencijaModel.Store.FK_OD_Zaposlenici1">
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+            <End Role="OD" EntitySet="OD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PotrosnjaSumarnoFiksna_Fiksna" Association="EvidencijaModel.Store.FK_PotrosnjaSumarnoFiksna_Fiksna">
+            <End Role="Fiksna" EntitySet="Fiksna" />
+            <End Role="PotrosnjaSumarnoFiksna" EntitySet="PotrosnjaSumarnoFiksna" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PotrosnjaSumarnoFiksna_OD" Association="EvidencijaModel.Store.FK_PotrosnjaSumarnoFiksna_OD">
+            <End Role="OD" EntitySet="OD" />
+            <End Role="PotrosnjaSumarnoFiksna" EntitySet="PotrosnjaSumarnoFiksna" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Razduzenje_Telefonija" Association="EvidencijaModel.Store.FK_Razduzenje_Telefonija">
+            <End Role="Telefonija" EntitySet="Telefonija" />
+            <End Role="Razduzenje" EntitySet="Razduzenje" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Servis_Uredjaji" Association="EvidencijaModel.Store.FK_Servis_Uredjaji">
+            <End Role="Uredjaji" EntitySet="Uredjaji" />
+            <End Role="Servis" EntitySet="Servis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tel_Potrosnja_Bht_Telefonija" Association="EvidencijaModel.Store.FK_Tel_Potrosnja_Bht_Telefonija">
+            <End Role="Telefonija" EntitySet="Telefonija" />
+            <End Role="Tel_Potrosnja_Bht" EntitySet="Tel_Potrosnja_Bht" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tel_Potrosnja_Telefonija" Association="EvidencijaModel.Store.FK_Tel_Potrosnja_Telefonija">
+            <End Role="Telefonija" EntitySet="Telefonija" />
+            <End Role="Tel_Potrosnja_Eronet" EntitySet="Tel_Potrosnja_Eronet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Telefonija_Operateri" Association="EvidencijaModel.Store.FK_Telefonija_Operateri">
+            <End Role="Operateri" EntitySet="Operateri" />
+            <End Role="Telefonija" EntitySet="Telefonija" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Telefonija_Tip_Telefona" Association="EvidencijaModel.Store.FK_Telefonija_Tip_Telefona">
+            <End Role="Tip_Telefona" EntitySet="Tip_Telefona" />
+            <End Role="Telefonija" EntitySet="Telefonija" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Uredjaji_Modeli_Uredjaja" Association="EvidencijaModel.Store.FK_Uredjaji_Modeli_Uredjaja">
+            <End Role="Modeli_Uredjaja" EntitySet="Modeli_Uredjaja" />
+            <End Role="Uredjaji" EntitySet="Uredjaji" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Uredjaji_Operateri" Association="EvidencijaModel.Store.FK_Uredjaji_Operateri">
+            <End Role="Operateri" EntitySet="Operateri" />
+            <End Role="Uredjaji" EntitySet="Uredjaji" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zaduzenje_Uredjaja_Modeli_Uredjaja" Association="EvidencijaModel.Store.FK_Zaduzenje_Uredjaja_Modeli_Uredjaja">
+            <End Role="Uredjaji" EntitySet="Uredjaji" />
+            <End Role="Zaduzenje_Uredjaja" EntitySet="Zaduzenje_Uredjaja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zaduzenje_Uredjaja_Telefonija" Association="EvidencijaModel.Store.FK_Zaduzenje_Uredjaja_Telefonija">
+            <End Role="Telefonija" EntitySet="Telefonija" />
+            <End Role="Zaduzenje_Uredjaja" EntitySet="Zaduzenje_Uredjaja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zaposlenici_OD" Association="EvidencijaModel.Store.FK_Zaposlenici_OD">
+            <End Role="OD" EntitySet="OD" />
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zaposlenici_PripadnostUBihGrupi" Association="EvidencijaModel.Store.FK_Zaposlenici_PripadnostUBihGrupi">
+            <End Role="PripadnostUBihGrupi" EntitySet="PripadnostUBihGrupi" />
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zaposlenici_RadnaMjesta" Association="EvidencijaModel.Store.FK_Zaposlenici_RadnaMjesta">
+            <End Role="RadnaMjesta" EntitySet="RadnaMjesta" />
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Fiksna">
+          <Key>
+            <PropertyRef Name="id_fiks" />
+          </Key>
+          <Property Name="id_fiks" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_od" Type="int" Nullable="false" />
+          <Property Name="id_oper" Type="int" />
+          <Property Name="broj_ugovora" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="centrala_broj" Type="nvarchar" MaxLength="50" />
+          <Property Name="id_tip" Type="int" Nullable="false" />
+          <Property Name="voice" Type="bit" Nullable="false" />
+          <Property Name="data" Type="bit" Nullable="false" />
+          <Property Name="dat_akt" Type="datetime" />
+          <Property Name="dat_deakt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Modeli_Uredjaja">
+          <Key>
+            <PropertyRef Name="id_model" />
+          </Key>
+          <Property Name="id_model" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="OD">
+          <Key>
+            <PropertyRef Name="id_od" />
+          </Key>
+          <Property Name="id_od" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="Oznaka" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Adresa" Type="nvarchar" MaxLength="255" />
+          <Property Name="id_mjesto" Type="int" />
+          <Property Name="id_opcina" Type="int" />
+          <Property Name="id_IzvSur" Type="int" />
+          <Property Name="id_voditelj" Type="int" Nullable="false" />
+          <Property Name="regob" Type="nvarchar" MaxLength="50" />
+          <Property Name="id_odnad" Type="int" />
+          <Property Name="nivo" Type="int" />
+        </EntityType>
+        <EntityType Name="Operateri">
+          <Key>
+            <PropertyRef Name="id_oper" />
+          </Key>
+          <Property Name="id_oper" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PotrosnjaSumarno">
+          <Key>
+            <PropertyRef Name="id_sum" />
+          </Key>
+          <Property Name="id_sum" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_tel" Type="int" />
+          <Property Name="id_zaposlenici" Type="int" />
+          <Property Name="broj_tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="godina" Type="nvarchar" MaxLength="50" />
+          <Property Name="mjesec" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="iznos" Type="decimal" Scale="3" />
+          <Property Name="odob_limit" Type="decimal" Scale="3" />
+          <Property Name="limit" Type="decimal" Scale="3" />
+          <Property Name="iznos_kor" Type="decimal" Scale="3" />
+        </EntityType>
+        <EntityType Name="PotrosnjaSumarnoFiksna">
+          <Key>
+            <PropertyRef Name="id_sum" />
+          </Key>
+          <Property Name="id_sum" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_tel" Type="int" />
+          <Property Name="id_Od" Type="int" />
+          <Property Name="broj_tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="godina" Type="nvarchar" MaxLength="50" />
+          <Property Name="mjesec" Type="nvarchar" MaxLength="50" />
+          <Property Name="iznos" Type="decimal" Scale="3" />
+          <Property Name="preth_dug" Type="decimal" Scale="3" />
+          <Property Name="preplaceno" Type="decimal" Scale="3" />
+        </EntityType>
+        <EntityType Name="PripadnostUBihGrupi">
+          <Key>
+            <PropertyRef Name="id_pripadnost" />
+          </Key>
+          <Property Name="id_pripadnost" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="naziv" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RadnaMjesta">
+          <Key>
+            <PropertyRef Name="id_rm" />
+          </Key>
+          <Property Name="id_rm" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="StrucnaSprema" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Razduzenje">
+          <Key>
+            <PropertyRef Name="id_raz" />
+          </Key>
+          <Property Name="id_raz" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_tel" Type="int" Nullable="false" />
+          <Property Name="datum_razduzenja" Type="datetime" />
+          <Property Name="Mobitel" Type="bit" />
+          <Property Name="Uredjaj" Type="bit" />
+          <Property Name="opis" Type="nvarchar(max)" />
+          <Property Name="status" Type="bit" />
+          <Property Name="zadrzati_broj" Type="bit" Nullable="false" />
+          <Property Name="datum_potvrde" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Servis">
+          <Key>
+            <PropertyRef Name="id_srv" />
+          </Key>
+          <Property Name="id_srv" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_ur" Type="int" />
+          <Property Name="datum_otp" Type="datetime" />
+          <Property Name="opis_kvara" Type="nvarchar" MaxLength="500" />
+          <Property Name="datum_pov" Type="datetime" />
+          <Property Name="opis_opr" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Tel_Potrosnja_Bht">
+          <Key>
+            <PropertyRef Name="id_potr" />
+          </Key>
+          <Property Name="id_potr" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_tel" Type="int" />
+          <Property Name="TELEFON" Type="nvarchar" MaxLength="255" />
+          <Property Name="SIFRA" Type="nvarchar" MaxLength="255" />
+          <Property Name="NAZIV" Type="nvarchar" MaxLength="255" />
+          <Property Name="KOL" Type="nvarchar" MaxLength="255" />
+          <Property Name="IZNOS" Type="decimal" Scale="3" />
+          <Property Name="JED_MJERE" Type="nvarchar" MaxLength="255" />
+          <Property Name="JED_CIJENA" Type="nvarchar" MaxLength="255" />
+          <Property Name="GODINA" Type="int" />
+          <Property Name="MJESEC" Type="int" />
+        </EntityType>
+        <EntityType Name="Tel_Potrosnja_Eronet">
+          <Key>
+            <PropertyRef Name="id_potr" />
+          </Key>
+          <Property Name="id_potr" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_tel" Type="int" />
+          <Property Name="SUBSCRIBER_NUMBER" Type="nvarchar" MaxLength="255" />
+          <Property Name="GODINA" Type="nvarchar" MaxLength="255" />
+          <Property Name="MJESEC" Type="nvarchar" MaxLength="255" />
+          <Property Name="ACCOUNT" Type="nvarchar" MaxLength="255" />
+          <Property Name="CONTRACT" Type="nvarchar" MaxLength="255" />
+          <Property Name="ORGANISATION_NAME" Type="nvarchar" MaxLength="255" />
+          <Property Name="ORG_PERS_ID" Type="nvarchar" MaxLength="255" />
+          <Property Name="PRICE_PLAN" Type="nvarchar" MaxLength="255" />
+          <Property Name="STAVKA_RACUNA" Type="nvarchar" MaxLength="255" />
+          <Property Name="OPIS_STAVKE" Type="nvarchar" MaxLength="255" />
+          <Property Name="SUMA" Type="float" />
+          <Property Name="POREZ" Type="float" />
+          <Property Name="Iznos" Type="float" />
+          <Property Name="Count" Type="float" />
+          <Property Name="Units" Type="float" />
+          <Property Name="Duration" Type="float" />
+          <Property Name="Charged Duration" Type="float" />
+        </EntityType>
+        <EntityType Name="Telefonija">
+          <Key>
+            <PropertyRef Name="id_tel" />
+          </Key>
+          <Property Name="id_tel" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_zaposlenici" Type="int" Nullable="false" />
+          <Property Name="id_oper" Type="int" />
+          <Property Name="broj_tel" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="id_tip" Type="int" Nullable="false" />
+          <Property Name="voice" Type="bit" Nullable="false" />
+          <Property Name="data" Type="bit" Nullable="false" />
+          <Property Name="dat_akt" Type="datetime" />
+          <Property Name="dat_deakt" Type="datetime" />
+          <Property Name="UkupnoLimit" Type="bit" Nullable="false" />
+          <Property Name="Limit" Type="decimal" />
+          <Property Name="Grupni_racun" Type="bit" Nullable="false" />
+          <Property Name="Grupa_racuna" Type="int" />
+          <Property Name="Tekuci_racun" Type="int" />
+        </EntityType>
+        <EntityType Name="Tip_Telefona">
+          <Key>
+            <PropertyRef Name="id_tip" />
+          </Key>
+          <Property Name="id_tip" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Uredjaji">
+          <Key>
+            <PropertyRef Name="id_ur" />
+          </Key>
+          <Property Name="id_ur" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Uredjaj" Type="nvarchar" MaxLength="50" />
+          <Property Name="id_model" Type="int" Nullable="false" />
+          <Property Name="IMEI" Type="nvarchar" MaxLength="50" />
+          <Property Name="SN" Type="nvarchar" MaxLength="50" />
+          <Property Name="dat_nabavke" Type="datetime" />
+          <Property Name="ugovor" Type="bit" Nullable="false" />
+          <Property Name="trajanje_ugovora" Type="int" />
+          <Property Name="id_oper" Type="int" />
+          <Property Name="dat_ugovora" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Zaduzenje_Uredjaja">
+          <Key>
+            <PropertyRef Name="id_zad" />
+          </Key>
+          <Property Name="id_zad" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_tel" Type="int" />
+          <Property Name="id_ur" Type="int" />
+          <Property Name="datum_zad" Type="datetime" />
+          <Property Name="datum_razd" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Zaposlenici">
+          <Key>
+            <PropertyRef Name="id_zaposlenici" />
+          </Key>
+          <Property Name="id_zaposlenici" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Ime" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Prezime" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="ImePrezime" Type="nvarchar" Nullable="false" MaxLength="511" StoreGeneratedPattern="Computed" />
+          <Property Name="id_od" Type="int" Nullable="false" />
+          <Property Name="id_rm" Type="int" Nullable="false" />
+          <Property Name="id_pripadnost" Type="int" Nullable="false" />
+          <Property Name="jmbg" Type="char" Nullable="false" MaxLength="13" />
+          <Property Name="datum_pocetka_rada" Type="datetime" Nullable="false" />
+          <Property Name="privremeno" Type="bit" />
+          <Property Name="datum_prestanka" Type="datetime" />
+          <Property Name="hrm_broj" Type="int" />
+          <Property Name="tip_zaposlenja" Type="int" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="255" />
+          <Property Name="ad" Type="varchar" MaxLength="128" />
+          <Property Name="sysdate" Type="datetime" />
+          <Property Name="Napomena" Type="nvarchar" MaxLength="500" />
+          <Property Name="NotesEmail" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'Evidencija.dbo.vAktivnoZap' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vAktivnoZap">
+          <Key>
+            <PropertyRef Name="id_tel" />
+            <PropertyRef Name="ImePrezime" />
+          </Key>
+          <Property Name="id_tel" Type="int" Nullable="false" />
+          <Property Name="ImePrezime" Type="nvarchar" Nullable="false" MaxLength="564" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'Evidencija.dbo.vEronetPotrosnja' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vEronetPotrosnja">
+          <Key>
+            <PropertyRef Name="id_potr" />
+          </Key>
+          <Property Name="id_potr" Type="int" Nullable="false" />
+          <Property Name="id_tel" Type="int" />
+          <Property Name="telefon" Type="nvarchar" MaxLength="255" />
+          <Property Name="GODINA" Type="int" />
+          <Property Name="MJESEC" Type="int" />
+          <Property Name="SIFRA" Type="nvarchar" MaxLength="255" />
+          <Property Name="OPIS_STAVKE" Type="nvarchar" MaxLength="255" />
+          <Property Name="Iznos" Type="float" />
+          <Property Name="idlnk" Type="nvarchar" MaxLength="317" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'Evidencija.dbo.vPotrosnja' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vPotrosnja">
+          <Key>
+            <PropertyRef Name="id_sum" />
+          </Key>
+          <Property Name="id_sum" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_tel" Type="int" />
+          <Property Name="id_zaposlenici" Type="int" />
+          <Property Name="broj_tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="godina" Type="nvarchar" MaxLength="50" />
+          <Property Name="mjesec" Type="nvarchar" MaxLength="50" />
+          <Property Name="iznos" Type="decimal" Scale="3" />
+          <Property Name="limit" Type="decimal" Scale="3" />
+          <Property Name="iznos_kor" Type="decimal" Scale="3" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'Evidencija.dbo.vPotrosnjaFiksnoMjesec' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vPotrosnjaFiksnoMjesec">
+          <Key>
+            <PropertyRef Name="id_sum" />
+            <PropertyRef Name="Naziv" />
+            <PropertyRef Name="broj_ugovora" />
+          </Key>
+          <Property Name="id_sum" Type="int" Nullable="false" />
+          <Property Name="broj" Type="nvarchar" MaxLength="50" />
+          <Property Name="godina" Type="nvarchar" MaxLength="50" />
+          <Property Name="mjesec" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ukupno" Type="decimal" Scale="3" />
+          <Property Name="Placa_Banka" Type="decimal" Scale="3" />
+          <Property Name="Placa_Kor" Type="decimal" Scale="3" />
+          <Property Name="lnk" Type="nvarchar" MaxLength="203" />
+          <Property Name="Naziv" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="TC" Type="nvarchar" MaxLength="50" />
+          <Property Name="broj_ugovora" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'Evidencija.dbo.vPotrosnjaMjesec' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vPotrosnjaMjesec">
+          <Key>
+            <PropertyRef Name="id_sum" />
+            <PropertyRef Name="ImePrezime" />
+            <PropertyRef Name="TC" />
+          </Key>
+          <Property Name="id_sum" Type="int" Nullable="false" />
+          <Property Name="broj" Type="nvarchar" MaxLength="50" />
+          <Property Name="godina" Type="nvarchar" MaxLength="50" />
+          <Property Name="mjesec" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ukupno" Type="decimal" Scale="3" />
+          <Property Name="Placa_Banka" Type="decimal" Scale="3" />
+          <Property Name="Placa_Kor" Type="decimal" Scale="3" />
+          <Property Name="lnk" Type="nvarchar" MaxLength="155" />
+          <Property Name="ImePrezime" Type="nvarchar" Nullable="false" MaxLength="511" />
+          <Property Name="TC" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tekuci_racun" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'Evidencija.dbo.vUredjaji' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vUredjaji">
+          <Key>
+            <PropertyRef Name="id_ur" />
+          </Key>
+          <Property Name="id_ur" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Uredjaj" Type="nvarchar" MaxLength="156" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'Evidencija.dbo.vZaduzenje' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vZaduzenje">
+          <Key>
+            <PropertyRef Name="ImePrezime" />
+            <PropertyRef Name="broj_tel" />
+            <PropertyRef Name="id_tel" />
+          </Key>
+          <Property Name="ImePrezime" Type="nvarchar" Nullable="false" MaxLength="511" />
+          <Property Name="Naziv" Type="nvarchar" MaxLength="50" />
+          <Property Name="broj_tel" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="datum_zad" Type="datetime" />
+          <Property Name="Uredjaj" Type="nvarchar" MaxLength="50" />
+          <Property Name="IMEI" Type="nvarchar" MaxLength="50" />
+          <Property Name="id_tel" Type="int" Nullable="false" />
+          <Property Name="id_zad" Type="int" />
+        </EntityType>
+        <Association Name="FK__Telefonij__id_za__5A1A5A11">
+          <End Role="Zaposlenici" Type="EvidencijaModel.Store.Zaposlenici" Multiplicity="1" />
+          <End Role="Telefonija" Type="EvidencijaModel.Store.Telefonija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenici">
+              <PropertyRef Name="id_zaposlenici" />
+            </Principal>
+            <Dependent Role="Telefonija">
+              <PropertyRef Name="id_zaposlenici" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fiksna_OD">
+          <End Role="OD" Type="EvidencijaModel.Store.OD" Multiplicity="1" />
+          <End Role="Fiksna" Type="EvidencijaModel.Store.Fiksna" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OD">
+              <PropertyRef Name="id_od" />
+            </Principal>
+            <Dependent Role="Fiksna">
+              <PropertyRef Name="id_od" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fiksna_Operateri">
+          <End Role="Operateri" Type="EvidencijaModel.Store.Operateri" Multiplicity="0..1" />
+          <End Role="Fiksna" Type="EvidencijaModel.Store.Fiksna" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operateri">
+              <PropertyRef Name="id_oper" />
+            </Principal>
+            <Dependent Role="Fiksna">
+              <PropertyRef Name="id_oper" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OD_OD">
+          <End Role="OD" Type="EvidencijaModel.Store.OD" Multiplicity="0..1" />
+          <End Role="OD1" Type="EvidencijaModel.Store.OD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OD">
+              <PropertyRef Name="id_od" />
+            </Principal>
+            <Dependent Role="OD1">
+              <PropertyRef Name="id_odnad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OD_Zaposlenici">
+          <End Role="Zaposlenici" Type="EvidencijaModel.Store.Zaposlenici" Multiplicity="1" />
+          <End Role="OD" Type="EvidencijaModel.Store.OD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenici">
+              <PropertyRef Name="id_zaposlenici" />
+            </Principal>
+            <Dependent Role="OD">
+              <PropertyRef Name="id_voditelj" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OD_Zaposlenici1">
+          <End Role="Zaposlenici" Type="EvidencijaModel.Store.Zaposlenici" Multiplicity="0..1" />
+          <End Role="OD" Type="EvidencijaModel.Store.OD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenici">
+              <PropertyRef Name="id_zaposlenici" />
+            </Principal>
+            <Dependent Role="OD">
+              <PropertyRef Name="id_IzvSur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PotrosnjaSumarnoFiksna_Fiksna">
+          <End Role="Fiksna" Type="EvidencijaModel.Store.Fiksna" Multiplicity="0..1" />
+          <End Role="PotrosnjaSumarnoFiksna" Type="EvidencijaModel.Store.PotrosnjaSumarnoFiksna" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fiksna">
+              <PropertyRef Name="id_fiks" />
+            </Principal>
+            <Dependent Role="PotrosnjaSumarnoFiksna">
+              <PropertyRef Name="id_tel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PotrosnjaSumarnoFiksna_OD">
+          <End Role="OD" Type="EvidencijaModel.Store.OD" Multiplicity="0..1" />
+          <End Role="PotrosnjaSumarnoFiksna" Type="EvidencijaModel.Store.PotrosnjaSumarnoFiksna" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OD">
+              <PropertyRef Name="id_od" />
+            </Principal>
+            <Dependent Role="PotrosnjaSumarnoFiksna">
+              <PropertyRef Name="id_Od" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Razduzenje_Telefonija">
+          <End Role="Telefonija" Type="EvidencijaModel.Store.Telefonija" Multiplicity="1" />
+          <End Role="Razduzenje" Type="EvidencijaModel.Store.Razduzenje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Telefonija">
+              <PropertyRef Name="id_tel" />
+            </Principal>
+            <Dependent Role="Razduzenje">
+              <PropertyRef Name="id_tel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Servis_Uredjaji">
+          <End Role="Uredjaji" Type="EvidencijaModel.Store.Uredjaji" Multiplicity="0..1" />
+          <End Role="Servis" Type="EvidencijaModel.Store.Servis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uredjaji">
+              <PropertyRef Name="id_ur" />
+            </Principal>
+            <Dependent Role="Servis">
+              <PropertyRef Name="id_ur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tel_Potrosnja_Bht_Telefonija">
+          <End Role="Telefonija" Type="EvidencijaModel.Store.Telefonija" Multiplicity="0..1" />
+          <End Role="Tel_Potrosnja_Bht" Type="EvidencijaModel.Store.Tel_Potrosnja_Bht" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Telefonija">
+              <PropertyRef Name="id_tel" />
+            </Principal>
+            <Dependent Role="Tel_Potrosnja_Bht">
+              <PropertyRef Name="id_tel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tel_Potrosnja_Telefonija">
+          <End Role="Telefonija" Type="EvidencijaModel.Store.Telefonija" Multiplicity="0..1" />
+          <End Role="Tel_Potrosnja_Eronet" Type="EvidencijaModel.Store.Tel_Potrosnja_Eronet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Telefonija">
+              <PropertyRef Name="id_tel" />
+            </Principal>
+            <Dependent Role="Tel_Potrosnja_Eronet">
+              <PropertyRef Name="id_tel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Telefonija_Operateri">
+          <End Role="Operateri" Type="EvidencijaModel.Store.Operateri" Multiplicity="0..1" />
+          <End Role="Telefonija" Type="EvidencijaModel.Store.Telefonija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operateri">
+              <PropertyRef Name="id_oper" />
+            </Principal>
+            <Dependent Role="Telefonija">
+              <PropertyRef Name="id_oper" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Telefonija_Tip_Telefona">
+          <End Role="Tip_Telefona" Type="EvidencijaModel.Store.Tip_Telefona" Multiplicity="1" />
+          <End Role="Telefonija" Type="EvidencijaModel.Store.Telefonija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tip_Telefona">
+              <PropertyRef Name="id_tip" />
+            </Principal>
+            <Dependent Role="Telefonija">
+              <PropertyRef Name="id_tip" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Uredjaji_Modeli_Uredjaja">
+          <End Role="Modeli_Uredjaja" Type="EvidencijaModel.Store.Modeli_Uredjaja" Multiplicity="1" />
+          <End Role="Uredjaji" Type="EvidencijaModel.Store.Uredjaji" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modeli_Uredjaja">
+              <PropertyRef Name="id_model" />
+            </Principal>
+            <Dependent Role="Uredjaji">
+              <PropertyRef Name="id_model" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Uredjaji_Operateri">
+          <End Role="Operateri" Type="EvidencijaModel.Store.Operateri" Multiplicity="0..1" />
+          <End Role="Uredjaji" Type="EvidencijaModel.Store.Uredjaji" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operateri">
+              <PropertyRef Name="id_oper" />
+            </Principal>
+            <Dependent Role="Uredjaji">
+              <PropertyRef Name="id_oper" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zaduzenje_Uredjaja_Modeli_Uredjaja">
+          <End Role="Uredjaji" Type="EvidencijaModel.Store.Uredjaji" Multiplicity="0..1" />
+          <End Role="Zaduzenje_Uredjaja" Type="EvidencijaModel.Store.Zaduzenje_Uredjaja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uredjaji">
+              <PropertyRef Name="id_ur" />
+            </Principal>
+            <Dependent Role="Zaduzenje_Uredjaja">
+              <PropertyRef Name="id_ur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zaduzenje_Uredjaja_Telefonija">
+          <End Role="Telefonija" Type="EvidencijaModel.Store.Telefonija" Multiplicity="0..1" />
+          <End Role="Zaduzenje_Uredjaja" Type="EvidencijaModel.Store.Zaduzenje_Uredjaja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Telefonija">
+              <PropertyRef Name="id_tel" />
+            </Principal>
+            <Dependent Role="Zaduzenje_Uredjaja">
+              <PropertyRef Name="id_tel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zaposlenici_OD">
+          <End Role="OD" Type="EvidencijaModel.Store.OD" Multiplicity="1" />
+          <End Role="Zaposlenici" Type="EvidencijaModel.Store.Zaposlenici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OD">
+              <PropertyRef Name="id_od" />
+            </Principal>
+            <Dependent Role="Zaposlenici">
+              <PropertyRef Name="id_od" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zaposlenici_PripadnostUBihGrupi">
+          <End Role="PripadnostUBihGrupi" Type="EvidencijaModel.Store.PripadnostUBihGrupi" Multiplicity="1" />
+          <End Role="Zaposlenici" Type="EvidencijaModel.Store.Zaposlenici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PripadnostUBihGrupi">
+              <PropertyRef Name="id_pripadnost" />
+            </Principal>
+            <Dependent Role="Zaposlenici">
+              <PropertyRef Name="id_pripadnost" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zaposlenici_RadnaMjesta">
+          <End Role="RadnaMjesta" Type="EvidencijaModel.Store.RadnaMjesta" Multiplicity="1" />
+          <End Role="Zaposlenici" Type="EvidencijaModel.Store.Zaposlenici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RadnaMjesta">
+              <PropertyRef Name="id_rm" />
+            </Principal>
+            <Dependent Role="Zaposlenici">
+              <PropertyRef Name="id_rm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="spFisknoPotrosnja" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spPotrosnja" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spPregledTelOD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vod" Type="int" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EvidencijaModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="EvidencijaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Modeli_Uredjaja" EntityType="EvidencijaModel.Modeli_Uredjaja" />
+          <EntitySet Name="OD" EntityType="EvidencijaModel.OD" />
+          <EntitySet Name="Tel_Potrosnja_Bht" EntityType="EvidencijaModel.Tel_Potrosnja_Bht" />
+          <EntitySet Name="Tel_Potrosnja_Eronet" EntityType="EvidencijaModel.Tel_Potrosnja_Eronet" />
+          <EntitySet Name="Tip_Telefona" EntityType="EvidencijaModel.Tip_Telefona" />
+          <EntitySet Name="Zaposlenici" EntityType="EvidencijaModel.Zaposlenici" />
+          <AssociationSet Name="FK_OD_OD" Association="EvidencijaModel.FK_OD_OD">
+            <End Role="OD" EntitySet="OD" />
+            <End Role="OD1" EntitySet="OD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OD_Zaposlenici" Association="EvidencijaModel.FK_OD_Zaposlenici">
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+            <End Role="OD" EntitySet="OD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OD_Zaposlenici1" Association="EvidencijaModel.FK_OD_Zaposlenici1">
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+            <End Role="OD" EntitySet="OD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zaposlenici_OD" Association="EvidencijaModel.FK_Zaposlenici_OD">
+            <End Role="OD" EntitySet="OD" />
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+          </AssociationSet>
+          <EntitySet Name="Operateri" EntityType="EvidencijaModel.Operateri" />
+          <EntitySet Name="Telefonija" EntityType="EvidencijaModel.Telefonija" />
+          <AssociationSet Name="FK_Telefonija_Operateri" Association="EvidencijaModel.FK_Telefonija_Operateri">
+            <End Role="Operateri" EntitySet="Operateri" />
+            <End Role="Telefonija" EntitySet="Telefonija" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tel_Potrosnja_Bht_Telefonija" Association="EvidencijaModel.FK_Tel_Potrosnja_Bht_Telefonija">
+            <End Role="Telefonija" EntitySet="Telefonija" />
+            <End Role="Tel_Potrosnja_Bht" EntitySet="Tel_Potrosnja_Bht" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tel_Potrosnja_Telefonija" Association="EvidencijaModel.FK_Tel_Potrosnja_Telefonija">
+            <End Role="Telefonija" EntitySet="Telefonija" />
+            <End Role="Tel_Potrosnja_Eronet" EntitySet="Tel_Potrosnja_Eronet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Telefonij__id_za__5A1A5A11" Association="EvidencijaModel.FK__Telefonij__id_za__5A1A5A11">
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+            <End Role="Telefonija" EntitySet="Telefonija" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Telefonija_Tip_Telefona" Association="EvidencijaModel.FK_Telefonija_Tip_Telefona">
+            <End Role="Tip_Telefona" EntitySet="Tip_Telefona" />
+            <End Role="Telefonija" EntitySet="Telefonija" />
+          </AssociationSet>
+          <EntitySet Name="Uredjaji" EntityType="EvidencijaModel.Uredjaji" />
+          <AssociationSet Name="FK_Uredjaji_Modeli_Uredjaja" Association="EvidencijaModel.FK_Uredjaji_Modeli_Uredjaja">
+            <End Role="Modeli_Uredjaja" EntitySet="Modeli_Uredjaja" />
+            <End Role="Uredjaji" EntitySet="Uredjaji" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Uredjaji_Operateri" Association="EvidencijaModel.FK_Uredjaji_Operateri">
+            <End Role="Operateri" EntitySet="Operateri" />
+            <End Role="Uredjaji" EntitySet="Uredjaji" />
+          </AssociationSet>
+          <EntitySet Name="Zaduzenje_Uredjaja" EntityType="EvidencijaModel.Zaduzenje_Uredjaja" />
+          <AssociationSet Name="FK_Zaduzenje_Uredjaja_Telefonija" Association="EvidencijaModel.FK_Zaduzenje_Uredjaja_Telefonija">
+            <End Role="Telefonija" EntitySet="Telefonija" />
+            <End Role="Zaduzenje_Uredjaja" EntitySet="Zaduzenje_Uredjaja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zaduzenje_Uredjaja_Modeli_Uredjaja" Association="EvidencijaModel.FK_Zaduzenje_Uredjaja_Modeli_Uredjaja">
+            <End Role="Uredjaji" EntitySet="Uredjaji" />
+            <End Role="Zaduzenje_Uredjaja" EntitySet="Zaduzenje_Uredjaja" />
+          </AssociationSet>
+          <EntitySet Name="vAktivnoZap" EntityType="EvidencijaModel.vAktivnoZap" />
+          <EntitySet Name="vZaduzenje" EntityType="EvidencijaModel.vZaduzenje" />
+          <EntitySet Name="Servis" EntityType="EvidencijaModel.Servis" />
+          <AssociationSet Name="FK_Servis_Uredjaji" Association="EvidencijaModel.FK_Servis_Uredjaji">
+            <End Role="Uredjaji" EntitySet="Uredjaji" />
+            <End Role="Servis" EntitySet="Servis" />
+          </AssociationSet>
+          <EntitySet Name="vEronetPotrosnja" EntityType="EvidencijaModel.vEronetPotrosnja" />
+          <FunctionImport Name="spPregledTelOD" EntitySet="Telefonija" ReturnType="Collection(EvidencijaModel.Telefonija)">
+          <Parameter Name="vod" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="RadnaMjesta" EntityType="EvidencijaModel.RadnaMjesta" />
+          <AssociationSet Name="FK_Zaposlenici_RadnaMjesta" Association="EvidencijaModel.FK_Zaposlenici_RadnaMjesta">
+            <End Role="RadnaMjesta" EntitySet="RadnaMjesta" />
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+          </AssociationSet>
+          <EntitySet Name="PripadnostUBihGrupi" EntityType="EvidencijaModel.PripadnostUBihGrupi" />
+          <AssociationSet Name="FK_Zaposlenici_PripadnostUBihGrupi" Association="EvidencijaModel.FK_Zaposlenici_PripadnostUBihGrupi">
+            <End Role="PripadnostUBihGrupi" EntitySet="PripadnostUBihGrupi" />
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+          </AssociationSet>
+          <EntitySet Name="vUredjaji" EntityType="EvidencijaModel.vUredjaji" />
+          <FunctionImport Name="spPotrosnja" ReturnType="Collection(EvidencijaModel.spPotrosnja_Result)" />
+          <EntitySet Name="vPotrosnjaMjesec" EntityType="EvidencijaModel.vPotrosnjaMjesec" />
+          <EntitySet Name="Fiksna" EntityType="EvidencijaModel.Fiksna" />
+          <AssociationSet Name="FK_Fiksna_OD" Association="EvidencijaModel.FK_Fiksna_OD">
+            <End Role="OD" EntitySet="OD" />
+            <End Role="Fiksna" EntitySet="Fiksna" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fiksna_Operateri" Association="EvidencijaModel.FK_Fiksna_Operateri">
+            <End Role="Operateri" EntitySet="Operateri" />
+            <End Role="Fiksna" EntitySet="Fiksna" />
+          </AssociationSet>
+          <EntitySet Name="vPotrosnjaFiksnoMjesec" EntityType="EvidencijaModel.vPotrosnjaFiksnoMjesec" />
+          <FunctionImport Name="spFiksnoPotrosnja" ReturnType="Collection(EvidencijaModel.spFisknoPotrosnja_Result)" />
+          <EntitySet Name="vPotrosnja" EntityType="EvidencijaModel.vPotrosnja" />
+          <EntitySet Name="Razduzenje" EntityType="EvidencijaModel.Razduzenje" />
+          <AssociationSet Name="FK_Razduzenje_Telefonija" Association="EvidencijaModel.FK_Razduzenje_Telefonija">
+            <End Role="Telefonija" EntitySet="Telefonija" />
+            <End Role="Razduzenje" EntitySet="Razduzenje" />
+          </AssociationSet>
+          <EntitySet Name="PotrosnjaSumarnoFiksna" EntityType="EvidencijaModel.PotrosnjaSumarnoFiksna" />
+          <AssociationSet Name="FK_PotrosnjaSumarnoFiksna_Fiksna" Association="EvidencijaModel.FK_PotrosnjaSumarnoFiksna_Fiksna">
+            <End Role="Fiksna" EntitySet="Fiksna" />
+            <End Role="PotrosnjaSumarnoFiksna" EntitySet="PotrosnjaSumarnoFiksna" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PotrosnjaSumarnoFiksna_OD" Association="EvidencijaModel.FK_PotrosnjaSumarnoFiksna_OD">
+            <End Role="OD" EntitySet="OD" />
+            <End Role="PotrosnjaSumarnoFiksna" EntitySet="PotrosnjaSumarnoFiksna" />
+          </AssociationSet>
+          <EntitySet Name="PotrosnjaSumarno" EntityType="EvidencijaModel.PotrosnjaSumarno" />
+          </EntityContainer>
+        <EntityType Name="Modeli_Uredjaja">
+          <Key>
+            <PropertyRef Name="id_model" />
+          </Key>
+          <Property Name="id_model" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="Uredjaji" Relationship="EvidencijaModel.FK_Uredjaji_Modeli_Uredjaja" FromRole="Modeli_Uredjaja" ToRole="Uredjaji" />
+        </EntityType>
+        <EntityType Name="OD">
+          <Key>
+            <PropertyRef Name="id_od" />
+          </Key>
+          <Property Name="id_od" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="Oznaka" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Adresa" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="id_mjesto" Type="Int32" />
+          <Property Name="id_opcina" Type="Int32" />
+          <Property Name="id_IzvSur" Type="Int32" />
+          <Property Name="id_voditelj" Type="Int32" Nullable="false" />
+          <Property Name="regob" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="id_odnad" Type="Int32" />
+          <NavigationProperty Name="OD1" Relationship="EvidencijaModel.FK_OD_OD" FromRole="OD" ToRole="OD1" />
+          <NavigationProperty Name="OD2" Relationship="EvidencijaModel.FK_OD_OD" FromRole="OD1" ToRole="OD" />
+          <NavigationProperty Name="Zaposlenici" Relationship="EvidencijaModel.FK_OD_Zaposlenici" FromRole="OD" ToRole="Zaposlenici" />
+          <NavigationProperty Name="Zaposlenici1" Relationship="EvidencijaModel.FK_OD_Zaposlenici1" FromRole="OD" ToRole="Zaposlenici" />
+          <NavigationProperty Name="Zaposlenici2" Relationship="EvidencijaModel.FK_Zaposlenici_OD" FromRole="OD" ToRole="Zaposlenici" />
+          <NavigationProperty Name="Fiksna" Relationship="EvidencijaModel.FK_Fiksna_OD" FromRole="OD" ToRole="Fiksna" />
+          <Property Type="Int32" Name="nivo" />
+          <NavigationProperty Name="PotrosnjaSumarnoFiksna" Relationship="EvidencijaModel.FK_PotrosnjaSumarnoFiksna_OD" FromRole="OD" ToRole="PotrosnjaSumarnoFiksna" />
+        </EntityType>
+        <EntityType Name="Tel_Potrosnja_Bht">
+          <Key>
+            <PropertyRef Name="id_potr" />
+          </Key>
+          <Property Name="id_potr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_tel" Type="Int32" />
+          <Property Name="TELEFON" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="SIFRA" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="NAZIV" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="KOL" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="IZNOS" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="JED_MJERE" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="JED_CIJENA" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="GODINA" Type="Int32" />
+          <Property Name="MJESEC" Type="Int32" />
+          <NavigationProperty Name="Telefonija" Relationship="EvidencijaModel.FK_Tel_Potrosnja_Bht_Telefonija" FromRole="Tel_Potrosnja_Bht" ToRole="Telefonija" />
+        </EntityType>
+        <EntityType Name="Tel_Potrosnja_Eronet">
+          <Key>
+            <PropertyRef Name="id_potr" />
+          </Key>
+          <Property Name="id_potr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_tel" Type="Int32" />
+          <Property Name="SUBSCRIBER_NUMBER" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="GODINA" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="MJESEC" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="ACCOUNT" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="CONTRACT" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="ORGANISATION_NAME" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="ORG_PERS_ID" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="PRICE_PLAN" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="STAVKA_RACUNA" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="OPIS_STAVKE" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="SUMA" Type="Double" />
+          <Property Name="POREZ" Type="Double" />
+          <Property Name="Iznos" Type="Double" />
+          <Property Name="Count" Type="Double" />
+          <Property Name="Units" Type="Double" />
+          <Property Name="Duration" Type="Double" />
+          <Property Name="Charged_Duration" Type="Double" />
+          <NavigationProperty Name="Telefonija" Relationship="EvidencijaModel.FK_Tel_Potrosnja_Telefonija" FromRole="Tel_Potrosnja_Eronet" ToRole="Telefonija" />
+        </EntityType>
+        <EntityType Name="Tip_Telefona">
+          <Key>
+            <PropertyRef Name="id_tip" />
+          </Key>
+          <Property Name="id_tip" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Telefonija" Relationship="EvidencijaModel.FK_Telefonija_Tip_Telefona" FromRole="Tip_Telefona" ToRole="Telefonija" />
+        </EntityType>
+        <EntityType Name="Zaposlenici">
+          <Key>
+            <PropertyRef Name="id_zaposlenici" />
+          </Key>
+          <Property Name="id_zaposlenici" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ime" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Prezime" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="ImePrezime" Type="String" Nullable="false" MaxLength="511" Unicode="true" FixedLength="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="id_od" Type="Int32" Nullable="false" />
+          <Property Name="id_rm" Type="Int32" Nullable="false" />
+          <Property Name="id_pripadnost" Type="Int32" Nullable="false" />
+          <Property Name="jmbg" Type="String" Nullable="false" MaxLength="13" Unicode="false" FixedLength="true" />
+          <Property Name="datum_pocetka_rada" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="privremeno" Type="Boolean" />
+          <Property Name="datum_prestanka" Type="DateTime" Precision="3" />
+          <Property Name="hrm_broj" Type="Int32" />
+          <Property Name="tip_zaposlenja" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="ad" Type="String" MaxLength="128" Unicode="false" FixedLength="false" />
+          <Property Name="sysdate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="OD" Relationship="EvidencijaModel.FK_OD_Zaposlenici" FromRole="Zaposlenici" ToRole="OD" />
+          <NavigationProperty Name="OD1" Relationship="EvidencijaModel.FK_OD_Zaposlenici1" FromRole="Zaposlenici" ToRole="OD" />
+          <NavigationProperty Name="OD2" Relationship="EvidencijaModel.FK_Zaposlenici_OD" FromRole="Zaposlenici" ToRole="OD" />
+          <NavigationProperty Name="Telefonija" Relationship="EvidencijaModel.FK__Telefonij__id_za__5A1A5A11" FromRole="Zaposlenici" ToRole="Telefonija" />
+          <NavigationProperty Name="RadnaMjesta" Relationship="EvidencijaModel.FK_Zaposlenici_RadnaMjesta" FromRole="Zaposlenici" ToRole="RadnaMjesta" />
+          <NavigationProperty Name="PripadnostUBihGrupi" Relationship="EvidencijaModel.FK_Zaposlenici_PripadnostUBihGrupi" FromRole="Zaposlenici" ToRole="PripadnostUBihGrupi" />
+          <Property Type="String" Name="Napomena" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NotesEmail" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_OD_OD">
+          <End Role="OD" Type="EvidencijaModel.OD" Multiplicity="0..1" />
+          <End Role="OD1" Type="EvidencijaModel.OD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OD">
+              <PropertyRef Name="id_od" />
+            </Principal>
+            <Dependent Role="OD1">
+              <PropertyRef Name="id_odnad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OD_Zaposlenici">
+          <End Role="Zaposlenici" Type="EvidencijaModel.Zaposlenici" Multiplicity="1" />
+          <End Role="OD" Type="EvidencijaModel.OD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenici">
+              <PropertyRef Name="id_zaposlenici" />
+            </Principal>
+            <Dependent Role="OD">
+              <PropertyRef Name="id_voditelj" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OD_Zaposlenici1">
+          <End Role="Zaposlenici" Type="EvidencijaModel.Zaposlenici" Multiplicity="0..1" />
+          <End Role="OD" Type="EvidencijaModel.OD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenici">
+              <PropertyRef Name="id_zaposlenici" />
+            </Principal>
+            <Dependent Role="OD">
+              <PropertyRef Name="id_IzvSur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zaposlenici_OD">
+          <End Role="OD" Type="EvidencijaModel.OD" Multiplicity="1" />
+          <End Role="Zaposlenici" Type="EvidencijaModel.Zaposlenici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OD">
+              <PropertyRef Name="id_od" />
+            </Principal>
+            <Dependent Role="Zaposlenici">
+              <PropertyRef Name="id_od" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Operateri">
+          <Key>
+            <PropertyRef Name="id_oper" />
+          </Key>
+          <Property Type="Int32" Name="id_oper" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Naziv" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Telefonija" Relationship="EvidencijaModel.FK_Telefonija_Operateri" FromRole="Operateri" ToRole="Telefonija" />
+          <NavigationProperty Name="Uredjaji" Relationship="EvidencijaModel.FK_Uredjaji_Operateri" FromRole="Operateri" ToRole="Uredjaji" />
+          <NavigationProperty Name="Fiksna" Relationship="EvidencijaModel.FK_Fiksna_Operateri" FromRole="Operateri" ToRole="Fiksna" />
+        </EntityType>
+        <EntityType Name="Telefonija">
+          <Key>
+            <PropertyRef Name="id_tel" />
+          </Key>
+          <Property Type="Int32" Name="id_tel" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="id_zaposlenici" Nullable="false" />
+          <Property Type="Int32" Name="id_oper" />
+          <Property Type="String" Name="broj_tel" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="id_tip" Nullable="false" />
+          <Property Type="Boolean" Name="voice" Nullable="false" />
+          <Property Type="Boolean" Name="data" Nullable="false" />
+          <Property Type="DateTime" Name="dat_akt" Precision="3" />
+          <Property Type="DateTime" Name="dat_deakt" Precision="3" />
+          <Property Type="Boolean" Name="UkupnoLimit" Nullable="false" />
+          <Property Type="Decimal" Name="Limit" Precision="18" Scale="0" />
+          <NavigationProperty Name="Operateri" Relationship="EvidencijaModel.FK_Telefonija_Operateri" FromRole="Telefonija" ToRole="Operateri" />
+          <NavigationProperty Name="Tel_Potrosnja_Bht" Relationship="EvidencijaModel.FK_Tel_Potrosnja_Bht_Telefonija" FromRole="Telefonija" ToRole="Tel_Potrosnja_Bht" />
+          <NavigationProperty Name="Tel_Potrosnja_Eronet" Relationship="EvidencijaModel.FK_Tel_Potrosnja_Telefonija" FromRole="Telefonija" ToRole="Tel_Potrosnja_Eronet" />
+          <NavigationProperty Name="Zaposlenici" Relationship="EvidencijaModel.FK__Telefonij__id_za__5A1A5A11" FromRole="Telefonija" ToRole="Zaposlenici" />
+          <NavigationProperty Name="Tip_Telefona" Relationship="EvidencijaModel.FK_Telefonija_Tip_Telefona" FromRole="Telefonija" ToRole="Tip_Telefona" />
+          <NavigationProperty Name="Zaduzenje_Uredjaja" Relationship="EvidencijaModel.FK_Zaduzenje_Uredjaja_Telefonija" FromRole="Telefonija" ToRole="Zaduzenje_Uredjaja" />
+          <Property Type="Boolean" Name="Grupni_racun" Nullable="false" />
+          <Property Type="Int32" Name="Grupa_racuna" />
+          <Property Type="Int32" Name="Tekuci_racun" />
+          <NavigationProperty Name="Razduzenje" Relationship="EvidencijaModel.FK_Razduzenje_Telefonija" FromRole="Telefonija" ToRole="Razduzenje" />
+        </EntityType>
+        <Association Name="FK_Telefonija_Operateri">
+          <End Type="EvidencijaModel.Operateri" Role="Operateri" Multiplicity="0..1" />
+          <End Type="EvidencijaModel.Telefonija" Role="Telefonija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operateri">
+              <PropertyRef Name="id_oper" />
+            </Principal>
+            <Dependent Role="Telefonija">
+              <PropertyRef Name="id_oper" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tel_Potrosnja_Bht_Telefonija">
+          <End Type="EvidencijaModel.Telefonija" Role="Telefonija" Multiplicity="0..1" />
+          <End Type="EvidencijaModel.Tel_Potrosnja_Bht" Role="Tel_Potrosnja_Bht" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Telefonija">
+              <PropertyRef Name="id_tel" />
+            </Principal>
+            <Dependent Role="Tel_Potrosnja_Bht">
+              <PropertyRef Name="id_tel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tel_Potrosnja_Telefonija">
+          <End Type="EvidencijaModel.Telefonija" Role="Telefonija" Multiplicity="0..1" />
+          <End Type="EvidencijaModel.Tel_Potrosnja_Eronet" Role="Tel_Potrosnja_Eronet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Telefonija">
+              <PropertyRef Name="id_tel" />
+            </Principal>
+            <Dependent Role="Tel_Potrosnja_Eronet">
+              <PropertyRef Name="id_tel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Telefonij__id_za__5A1A5A11">
+          <End Type="EvidencijaModel.Zaposlenici" Role="Zaposlenici" Multiplicity="1" />
+          <End Type="EvidencijaModel.Telefonija" Role="Telefonija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenici">
+              <PropertyRef Name="id_zaposlenici" />
+            </Principal>
+            <Dependent Role="Telefonija">
+              <PropertyRef Name="id_zaposlenici" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Telefonija_Tip_Telefona">
+          <End Type="EvidencijaModel.Tip_Telefona" Role="Tip_Telefona" Multiplicity="1" />
+          <End Type="EvidencijaModel.Telefonija" Role="Telefonija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tip_Telefona">
+              <PropertyRef Name="id_tip" />
+            </Principal>
+            <Dependent Role="Telefonija">
+              <PropertyRef Name="id_tip" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Uredjaji">
+          <Key>
+            <PropertyRef Name="id_ur" />
+          </Key>
+          <Property Type="Int32" Name="id_ur" Nullable="false" />
+          <Property Type="String" Name="Uredjaj" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="id_model" Nullable="false" />
+          <Property Type="String" Name="IMEI" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SN" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="dat_nabavke" Precision="3" />
+          <Property Type="Boolean" Name="ugovor" Nullable="false" />
+          <Property Type="Int32" Name="trajanje_ugovora" />
+          <Property Type="Int32" Name="id_oper" />
+          <Property Type="DateTime" Name="dat_ugovora" Precision="3" />
+          <NavigationProperty Name="Modeli_Uredjaja" Relationship="EvidencijaModel.FK_Uredjaji_Modeli_Uredjaja" FromRole="Uredjaji" ToRole="Modeli_Uredjaja" />
+          <NavigationProperty Name="Operateri" Relationship="EvidencijaModel.FK_Uredjaji_Operateri" FromRole="Uredjaji" ToRole="Operateri" />
+          <NavigationProperty Name="Zaduzenje_Uredjaja" Relationship="EvidencijaModel.FK_Zaduzenje_Uredjaja_Modeli_Uredjaja" FromRole="Uredjaji" ToRole="Zaduzenje_Uredjaja" />
+          <NavigationProperty Name="Servis" Relationship="EvidencijaModel.FK_Servis_Uredjaji" FromRole="Uredjaji" ToRole="Servis" />
+        </EntityType>
+        <Association Name="FK_Uredjaji_Modeli_Uredjaja">
+          <End Type="EvidencijaModel.Modeli_Uredjaja" Role="Modeli_Uredjaja" Multiplicity="1" />
+          <End Type="EvidencijaModel.Uredjaji" Role="Uredjaji" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modeli_Uredjaja">
+              <PropertyRef Name="id_model" />
+            </Principal>
+            <Dependent Role="Uredjaji">
+              <PropertyRef Name="id_model" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Uredjaji_Operateri">
+          <End Type="EvidencijaModel.Operateri" Role="Operateri" Multiplicity="0..1" />
+          <End Type="EvidencijaModel.Uredjaji" Role="Uredjaji" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operateri">
+              <PropertyRef Name="id_oper" />
+            </Principal>
+            <Dependent Role="Uredjaji">
+              <PropertyRef Name="id_oper" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Zaduzenje_Uredjaja">
+          <Key>
+            <PropertyRef Name="id_zad" />
+          </Key>
+          <Property Type="Int32" Name="id_zad" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="id_tel" />
+          <Property Type="Int32" Name="id_ur" />
+          <Property Type="DateTime" Name="datum_zad" Precision="3" />
+          <Property Type="DateTime" Name="datum_razd" Precision="3" />
+          <NavigationProperty Name="Telefonija" Relationship="EvidencijaModel.FK_Zaduzenje_Uredjaja_Telefonija" FromRole="Zaduzenje_Uredjaja" ToRole="Telefonija" />
+          <NavigationProperty Name="Uredjaji" Relationship="EvidencijaModel.FK_Zaduzenje_Uredjaja_Modeli_Uredjaja" FromRole="Zaduzenje_Uredjaja" ToRole="Uredjaji" />
+        </EntityType>
+        <Association Name="FK_Zaduzenje_Uredjaja_Telefonija">
+          <End Type="EvidencijaModel.Telefonija" Role="Telefonija" Multiplicity="0..1" />
+          <End Type="EvidencijaModel.Zaduzenje_Uredjaja" Role="Zaduzenje_Uredjaja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Telefonija">
+              <PropertyRef Name="id_tel" />
+            </Principal>
+            <Dependent Role="Zaduzenje_Uredjaja">
+              <PropertyRef Name="id_tel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zaduzenje_Uredjaja_Modeli_Uredjaja">
+          <End Type="EvidencijaModel.Uredjaji" Role="Uredjaji" Multiplicity="0..1" />
+          <End Type="EvidencijaModel.Zaduzenje_Uredjaja" Role="Zaduzenje_Uredjaja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uredjaji">
+              <PropertyRef Name="id_ur" />
+            </Principal>
+            <Dependent Role="Zaduzenje_Uredjaja">
+              <PropertyRef Name="id_ur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="vAktivnoZap">
+          <Key>
+            <PropertyRef Name="id_tel" />
+            <PropertyRef Name="ImePrezime" />
+          </Key>
+          <Property Type="Int32" Name="id_tel" Nullable="false" />
+          <Property Type="String" Name="ImePrezime" Nullable="false" MaxLength="564" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vZaduzenje">
+          <Key>
+            <PropertyRef Name="ImePrezime" />
+            <PropertyRef Name="broj_tel" />
+            <PropertyRef Name="id_tel" />
+          </Key>
+          <Property Type="String" Name="ImePrezime" Nullable="false" MaxLength="511" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Naziv" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="broj_tel" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="datum_zad" Precision="3" />
+          <Property Type="String" Name="Uredjaj" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IMEI" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="id_tel" Nullable="false" />
+          <Property Type="Int32" Name="id_zad" />
+        </EntityType>
+        <EntityType Name="Servis">
+          <Key>
+            <PropertyRef Name="id_srv" />
+          </Key>
+          <Property Type="Int32" Name="id_srv" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="id_ur" />
+          <Property Type="DateTime" Name="datum_otp" Precision="3" />
+          <Property Type="String" Name="opis_kvara" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="datum_pov" Precision="3" />
+          <Property Type="String" Name="opis_opr" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Uredjaji" Relationship="EvidencijaModel.FK_Servis_Uredjaji" FromRole="Servis" ToRole="Uredjaji" />
+        </EntityType>
+        <Association Name="FK_Servis_Uredjaji">
+          <End Type="EvidencijaModel.Uredjaji" Role="Uredjaji" Multiplicity="0..1" />
+          <End Type="EvidencijaModel.Servis" Role="Servis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uredjaji">
+              <PropertyRef Name="id_ur" />
+            </Principal>
+            <Dependent Role="Servis">
+              <PropertyRef Name="id_ur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="vEronetPotrosnja">
+          <Key>
+            <PropertyRef Name="id_potr" />
+          </Key>
+          <Property Type="Int32" Name="id_potr" Nullable="false" />
+          <Property Type="Int32" Name="id_tel" />
+          <Property Type="String" Name="telefon" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="GODINA" />
+          <Property Type="Int32" Name="MJESEC" />
+          <Property Type="String" Name="SIFRA" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OPIS_STAVKE" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="Iznos" />
+          <Property Type="String" Name="idlnk" MaxLength="317" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="RadnaMjesta">
+          <Key>
+            <PropertyRef Name="id_rm" />
+          </Key>
+          <Property Type="Int32" Name="id_rm" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Naziv" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="StrucnaSprema" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Zaposlenici" Relationship="EvidencijaModel.FK_Zaposlenici_RadnaMjesta" FromRole="RadnaMjesta" ToRole="Zaposlenici" />
+        </EntityType>
+        <Association Name="FK_Zaposlenici_RadnaMjesta">
+          <End Type="EvidencijaModel.RadnaMjesta" Role="RadnaMjesta" Multiplicity="1" />
+          <End Type="EvidencijaModel.Zaposlenici" Role="Zaposlenici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RadnaMjesta">
+              <PropertyRef Name="id_rm" />
+            </Principal>
+            <Dependent Role="Zaposlenici">
+              <PropertyRef Name="id_rm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PripadnostUBihGrupi">
+          <Key>
+            <PropertyRef Name="id_pripadnost" />
+          </Key>
+          <Property Type="Int32" Name="id_pripadnost" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="naziv" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Zaposlenici" Relationship="EvidencijaModel.FK_Zaposlenici_PripadnostUBihGrupi" FromRole="PripadnostUBihGrupi" ToRole="Zaposlenici" />
+        </EntityType>
+        <Association Name="FK_Zaposlenici_PripadnostUBihGrupi">
+          <End Type="EvidencijaModel.PripadnostUBihGrupi" Role="PripadnostUBihGrupi" Multiplicity="1" />
+          <End Type="EvidencijaModel.Zaposlenici" Role="Zaposlenici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PripadnostUBihGrupi">
+              <PropertyRef Name="id_pripadnost" />
+            </Principal>
+            <Dependent Role="Zaposlenici">
+              <PropertyRef Name="id_pripadnost" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="vUredjaji">
+          <Key>
+            <PropertyRef Name="id_ur" />
+          </Key>
+          <Property Type="Int32" Name="id_ur" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Uredjaj" MaxLength="156" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="spPotrosnja_Result">
+          <Property Type="String" Name="godina" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="mjesec" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Naziv" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="iznos" Nullable="true" Precision="38" Scale="3" />
+          <Property Type="Int32" Name="Grupa_racuna" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="vPotrosnjaMjesec">
+          <Key>
+            <PropertyRef Name="id_sum" />
+            <PropertyRef Name="ImePrezime" />
+            <PropertyRef Name="TC" />
+          </Key>
+          <Property Type="Int32" Name="id_sum" Nullable="false" />
+          <Property Type="String" Name="broj" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="godina" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="mjesec" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="Ukupno" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="Placa_Banka" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="Placa_Kor" Precision="18" Scale="3" />
+          <Property Type="String" Name="lnk" MaxLength="155" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ImePrezime" Nullable="false" MaxLength="511" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TC" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Tekuci_racun" />
+        </EntityType>
+        <EntityType Name="Fiksna">
+          <Key>
+            <PropertyRef Name="id_fiks" />
+          </Key>
+          <Property Type="Int32" Name="id_fiks" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="id_od" Nullable="false" />
+          <Property Type="Int32" Name="id_oper" />
+          <Property Type="String" Name="broj_ugovora" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="centrala_broj" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="id_tip" Nullable="false" />
+          <Property Type="Boolean" Name="voice" Nullable="false" />
+          <Property Type="Boolean" Name="data" Nullable="false" />
+          <Property Type="DateTime" Name="dat_akt" Precision="3" />
+          <Property Type="DateTime" Name="dat_deakt" Precision="3" />
+          <NavigationProperty Name="OD" Relationship="EvidencijaModel.FK_Fiksna_OD" FromRole="Fiksna" ToRole="OD" />
+          <NavigationProperty Name="Operateri" Relationship="EvidencijaModel.FK_Fiksna_Operateri" FromRole="Fiksna" ToRole="Operateri" />
+          <NavigationProperty Name="PotrosnjaSumarnoFiksna" Relationship="EvidencijaModel.FK_PotrosnjaSumarnoFiksna_Fiksna" FromRole="Fiksna" ToRole="PotrosnjaSumarnoFiksna" />
+        </EntityType>
+        <Association Name="FK_Fiksna_OD">
+          <End Type="EvidencijaModel.OD" Role="OD" Multiplicity="1" />
+          <End Type="EvidencijaModel.Fiksna" Role="Fiksna" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OD">
+              <PropertyRef Name="id_od" />
+            </Principal>
+            <Dependent Role="Fiksna">
+              <PropertyRef Name="id_od" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fiksna_Operateri">
+          <End Type="EvidencijaModel.Operateri" Role="Operateri" Multiplicity="0..1" />
+          <End Type="EvidencijaModel.Fiksna" Role="Fiksna" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operateri">
+              <PropertyRef Name="id_oper" />
+            </Principal>
+            <Dependent Role="Fiksna">
+              <PropertyRef Name="id_oper" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="vPotrosnjaFiksnoMjesec">
+          <Key>
+            <PropertyRef Name="id_sum" />
+            <PropertyRef Name="Naziv" />
+            <PropertyRef Name="broj_ugovora" />
+          </Key>
+          <Property Type="Int32" Name="id_sum" Nullable="false" />
+          <Property Type="String" Name="broj" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="godina" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="mjesec" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="Ukupno" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="Placa_Banka" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="Placa_Kor" Precision="18" Scale="3" />
+          <Property Type="String" Name="lnk" MaxLength="203" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Naziv" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TC" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="broj_ugovora" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="spFisknoPotrosnja_Result">
+          <Property Type="String" Name="godina" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="mjesec" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Naziv" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="iznos" Nullable="true" Precision="38" Scale="3" />
+          <Property Type="Decimal" Name="preth_dug" Nullable="true" Precision="38" Scale="3" />
+          <Property Type="Decimal" Name="preplaceno" Nullable="true" Precision="38" Scale="3" />
+          <Property Type="String" Name="broj_ugovora" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="vPotrosnja">
+          <Key>
+            <PropertyRef Name="id_sum" />
+          </Key>
+          <Property Type="Int32" Name="id_sum" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="id_tel" />
+          <Property Type="Int32" Name="id_zaposlenici" />
+          <Property Type="String" Name="broj_tel" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="godina" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="mjesec" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="iznos" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="limit" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="iznos_kor" Precision="18" Scale="3" />
+        </EntityType>
+        <EntityType Name="Razduzenje">
+          <Key>
+            <PropertyRef Name="id_raz" />
+          </Key>
+          <Property Type="Int32" Name="id_raz" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="id_tel" Nullable="false" />
+          <Property Type="DateTime" Name="datum_razduzenja" Precision="3" />
+          <Property Type="String" Name="opis" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="status" />
+          <Property Type="Boolean" Name="zadrzati_broj" Nullable="false" />
+          <NavigationProperty Name="Telefonija" Relationship="EvidencijaModel.FK_Razduzenje_Telefonija" FromRole="Razduzenje" ToRole="Telefonija" />
+          <Property Type="DateTime" Name="datum_potvrde" Precision="3" />
+          <Property Type="Boolean" Name="Mobitel" />
+          <Property Type="Boolean" Name="Uredjaj" />
+        </EntityType>
+        <Association Name="FK_Razduzenje_Telefonija">
+          <End Type="EvidencijaModel.Telefonija" Role="Telefonija" Multiplicity="1" />
+          <End Type="EvidencijaModel.Razduzenje" Role="Razduzenje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Telefonija">
+              <PropertyRef Name="id_tel" />
+            </Principal>
+            <Dependent Role="Razduzenje">
+              <PropertyRef Name="id_tel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PotrosnjaSumarnoFiksna">
+          <Key>
+            <PropertyRef Name="id_sum" />
+          </Key>
+          <Property Type="Int32" Name="id_sum" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="id_tel" />
+          <Property Type="Int32" Name="id_Od" />
+          <Property Type="String" Name="broj_tel" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="godina" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="mjesec" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="iznos" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="preth_dug" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="preplaceno" Precision="18" Scale="3" />
+          <NavigationProperty Name="Fiksna" Relationship="EvidencijaModel.FK_PotrosnjaSumarnoFiksna_Fiksna" FromRole="PotrosnjaSumarnoFiksna" ToRole="Fiksna" />
+          <NavigationProperty Name="OD" Relationship="EvidencijaModel.FK_PotrosnjaSumarnoFiksna_OD" FromRole="PotrosnjaSumarnoFiksna" ToRole="OD" />
+        </EntityType>
+        <Association Name="FK_PotrosnjaSumarnoFiksna_Fiksna">
+          <End Type="EvidencijaModel.Fiksna" Role="Fiksna" Multiplicity="0..1" />
+          <End Type="EvidencijaModel.PotrosnjaSumarnoFiksna" Role="PotrosnjaSumarnoFiksna" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fiksna">
+              <PropertyRef Name="id_fiks" />
+            </Principal>
+            <Dependent Role="PotrosnjaSumarnoFiksna">
+              <PropertyRef Name="id_tel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PotrosnjaSumarnoFiksna_OD">
+          <End Type="EvidencijaModel.OD" Role="OD" Multiplicity="0..1" />
+          <End Type="EvidencijaModel.PotrosnjaSumarnoFiksna" Role="PotrosnjaSumarnoFiksna" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OD">
+              <PropertyRef Name="id_od" />
+            </Principal>
+            <Dependent Role="PotrosnjaSumarnoFiksna">
+              <PropertyRef Name="id_Od" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PotrosnjaSumarno">
+          <Key>
+            <PropertyRef Name="id_sum" />
+          </Key>
+          <Property Type="Int32" Name="id_sum" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="id_tel" />
+          <Property Type="Int32" Name="id_zaposlenici" />
+          <Property Type="String" Name="broj_tel" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="godina" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="mjesec" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="iznos" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="limit" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="iznos_kor" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="odob_limit" Precision="18" Scale="3" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EvidencijaModelStoreContainer" CdmEntityContainer="EvidencijaEntities">
+          <EntitySetMapping Name="Modeli_Uredjaja">
+            <EntityTypeMapping TypeName="EvidencijaModel.Modeli_Uredjaja">
+              <MappingFragment StoreEntitySet="Modeli_Uredjaja">
+                <ScalarProperty Name="id_model" ColumnName="id_model" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OD">
+            <EntityTypeMapping TypeName="EvidencijaModel.OD">
+              <MappingFragment StoreEntitySet="OD">
+                <ScalarProperty Name="nivo" ColumnName="nivo" />
+                <ScalarProperty Name="id_od" ColumnName="id_od" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="Oznaka" ColumnName="Oznaka" />
+                <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+                <ScalarProperty Name="id_mjesto" ColumnName="id_mjesto" />
+                <ScalarProperty Name="id_opcina" ColumnName="id_opcina" />
+                <ScalarProperty Name="id_IzvSur" ColumnName="id_IzvSur" />
+                <ScalarProperty Name="id_voditelj" ColumnName="id_voditelj" />
+                <ScalarProperty Name="regob" ColumnName="regob" />
+                <ScalarProperty Name="id_odnad" ColumnName="id_odnad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tel_Potrosnja_Bht">
+            <EntityTypeMapping TypeName="EvidencijaModel.Tel_Potrosnja_Bht">
+              <MappingFragment StoreEntitySet="Tel_Potrosnja_Bht">
+                <ScalarProperty Name="id_potr" ColumnName="id_potr" />
+                <ScalarProperty Name="id_tel" ColumnName="id_tel" />
+                <ScalarProperty Name="TELEFON" ColumnName="TELEFON" />
+                <ScalarProperty Name="SIFRA" ColumnName="SIFRA" />
+                <ScalarProperty Name="NAZIV" ColumnName="NAZIV" />
+                <ScalarProperty Name="KOL" ColumnName="KOL" />
+                <ScalarProperty Name="IZNOS" ColumnName="IZNOS" />
+                <ScalarProperty Name="JED_MJERE" ColumnName="JED_MJERE" />
+                <ScalarProperty Name="JED_CIJENA" ColumnName="JED_CIJENA" />
+                <ScalarProperty Name="GODINA" ColumnName="GODINA" />
+                <ScalarProperty Name="MJESEC" ColumnName="MJESEC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tel_Potrosnja_Eronet">
+            <EntityTypeMapping TypeName="EvidencijaModel.Tel_Potrosnja_Eronet">
+              <MappingFragment StoreEntitySet="Tel_Potrosnja_Eronet">
+                <ScalarProperty Name="id_potr" ColumnName="id_potr" />
+                <ScalarProperty Name="id_tel" ColumnName="id_tel" />
+                <ScalarProperty Name="SUBSCRIBER_NUMBER" ColumnName="SUBSCRIBER_NUMBER" />
+                <ScalarProperty Name="GODINA" ColumnName="GODINA" />
+                <ScalarProperty Name="MJESEC" ColumnName="MJESEC" />
+                <ScalarProperty Name="ACCOUNT" ColumnName="ACCOUNT" />
+                <ScalarProperty Name="CONTRACT" ColumnName="CONTRACT" />
+                <ScalarProperty Name="ORGANISATION_NAME" ColumnName="ORGANISATION_NAME" />
+                <ScalarProperty Name="ORG_PERS_ID" ColumnName="ORG_PERS_ID" />
+                <ScalarProperty Name="PRICE_PLAN" ColumnName="PRICE_PLAN" />
+                <ScalarProperty Name="STAVKA_RACUNA" ColumnName="STAVKA_RACUNA" />
+                <ScalarProperty Name="OPIS_STAVKE" ColumnName="OPIS_STAVKE" />
+                <ScalarProperty Name="SUMA" ColumnName="SUMA" />
+                <ScalarProperty Name="POREZ" ColumnName="POREZ" />
+                <ScalarProperty Name="Iznos" ColumnName="Iznos" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Units" ColumnName="Units" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Charged_Duration" ColumnName="Charged Duration" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tip_Telefona">
+            <EntityTypeMapping TypeName="EvidencijaModel.Tip_Telefona">
+              <MappingFragment StoreEntitySet="Tip_Telefona">
+                <ScalarProperty Name="id_tip" ColumnName="id_tip" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zaposlenici">
+            <EntityTypeMapping TypeName="EvidencijaModel.Zaposlenici">
+              <MappingFragment StoreEntitySet="Zaposlenici">
+                <ScalarProperty Name="NotesEmail" ColumnName="NotesEmail" />
+                <ScalarProperty Name="Napomena" ColumnName="Napomena" />
+                <ScalarProperty Name="id_zaposlenici" ColumnName="id_zaposlenici" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+                <ScalarProperty Name="ImePrezime" ColumnName="ImePrezime" />
+                <ScalarProperty Name="id_od" ColumnName="id_od" />
+                <ScalarProperty Name="id_rm" ColumnName="id_rm" />
+                <ScalarProperty Name="id_pripadnost" ColumnName="id_pripadnost" />
+                <ScalarProperty Name="jmbg" ColumnName="jmbg" />
+                <ScalarProperty Name="datum_pocetka_rada" ColumnName="datum_pocetka_rada" />
+                <ScalarProperty Name="privremeno" ColumnName="privremeno" />
+                <ScalarProperty Name="datum_prestanka" ColumnName="datum_prestanka" />
+                <ScalarProperty Name="hrm_broj" ColumnName="hrm_broj" />
+                <ScalarProperty Name="tip_zaposlenja" ColumnName="tip_zaposlenja" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="ad" ColumnName="ad" />
+                <ScalarProperty Name="sysdate" ColumnName="sysdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Operateri">
+            <EntityTypeMapping TypeName="EvidencijaModel.Operateri">
+              <MappingFragment StoreEntitySet="Operateri">
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="id_oper" ColumnName="id_oper" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Telefonija">
+            <EntityTypeMapping TypeName="EvidencijaModel.Telefonija">
+              <MappingFragment StoreEntitySet="Telefonija">
+                <ScalarProperty Name="Tekuci_racun" ColumnName="Tekuci_racun" />
+                <ScalarProperty Name="Grupa_racuna" ColumnName="Grupa_racuna" />
+                <ScalarProperty Name="Grupni_racun" ColumnName="Grupni_racun" />
+                <ScalarProperty Name="Limit" ColumnName="Limit" />
+                <ScalarProperty Name="UkupnoLimit" ColumnName="UkupnoLimit" />
+                <ScalarProperty Name="dat_deakt" ColumnName="dat_deakt" />
+                <ScalarProperty Name="dat_akt" ColumnName="dat_akt" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="voice" ColumnName="voice" />
+                <ScalarProperty Name="id_tip" ColumnName="id_tip" />
+                <ScalarProperty Name="broj_tel" ColumnName="broj_tel" />
+                <ScalarProperty Name="id_oper" ColumnName="id_oper" />
+                <ScalarProperty Name="id_zaposlenici" ColumnName="id_zaposlenici" />
+                <ScalarProperty Name="id_tel" ColumnName="id_tel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Uredjaji">
+            <EntityTypeMapping TypeName="EvidencijaModel.Uredjaji">
+              <MappingFragment StoreEntitySet="Uredjaji">
+                <ScalarProperty Name="dat_ugovora" ColumnName="dat_ugovora" />
+                <ScalarProperty Name="id_oper" ColumnName="id_oper" />
+                <ScalarProperty Name="trajanje_ugovora" ColumnName="trajanje_ugovora" />
+                <ScalarProperty Name="ugovor" ColumnName="ugovor" />
+                <ScalarProperty Name="dat_nabavke" ColumnName="dat_nabavke" />
+                <ScalarProperty Name="SN" ColumnName="SN" />
+                <ScalarProperty Name="IMEI" ColumnName="IMEI" />
+                <ScalarProperty Name="id_model" ColumnName="id_model" />
+                <ScalarProperty Name="Uredjaj" ColumnName="Uredjaj" />
+                <ScalarProperty Name="id_ur" ColumnName="id_ur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zaduzenje_Uredjaja">
+            <EntityTypeMapping TypeName="EvidencijaModel.Zaduzenje_Uredjaja">
+              <MappingFragment StoreEntitySet="Zaduzenje_Uredjaja">
+                <ScalarProperty Name="datum_razd" ColumnName="datum_razd" />
+                <ScalarProperty Name="datum_zad" ColumnName="datum_zad" />
+                <ScalarProperty Name="id_ur" ColumnName="id_ur" />
+                <ScalarProperty Name="id_tel" ColumnName="id_tel" />
+                <ScalarProperty Name="id_zad" ColumnName="id_zad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vAktivnoZap">
+            <EntityTypeMapping TypeName="EvidencijaModel.vAktivnoZap">
+              <MappingFragment StoreEntitySet="vAktivnoZap">
+                <ScalarProperty Name="ImePrezime" ColumnName="ImePrezime" />
+                <ScalarProperty Name="id_tel" ColumnName="id_tel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vZaduzenje">
+            <EntityTypeMapping TypeName="EvidencijaModel.vZaduzenje">
+              <MappingFragment StoreEntitySet="vZaduzenje">
+                <ScalarProperty Name="id_zad" ColumnName="id_zad" />
+                <ScalarProperty Name="id_tel" ColumnName="id_tel" />
+                <ScalarProperty Name="IMEI" ColumnName="IMEI" />
+                <ScalarProperty Name="Uredjaj" ColumnName="Uredjaj" />
+                <ScalarProperty Name="datum_zad" ColumnName="datum_zad" />
+                <ScalarProperty Name="broj_tel" ColumnName="broj_tel" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="ImePrezime" ColumnName="ImePrezime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servis">
+            <EntityTypeMapping TypeName="EvidencijaModel.Servis">
+              <MappingFragment StoreEntitySet="Servis">
+                <ScalarProperty Name="opis_opr" ColumnName="opis_opr" />
+                <ScalarProperty Name="datum_pov" ColumnName="datum_pov" />
+                <ScalarProperty Name="opis_kvara" ColumnName="opis_kvara" />
+                <ScalarProperty Name="datum_otp" ColumnName="datum_otp" />
+                <ScalarProperty Name="id_ur" ColumnName="id_ur" />
+                <ScalarProperty Name="id_srv" ColumnName="id_srv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vEronetPotrosnja">
+            <EntityTypeMapping TypeName="EvidencijaModel.vEronetPotrosnja">
+              <MappingFragment StoreEntitySet="vEronetPotrosnja">
+                <ScalarProperty Name="idlnk" ColumnName="idlnk" />
+                <ScalarProperty Name="Iznos" ColumnName="Iznos" />
+                <ScalarProperty Name="OPIS_STAVKE" ColumnName="OPIS_STAVKE" />
+                <ScalarProperty Name="SIFRA" ColumnName="SIFRA" />
+                <ScalarProperty Name="MJESEC" ColumnName="MJESEC" />
+                <ScalarProperty Name="GODINA" ColumnName="GODINA" />
+                <ScalarProperty Name="telefon" ColumnName="telefon" />
+                <ScalarProperty Name="id_tel" ColumnName="id_tel" />
+                <ScalarProperty Name="id_potr" ColumnName="id_potr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spPregledTelOD" FunctionName="EvidencijaModel.Store.spPregledTelOD" />
+          <EntitySetMapping Name="RadnaMjesta">
+            <EntityTypeMapping TypeName="EvidencijaModel.RadnaMjesta">
+              <MappingFragment StoreEntitySet="RadnaMjesta">
+                <ScalarProperty Name="StrucnaSprema" ColumnName="StrucnaSprema" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="id_rm" ColumnName="id_rm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PripadnostUBihGrupi">
+            <EntityTypeMapping TypeName="EvidencijaModel.PripadnostUBihGrupi">
+              <MappingFragment StoreEntitySet="PripadnostUBihGrupi">
+                <ScalarProperty Name="naziv" ColumnName="naziv" />
+                <ScalarProperty Name="id_pripadnost" ColumnName="id_pripadnost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vUredjaji">
+            <EntityTypeMapping TypeName="EvidencijaModel.vUredjaji">
+              <MappingFragment StoreEntitySet="vUredjaji">
+                <ScalarProperty Name="Uredjaj" ColumnName="Uredjaj" />
+                <ScalarProperty Name="id_ur" ColumnName="id_ur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spPotrosnja" FunctionName="EvidencijaModel.Store.spPotrosnja">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EvidencijaModel.spPotrosnja_Result">
+                <ScalarProperty Name="godina" ColumnName="godina" />
+                <ScalarProperty Name="mjesec" ColumnName="mjesec" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="iznos" ColumnName="iznos" />
+                <ScalarProperty Name="Grupa_racuna" ColumnName="Grupa_racuna" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="vPotrosnjaMjesec">
+            <EntityTypeMapping TypeName="EvidencijaModel.vPotrosnjaMjesec">
+              <MappingFragment StoreEntitySet="vPotrosnjaMjesec">
+                <ScalarProperty Name="Tekuci_racun" ColumnName="Tekuci_racun" />
+                <ScalarProperty Name="TC" ColumnName="TC" />
+                <ScalarProperty Name="ImePrezime" ColumnName="ImePrezime" />
+                <ScalarProperty Name="lnk" ColumnName="lnk" />
+                <ScalarProperty Name="Placa_Kor" ColumnName="Placa_Kor" />
+                <ScalarProperty Name="Placa_Banka" ColumnName="Placa_Banka" />
+                <ScalarProperty Name="Ukupno" ColumnName="Ukupno" />
+                <ScalarProperty Name="mjesec" ColumnName="mjesec" />
+                <ScalarProperty Name="godina" ColumnName="godina" />
+                <ScalarProperty Name="broj" ColumnName="broj" />
+                <ScalarProperty Name="id_sum" ColumnName="id_sum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fiksna">
+            <EntityTypeMapping TypeName="EvidencijaModel.Fiksna">
+              <MappingFragment StoreEntitySet="Fiksna">
+                <ScalarProperty Name="dat_deakt" ColumnName="dat_deakt" />
+                <ScalarProperty Name="dat_akt" ColumnName="dat_akt" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="voice" ColumnName="voice" />
+                <ScalarProperty Name="id_tip" ColumnName="id_tip" />
+                <ScalarProperty Name="centrala_broj" ColumnName="centrala_broj" />
+                <ScalarProperty Name="broj_ugovora" ColumnName="broj_ugovora" />
+                <ScalarProperty Name="id_oper" ColumnName="id_oper" />
+                <ScalarProperty Name="id_od" ColumnName="id_od" />
+                <ScalarProperty Name="id_fiks" ColumnName="id_fiks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vPotrosnjaFiksnoMjesec">
+            <EntityTypeMapping TypeName="EvidencijaModel.vPotrosnjaFiksnoMjesec">
+              <MappingFragment StoreEntitySet="vPotrosnjaFiksnoMjesec">
+                <ScalarProperty Name="broj_ugovora" ColumnName="broj_ugovora" />
+                <ScalarProperty Name="TC" ColumnName="TC" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="lnk" ColumnName="lnk" />
+                <ScalarProperty Name="Placa_Kor" ColumnName="Placa_Kor" />
+                <ScalarProperty Name="Placa_Banka" ColumnName="Placa_Banka" />
+                <ScalarProperty Name="Ukupno" ColumnName="Ukupno" />
+                <ScalarProperty Name="mjesec" ColumnName="mjesec" />
+                <ScalarProperty Name="godina" ColumnName="godina" />
+                <ScalarProperty Name="broj" ColumnName="broj" />
+                <ScalarProperty Name="id_sum" ColumnName="id_sum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spFiksnoPotrosnja" FunctionName="EvidencijaModel.Store.spFisknoPotrosnja">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EvidencijaModel.spFisknoPotrosnja_Result">
+                <ScalarProperty Name="godina" ColumnName="godina" />
+                <ScalarProperty Name="mjesec" ColumnName="mjesec" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="iznos" ColumnName="iznos" />
+                <ScalarProperty Name="preth_dug" ColumnName="preth_dug" />
+                <ScalarProperty Name="preplaceno" ColumnName="preplaceno" />
+                <ScalarProperty Name="broj_ugovora" ColumnName="broj_ugovora" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="vPotrosnja">
+            <EntityTypeMapping TypeName="EvidencijaModel.vPotrosnja">
+              <MappingFragment StoreEntitySet="vPotrosnja">
+                <ScalarProperty Name="iznos_kor" ColumnName="iznos_kor" />
+                <ScalarProperty Name="limit" ColumnName="limit" />
+                <ScalarProperty Name="iznos" ColumnName="iznos" />
+                <ScalarProperty Name="mjesec" ColumnName="mjesec" />
+                <ScalarProperty Name="godina" ColumnName="godina" />
+                <ScalarProperty Name="broj_tel" ColumnName="broj_tel" />
+                <ScalarProperty Name="id_zaposlenici" ColumnName="id_zaposlenici" />
+                <ScalarProperty Name="id_tel" ColumnName="id_tel" />
+                <ScalarProperty Name="id_sum" ColumnName="id_sum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Razduzenje">
+            <EntityTypeMapping TypeName="EvidencijaModel.Razduzenje">
+              <MappingFragment StoreEntitySet="Razduzenje">
+                <ScalarProperty Name="Uredjaj" ColumnName="Uredjaj" />
+                <ScalarProperty Name="Mobitel" ColumnName="Mobitel" />
+                <ScalarProperty Name="datum_potvrde" ColumnName="datum_potvrde" />
+                <ScalarProperty Name="zadrzati_broj" ColumnName="zadrzati_broj" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="opis" ColumnName="opis" />
+                <ScalarProperty Name="datum_razduzenja" ColumnName="datum_razduzenja" />
+                <ScalarProperty Name="id_tel" ColumnName="id_tel" />
+                <ScalarProperty Name="id_raz" ColumnName="id_raz" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PotrosnjaSumarnoFiksna">
+            <EntityTypeMapping TypeName="EvidencijaModel.PotrosnjaSumarnoFiksna">
+              <MappingFragment StoreEntitySet="PotrosnjaSumarnoFiksna">
+                <ScalarProperty Name="preplaceno" ColumnName="preplaceno" />
+                <ScalarProperty Name="preth_dug" ColumnName="preth_dug" />
+                <ScalarProperty Name="iznos" ColumnName="iznos" />
+                <ScalarProperty Name="mjesec" ColumnName="mjesec" />
+                <ScalarProperty Name="godina" ColumnName="godina" />
+                <ScalarProperty Name="broj_tel" ColumnName="broj_tel" />
+                <ScalarProperty Name="id_Od" ColumnName="id_Od" />
+                <ScalarProperty Name="id_tel" ColumnName="id_tel" />
+                <ScalarProperty Name="id_sum" ColumnName="id_sum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PotrosnjaSumarno">
+            <EntityTypeMapping TypeName="EvidencijaModel.PotrosnjaSumarno">
+              <MappingFragment StoreEntitySet="PotrosnjaSumarno">
+                <ScalarProperty Name="odob_limit" ColumnName="odob_limit" />
+                <ScalarProperty Name="iznos_kor" ColumnName="iznos_kor" />
+                <ScalarProperty Name="limit" ColumnName="limit" />
+                <ScalarProperty Name="iznos" ColumnName="iznos" />
+                <ScalarProperty Name="mjesec" ColumnName="mjesec" />
+                <ScalarProperty Name="godina" ColumnName="godina" />
+                <ScalarProperty Name="broj_tel" ColumnName="broj_tel" />
+                <ScalarProperty Name="id_zaposlenici" ColumnName="id_zaposlenici" />
+                <ScalarProperty Name="id_tel" ColumnName="id_tel" />
+                <ScalarProperty Name="id_sum" ColumnName="id_sum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="mdData" ZoomLevel="74">
+        <EntityTypeShape EntityType="EvidencijaModel.Modeli_Uredjaja" Width="1.5" PointX="0.75" PointY="22.75" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="EvidencijaModel.OD" Width="1.5" PointX="0.75" PointY="7.375" Height="4.4802050781250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="EvidencijaModel.Tel_Potrosnja_Bht" Width="1.5" PointX="8.25" PointY="11.75" Height="3.3263964843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="EvidencijaModel.Tel_Potrosnja_Eronet" Width="1.5" PointX="8.25" PointY="15.875" Height="4.8648079427083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="EvidencijaModel.Tip_Telefona" Width="1.5" PointX="3.75" PointY="21.75" Height="1.595683593749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="EvidencijaModel.Zaposlenici" Width="1.5" PointX="1.5" PointY="0.75" Height="5.634013671875" IsExpanded="true" />
+        <AssociationConnector Association="EvidencijaModel.FK_OD_OD" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.2819230769230767" PointY="11.855205078125001" />
+          <ConnectorPoint PointX="1.2819230769230767" PointY="12.105205078125003" />
+          <ConnectorPoint PointX="1.7284615384615383" PointY="12.105205078125003" />
+          <ConnectorPoint PointX="1.7284615384615383" PointY="11.855205078125001" />
+        </AssociationConnector>
+        <AssociationConnector Association="EvidencijaModel.FK_OD_Zaposlenici" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.875" PointY="6.384013671875" />
+          <ConnectorPoint PointX="1.875" PointY="7.375" />
+        </AssociationConnector>
+        <AssociationConnector Association="EvidencijaModel.FK_OD_Zaposlenici1" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.125" PointY="6.384013671875" />
+          <ConnectorPoint PointX="2.125" PointY="7.375" />
+        </AssociationConnector>
+        <AssociationConnector Association="EvidencijaModel.FK_Zaposlenici_OD" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.625" PointY="7.375" />
+          <ConnectorPoint PointX="1.625" PointY="6.384013671875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="EvidencijaModel.Operateri" Width="1.5" PointX="0.75" PointY="13.625" Height="1.9802864583333317" />
+        <EntityTypeShape EntityType="EvidencijaModel.Telefonija" Width="1.5" PointX="6" PointY="12" Height="5.057109375" />
+        <AssociationConnector Association="EvidencijaModel.FK_Telefonija_Operateri" >
+          <ConnectorPoint PointX="1.5" PointY="15.605286458333332" />
+          <ConnectorPoint PointX="1.5" PointY="16.790304361979167" />
+          <ConnectorPoint PointX="2.3072926666666667" PointY="16.790304361979167" />
+          <ConnectorPoint PointX="2.4739593333333336" PointY="16.790304361979167" />
+          <ConnectorPoint PointX="3.2916666666666665" PointY="16.790304361979167" />
+          <ConnectorPoint PointX="3.4583333333333335" PointY="16.790304361979167" />
+          <ConnectorPoint PointX="3.8854191666666664" PointY="16.790304361979167" />
+          <ConnectorPoint PointX="4.0520858333333329" PointY="16.790304361979167" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="16.790304361979167" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="16.790304361979167" />
+          <ConnectorPoint PointX="5.666666666666667" PointY="16.790304361979167" />
+          <ConnectorPoint PointX="5.833333333333333" PointY="16.790304361979167" />
+          <ConnectorPoint PointX="6" PointY="16.790304361979167" />
+        </AssociationConnector>
+        <AssociationConnector Association="EvidencijaModel.FK_Tel_Potrosnja_Bht_Telefonija" >
+          <ConnectorPoint PointX="7.5" PointY="13.5381982421875" />
+          <ConnectorPoint PointX="8.25" PointY="13.5381982421875" />
+        </AssociationConnector>
+        <AssociationConnector Association="EvidencijaModel.FK_Tel_Potrosnja_Telefonija" >
+          <ConnectorPoint PointX="7.5" PointY="16.4660546875" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="16.4660546875" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="16.4660546875" />
+          <ConnectorPoint PointX="8.25" PointY="16.4660546875" />
+        </AssociationConnector>
+        <AssociationConnector Association="EvidencijaModel.FK__Telefonij__id_za__5A1A5A11" >
+          <ConnectorPoint PointX="2.625" PointY="6.384013671875" />
+          <ConnectorPoint PointX="2.625" PointY="12.358177475827123" />
+          <ConnectorPoint PointX="2.6666666666666665" PointY="12.358177475827123" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="12.358177475827123" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="12.358177475827123" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="12.358177475827123" />
+          <ConnectorPoint PointX="6" PointY="12.358177475827123" />
+        </AssociationConnector>
+        <AssociationConnector Association="EvidencijaModel.FK_Telefonija_Tip_Telefona" >
+          <ConnectorPoint PointX="4.875" PointY="21.75" />
+          <ConnectorPoint PointX="4.875" PointY="12.153849951654259" />
+          <ConnectorPoint PointX="6" PointY="12.153849951654259" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="EvidencijaModel.Uredjaji" Width="1.5" PointX="3" PointY="12.75" Height="3.7109993489583335" />
+        <AssociationConnector Association="EvidencijaModel.FK_Uredjaji_Modeli_Uredjaja" >
+          <ConnectorPoint PointX="2.25" PointY="23.87693359375" />
+          <ConnectorPoint PointX="3.375" PointY="23.87693359375" />
+          <ConnectorPoint PointX="3.375" PointY="16.460999348958332" />
+        </AssociationConnector>
+        <AssociationConnector Association="EvidencijaModel.FK_Uredjaji_Operateri" >
+          <ConnectorPoint PointX="2.25" PointY="14.615143229166666" />
+          <ConnectorPoint PointX="2.3072926666666667" PointY="14.615143229166666" />
+          <ConnectorPoint PointX="2.4739593333333336" PointY="14.615143229166666" />
+          <ConnectorPoint PointX="3" PointY="14.615143229166666" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="EvidencijaModel.Zaduzenje_Uredjaja" Width="1.5" PointX="11.25" PointY="13.375" Height="2.3648893229166674" />
+        <AssociationConnector Association="EvidencijaModel.FK_Zaduzenje_Uredjaja_Telefonija" >
+          <ConnectorPoint PointX="7.5" PointY="15.533142903645834" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="15.533142903645834" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="15.533142903645834" />
+          <ConnectorPoint PointX="11.25" PointY="15.533142903645834" />
+        </AssociationConnector>
+        <AssociationConnector Association="EvidencijaModel.FK_Zaduzenje_Uredjaja_Modeli_Uredjaja" >
+          <ConnectorPoint PointX="3.75" PointY="12.75" />
+          <ConnectorPoint PointX="3.75" PointY="12.5" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="12.5" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="12.5" />
+          <ConnectorPoint PointX="5.75" PointY="12.5" />
+          <ConnectorPoint PointX="5.75" PointY="17.114807942708335" />
+          <ConnectorPoint PointX="8" PointY="17.114807942708335" />
+          <ConnectorPoint PointX="8" PointY="15.201396484375" />
+          <ConnectorPoint PointX="10.875" PointY="15.201396484375" />
+          <ConnectorPoint PointX="10.875" PointY="14.375944451822916" />
+          <ConnectorPoint PointX="11.25" PointY="14.375944451822916" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="EvidencijaModel.vAktivnoZap" Width="1.5" PointX="3.75" PointY="5.5" Height="1.4033821614583388" />
+        <EntityTypeShape EntityType="EvidencijaModel.vZaduzenje" Width="1.5" PointX="5.75" PointY="1.5" Height="2.5571907552083317" />
+        <EntityTypeShape EntityType="EvidencijaModel.Servis" Width="1.5" PointX="5.25" PointY="18.375" Height="2.3648893229166674" />
+        <AssociationConnector Association="EvidencijaModel.FK_Servis_Uredjaji" >
+          <ConnectorPoint PointX="3.9687525" PointY="16.460999348958332" />
+          <ConnectorPoint PointX="3.9687525" PointY="19.557444661458334" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="19.557444661458334" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="19.557444661458334" />
+          <ConnectorPoint PointX="5.25" PointY="19.557444661458334" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="EvidencijaModel.vEronetPotrosnja" Width="1.5" PointX="7.75" PointY="1.5" Height="2.7494921875000031" />
+        <EntityTypeShape EntityType="EvidencijaModel.RadnaMjesta" Width="1.5" PointX="1.5" PointY="19.875" Height="1.7879850260416674" />
+        <AssociationConnector Association="EvidencijaModel.FK_Zaposlenici_RadnaMjesta" >
+          <ConnectorPoint PointX="2.25" PointY="19.875" />
+          <ConnectorPoint PointX="2.25" PointY="19.345683593750003" />
+          <ConnectorPoint PointX="3.25" PointY="19.345683593750003" />
+          <ConnectorPoint PointX="3.25" PointY="16.710999348958332" />
+          <ConnectorPoint PointX="2.75" PointY="16.710999348958332" />
+          <ConnectorPoint PointX="2.75" PointY="6.634013671875" />
+          <ConnectorPoint PointX="3.25" PointY="6.634013671875" />
+          <ConnectorPoint PointX="3.25" PointY="3.5670068359375" />
+          <ConnectorPoint PointX="3" PointY="3.5670068359375" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="EvidencijaModel.PripadnostUBihGrupi" Width="1.5" PointX="1.5" PointY="17.5" Height="1.5956835937500031" />
+        <AssociationConnector Association="EvidencijaModel.FK_Zaposlenici_PripadnostUBihGrupi" >
+          <ConnectorPoint PointX="2.40625" PointY="17.5" />
+          <ConnectorPoint PointX="2.40625" PointY="6.384013671875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="EvidencijaModel.vUredjaji" Width="1.5" PointX="5.75" PointY="5.5" Height="1.4033821614583388" />
+        <EntityTypeShape EntityType="EvidencijaModel.vPotrosnjaMjesec" Width="1.5" PointX="7.75" PointY="5.5" Height="3.1340950520833317" />
+        <EntityTypeShape EntityType="EvidencijaModel.Fiksna" Width="1.5" PointX="3" PointY="7.75" Height="3.5186979166666674" />
+        <AssociationConnector Association="EvidencijaModel.FK_Fiksna_OD" >
+          <ConnectorPoint PointX="2.25" PointY="8.85447351069999" />
+          <ConnectorPoint PointX="2.3229166666666665" PointY="8.85447351069999" />
+          <ConnectorPoint PointX="2.4895833333333335" PointY="8.85447351069999" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="8.8544735106999877" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="8.85447351069999" />
+          <ConnectorPoint PointX="3" PointY="8.85447351069999" />
+        </AssociationConnector>
+        <AssociationConnector Association="EvidencijaModel.FK_Fiksna_Operateri" >
+          <ConnectorPoint PointX="2.25" PointY="13.688460538461539" />
+          <ConnectorPoint PointX="2.3473244349011204" PointY="13.591136103560418" />
+          <ConnectorPoint PointX="2.4651755650988791" PointY="13.473284973362661" />
+          <ConnectorPoint PointX="2.6875" PointY="13.250960538461539" />
+          <ConnectorPoint PointX="2.6875" PointY="10.092837713683322" />
+          <ConnectorPoint PointX="3" PointY="10.092837713683322" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="EvidencijaModel.vPotrosnjaFiksnoMjesec" Width="1.5" PointX="9.75" PointY="1.5" Height="3.1340950520833317" />
+        <EntityTypeShape EntityType="EvidencijaModel.vPotrosnja" Width="1.5" PointX="9.75" PointY="5.5" Height="0.4" IsExpanded="false" />
+        <EntityTypeShape EntityType="EvidencijaModel.Razduzenje" Width="1.5" PointX="8.25" PointY="22.375" Height="2.3648893229166674" />
+        <AssociationConnector Association="EvidencijaModel.FK_Razduzenje_Telefonija" >
+          <ConnectorPoint PointX="7.15625" PointY="17.057109375000003" />
+          <ConnectorPoint PointX="7.15625" PointY="23.557444661458334" />
+          <ConnectorPoint PointX="8.25" PointY="23.557444661458334" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="EvidencijaModel.PotrosnjaSumarnoFiksna" Width="1.5" PointX="5.25" PointY="8" Height="3.1340950520833388" />
+        <AssociationConnector Association="EvidencijaModel.FK_PotrosnjaSumarnoFiksna_Fiksna" >
+          <ConnectorPoint PointX="4.5" PointY="9.56704752604167" />
+          <ConnectorPoint PointX="5.25" PointY="9.56704752604167" />
+        </AssociationConnector>
+        <AssociationConnector Association="EvidencijaModel.FK_PotrosnjaSumarnoFiksna_OD" >
+          <ConnectorPoint PointX="2.25" PointY="11.593201497395835" />
+          <ConnectorPoint PointX="2.3229166666666665" PointY="11.593201497395835" />
+          <ConnectorPoint PointX="2.4895833333333335" PointY="11.593201497395835" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="11.593201497395834" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="11.593201497395835" />
+          <ConnectorPoint PointX="6" PointY="11.593201497395835" />
+          <ConnectorPoint PointX="6" PointY="11.134095052083339" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="EvidencijaModel.PotrosnjaSumarno" Width="1.5" PointX="10.375" PointY="9.75" Height="2.7494921875000102" />
+        </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,78 @@
+﻿@model Mobiteli.Models.PotrosnjaSumarno
+           
+
+@{
+    ViewBag.Title = "Nova potrošnja";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@*<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+*@
+@using (Html.BeginForm()) 
+{
+    <input id="id_tel" type="hidden" name="id_tel"  value="@ViewBag.id_tel"/>
+    <input id="id_zap" type="hidden" name="id_zap"  value="@ViewBag.id_zap"/>
+    <input id="broj_tel" type="hidden" name="broj_tel"  value="@ViewBag.broj"/>
+    @Html.ValidationSummary(true)
+    <table>
+        <tr>
+            <td class="col1">Djelatnik</td>
+            <td class="col1">
+                @ViewBag.Korisnik
+            </td>      
+        </tr>
+        <tr>
+             <td class="col1">Broj telefona</td>
+             <td class="col1">
+                 @ViewBag.broj
+             </td>
+         </tr>
+        <tr>
+            <td class="col1">Godina</td>
+            <td class="col2">
+                @Html.DropDownList("godina", String.Empty)
+            </td>
+        </tr>
+        <tr>
+            <td class="col1">Mjesec</td>
+            <td class="col2">
+                @Html.DropDownList("mjesec", String.Empty)
+            </td>
+        </tr>
+        <tr>
+            <td class="col1">Iznos</td>
+            <td class="col2">
+                @Html.TextBoxFor(model => model.iznos)
+            </td>
+        </tr>
+        <tr>
+            <td class="col1">Limit</td>
+            <td class="col2">
+                @ViewBag.Limit
+                <input id="Limit" type="hidden" name="Limit"  value="@ViewBag.Limit" readonly="readonly" />
+            </td>
+        </tr>
+        <tr>
+              <td >
+                 
+              </td>
+                <td  style="border-style: none; text-align: right;">
+                 <div style="font-size: x-small">
+                     <input type="submit" value="" style="background-position: center bottom; background-image: url('http://localhost:24541/Images/Accept.png'); 
+                         background-repeat: no-repeat; width: 100px; height: 32px;" />
+            @*        <a href='@Url.Action("Edit", new { id = Model.id_od })'>
+                     <img src="../../Images/back-icon.png" alt="Natrag" style="border-style: none" />
+                 </a> *@ 
+                 </div>
+                 </td>
+          </tr>
+       </table>
+}
+@section link
+{
+     <a href='@Url.Action("SumarnoPage", new { id = ViewBag.id_tel })'>
+                     <img src="../../Images/back-icon.png" alt="Natrag" style="border-style: none" />
+                 </a>
+}

@@ -1,0 +1,22 @@
+﻿@model DateTime? 
+@Html.TextBox("", (Model.HasValue ? Model.Value.ToShortDateString() : string.Empty), new { @class = "date-pick", style = "width:150px" }) 
+
+<script src="../../Scripts/jquery-ui-1.8.11.js" type="text/javascript"></script>
+
+<link href="../../Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(function () {
+        $('.date-pick');
+        $('.date-pick').datepicker({
+            dateFormat: 'dd/mm/yy',
+            showStatus: true,
+            showWeeks: false,
+            highlightWeek: true,
+            numberOfMonths: 1,
+            showAnim: "scale",
+            showOptions: {
+                origin: ["top", "left"]
+            } 
+        });
+    });   
+</script> 

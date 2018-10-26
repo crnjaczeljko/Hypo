@@ -1,0 +1,141 @@
+﻿@model PagedList.IPagedList<Mobiteli.Models.Zaposlenici>
+
+@{
+    ViewBag.Title = "Pregled zaposlenika";
+}
+<div class="blue">
+    @using (Html.BeginForm())
+    {
+        <table style="border: 0px none #FFFFFF;">
+            <tr style="border-style: none">
+                <td style="border-style: none">
+                    &nbsp;&nbsp;Pretraga po zaposleniku ili odjelu: @Html.TextBox("SearchString") 
+                    &nbsp;&nbsp;Izbor :  @Html.RadioButton("rbSve","svi",true) Svi -
+                    @Html.RadioButton("rbSve","akt") Aktivni - 
+                    @Html.RadioButton("rbSve","isk") Otišli  
+                </td>
+                <td style="border-style: none">
+                    <input type="submit" value="Search" /> 
+                </td>
+            </tr>
+        </table>
+        
+        
+    }
+</div>
+
+<table id="hor-minimalist-b">
+    <tr>
+         <th></th>
+        <th></th>
+        <th></th>
+        <th>Ime</th>
+        <th>Prezime</th>
+        <th>Sektor / Odjel</th>
+        <th>Radno mjesto</th>  
+        <th>Status</th>       
+        <th>Zaposlen u</th>
+        <th>hrm broj</th>
+        <th>Početak rada</th>
+        <th>Prestanak rada</th>
+        <th>sysdate</th>
+    </tr>
+    @{int i = 0;
+      int pg = (Model.PageNumber-1)*10;}
+
+@foreach (var item in Model) {
+    <tr>
+        <td>  
+
+            @{i = i+1;}
+              @Html.Label((i+pg).ToString())
+        </td>
+         <td>
+                <a href='@Url.Action("Edit", new {id = item.id_zaposlenici})' style="border-style: none">
+                    <img src="../../images/Edit.png" alt="Edit" style="border-style: none" />
+                </a>
+         </td>
+            <td>
+                <a href='@Url.Action("Delete", new {id = item.id_zaposlenici})'>
+                    <img src="../../images/delete.png" alt="Delete" style="border-style: none" />
+                </a>
+            </td>
+        <td>  
+
+            @Html.DisplayFor(modelItem => item.Ime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prezime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OD2.Naziv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RadnaMjesta.Naziv)
+        </td>
+        <td>
+            @if (item.tip_zaposlenja == 1)
+            {
+               <p>Interni</p> 
+            }
+            else
+            {
+                <p>Externi</p>
+            }
+        </td> 
+        <td>
+            @Html.DisplayFor(modelItem => item.PripadnostUBihGrupi.naziv)
+        </td>        
+        <td>
+            @Html.DisplayFor(modelItem => item.hrm_broj)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.datum_pocetka_rada).ToString().Replace("0:00:00","")
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.datum_prestanka).ToString().Replace("0:00:00","")
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sysdate)
+        </td>
+       
+    </tr>
+}
+
+</table>
+
+<hr>
+<div align="center"> 
+ @if (Model.HasPreviousPage)
+{
+    @Html.ActionLink("<<", "Index", new { page = 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+    @Html.Raw(" ")
+    @Html.ActionLink("< Prev", "Index", new { page = Model.PageNumber - 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+}
+else
+{
+    @:<< 
+    @Html.Raw(" ")
+    @:< Prev 
+} 
+-  
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) 
+of @Model.PageCount   -  
+@if (Model.HasNextPage)
+{
+    @Html.ActionLink("Next >", "Index", new { page = Model.PageNumber + 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+    @Html.Raw(" ")
+    @Html.ActionLink(">>", "Index", new { page = Model.PageCount, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+}
+else
+{
+    @:Next > 
+    @Html.Raw(" ")
+    @:>> 
+} 
+</div>
+
+@section link
+{
+       @Html.ActionLink("Novi zaposlenik", "Create")
+}

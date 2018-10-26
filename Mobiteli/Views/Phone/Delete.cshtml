@@ -1,0 +1,86 @@
+﻿@model Mobiteli.Models.Telefonija
+
+@{
+    ViewBag.Title = "Brisanje";
+}
+
+<h3>Da li želite izbrisati sljedeće podatke ?</h3>
+
+<table>
+    <tr>
+        <td class="col1">Zaposlenik</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.Zaposlenici.ImePrezime)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">Operator</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.Operateri.Naziv)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">broj tel</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.broj_tel)
+        </td>
+    </tr>
+    <tr>
+    <td class="col1">Tip Telefona</td>
+    <td class="col2">
+        @Html.DisplayFor(model => model.Tip_Telefona.Naziv)
+    </td>
+    </tr><tr>
+             <td class="col1">Govorna usluga</td>
+             <td class="col2">
+                 @Html.DisplayFor(model => model.voice)
+             </td>
+         </tr>
+    <tr>
+        <td class="col1">Data usluga</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.data)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">Aktiviran</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.dat_akt)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">Isključen</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.dat_deakt)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">Limit na cijeli iznos</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.UkupnoLimit)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">Limit</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.Limit)
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">Grupni račun</td>
+        <td class="col2">
+            @Html.DisplayFor(model => model.Grupni_racun)
+        </td>
+    </tr>
+</table>
+<hr/>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+    </p>
+}
+
+@section link
+{
+    @Html.ActionLink("Natrag", "Index")
+}

@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Mobiteli.Models.PotrosnjaSumarno>
+
+@{
+    ViewBag.Title = "Sumarni pregled za: " + @ViewBag.Korisnik;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table id="hor-minimalist-b">
+    <tr>
+        <th>
+            godina
+        </th>
+        <th>
+            mjesec
+        </th>
+        <th>
+            iznos
+        </th>
+        <th>
+            limit
+        </th>
+        <th>
+            Kor. plaća
+        </th>
+           <th>Detaljno</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.godina)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mjesec)
+        </td>
+        <td style="text-align: right">
+            @Html.DisplayFor(modelItem => item.iznos)
+        </td>
+        <td style="text-align: right">
+            @Html.DisplayFor(modelItem => item.limit)
+        </td>
+        <td style="text-align: right">
+            @Html.DisplayFor(modelItem => item.iznos_kor)
+        </td>
+         <td style="text-align: center">
+       
+            <a href='@Url.Action("DetaljnoPage", new {id= item.godina +"-" + item.mjesec +"-" + item.id_tel})' style="border-style: none" shape="default">
+                <img src="../../images/detalj.png" alt="Edit" style="border-style: none" />
+            </a>
+         </td>
+    </tr>
+}
+<tr>
+        <th style="font-size: x-small">
+          Iznos je sa PDV  
+        </th>
+        <th>
+            Ukupno:
+        </th>        
+        <th style="text-align: right">  @ViewBag.zbroj </th>
+    <th>
+        
+    </th>
+    <th style="text-align: right">
+            @ViewBag.zbrojk
+        </th>
+        <th>
+            
+        </th>
+        
+       
+    </tr>
+</table>
+@section link
+{
+    @Html.ActionLink("Natrag", "Index")
+}

@@ -1,0 +1,57 @@
+﻿@model Mobiteli.Models.Zaduzenje_Uredjaja
+
+@{
+    ViewBag.Title = "Ažuriranje";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"> </script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"> </script>
+<script src="@Url.Content("~/Scripts/jquery-ui-1.8.11.min.js")" type="text/javascript"></script>
+<link href="../../Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
+<script src="../../Scripts/EditorHookup.js" type="text/javascript"></script>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <table>
+
+        @Html.HiddenFor(model => model.id_zad)
+        <tr>
+            <td class="col1"> Djelatnik</td>
+            <td class="col2">
+                @Html.DropDownList("id_tel", String.Empty)
+                @Html.ValidationMessageFor(model => model.id_tel)
+            </td> 
+        </tr>
+        <tr>
+            <td class="col1">Uređaj</td>
+            <td class="col2">
+                @Html.DropDownList("id_ur", String.Empty)
+                @Html.ValidationMessageFor(model => model.id_ur)
+            </td>
+        </tr>
+        <tr>
+            <td class="col1">Zadužen</td>
+            <td class="col2">
+                @Html.TextBoxFor(model => model.datum_zad, new { @class = "date-pick" })
+                @Html.ValidationMessageFor(model => model.datum_zad)
+            </td>
+                    </tr>
+        <tr>
+            <td class="col1">Razdužen</td>
+            <td class="col2">
+                @Html.TextBoxFor(model => model.datum_razd, new { @class = "date-pick" })
+                @Html.ValidationMessageFor(model => model.datum_razd)
+            </td>
+        </tr>
+    </table>
+    <p>
+        <input type="submit" value="Spremiti" />
+    </p>
+}
+
+@section link
+{
+    @Html.ActionLink("Natrag", "Index")
+}

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Mobiteli.Models.Zaduzenje_Uredjaja>
+
+@{
+    ViewBag.Title = "Pregled zaduženja uređaja";
+}
+
+<table id="hor-minimalist-b">
+    <tr>
+        <th></th>
+        <th>Zaposlenik</th>
+        <th>Broj</th>
+        <th>Uredjaj</th>
+        <th>Zadužen</th>
+        <th>Razdužen</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+                 <a href='@Url.Action("ReportPage", new { id = item.id_zad })'>
+                <img src="../../images/print.png" alt="Delete" style="border-style: none" />
+            </a>
+         </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefonija.Zaposlenici.ImePrezime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefonija.broj_tel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Uredjaji.Uredjaj)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.datum_zad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.datum_razd)
+        </td>
+    </tr>
+}
+
+</table>
+
+
+@section link
+{
+    @Html.ActionLink("Natrag", "Index")
+}

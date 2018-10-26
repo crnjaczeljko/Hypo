@@ -1,0 +1,48 @@
+﻿@model Mobiteli.Models.Zaduzenje_Uredjaja
+
+@{
+    ViewBag.Title = "Brisanje";
+}
+<hr />
+
+<h3>Da li želite brisati stavku?</h3>
+<br/>
+
+<table>
+    <tr>
+            <td class="col1">Telefonija</td>
+    <td class="col2">
+        @Html.DisplayFor(model => model.Telefonija.Zaposlenici.ImePrezime)
+    </td>
+    </tr>
+    <tr>
+    <td class="col1">Uredjaji</td>
+    <td class="col2">
+        @Html.DisplayFor(model => model.Uredjaji.Uredjaj)
+    </td>
+        </tr>
+    <tr>
+    <td class="col1">Zadužen</td>
+    <td class="col2">
+        @Html.DisplayFor(model => model.datum_zad)
+    </td>
+        </tr>
+    <tr>
+    <td class="col1">Razdužen</td>
+    <td class="col2">
+        @Html.DisplayFor(model => model.datum_razd)
+    </td>
+        </tr>
+</table>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Brisati" /> 
+       
+    </p>
+}
+
+
+@section link
+{
+     @Html.ActionLink("Natrag", "Index")
+}

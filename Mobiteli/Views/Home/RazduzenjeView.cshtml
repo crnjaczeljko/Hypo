@@ -1,0 +1,55 @@
+﻿@model Mobiteli.Models.Razduzenje
+
+@{
+    ViewBag.Title = "Razduzenje Mobitela i kartice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery-ui-1.8.11.min.js")" type="text/javascript"></script>
+<link href="../../Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
+<script src="../../Scripts/EditorHookup.js" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <table>
+        <tr>
+            <td class="col1">Zaposlenik</td>
+            <td class="col2">
+                @ViewBag.Korisnik
+            </td>
+        </tr>
+        <tr>
+            <td class="col1">Datum Razduženja</td>
+            <td class="col2">
+                @Html.TextBoxFor(model => model.datum_razduzenja, new { @class = "date-pick" })
+                @Html.ValidationMessageFor(model => model.datum_razduzenja)
+            </td>
+        </tr>
+                <tr>
+            <td class="col1">Zadržati broj</td>
+            <td class="col2">
+                @Html.CheckBoxFor(model => model.zadrzati_broj)
+                @Html.ValidationMessageFor(model => model.zadrzati_broj)
+            </td>
+        </tr>
+        <tr>
+            <td class="col1">Opis</td>
+            <td class="col2">
+                @Html.EditorFor(model => model.opis)
+                @Html.ValidationMessageFor(model => model.opis)
+            </td>
+        </tr>
+    </table>
+    
+          <p>
+            <input type="submit" value="Poslati" />
+        </p>
+}
+
+@section link
+{
+    @Html.ActionLink("Natrag", "Index")
+}

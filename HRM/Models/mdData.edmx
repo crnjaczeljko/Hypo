@@ -1,0 +1,1310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EvidencijaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="EvidencijaModelStoreContainer">
+          <EntitySet Name="Mjesta" EntityType="EvidencijaModel.Store.Mjesta" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OD" EntityType="EvidencijaModel.Store.OD" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Odjave" EntityType="EvidencijaModel.Store.Odjave" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OdjaveAplikacija" EntityType="EvidencijaModel.Store.OdjaveAplikacija" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Prijave" EntityType="EvidencijaModel.Store.Prijave" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PrijaveAplikacija" EntityType="EvidencijaModel.Store.PrijaveAplikacija" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PripadnostUBihGrupi" EntityType="EvidencijaModel.Store.PripadnostUBihGrupi" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RadnaMjesta" EntityType="EvidencijaModel.Store.RadnaMjesta" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TipOD" EntityType="EvidencijaModel.Store.TipOD" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Zaposlenici" EntityType="EvidencijaModel.Store.Zaposlenici" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="vAplikacijeDetalj" EntityType="EvidencijaModel.Store.vAplikacijeDetalj" store:Type="Views" store:Schema="dbo" store:Name="vAplikacijeDetalj">
+            <DefiningQuery>SELECT 
+      [vAplikacijeDetalj].[id_prapl] AS [id_prapl], 
+      [vAplikacijeDetalj].[id_prijave] AS [id_prijave], 
+      [vAplikacijeDetalj].[naziv] AS [naziv], 
+      [vAplikacijeDetalj].[dat_it_potvrde] AS [dat_it_potvrde], 
+      [vAplikacijeDetalj].[potvrda_it] AS [potvrda_it], 
+      [vAplikacijeDetalj].[dat_voditelj] AS [dat_voditelj], 
+      [vAplikacijeDetalj].[potvrda_voditelj] AS [potvrda_voditelj], 
+      [vAplikacijeDetalj].[potvrde_all] AS [potvrde_all], 
+      [vAplikacijeDetalj].[aktivna] AS [aktivna], 
+      [vAplikacijeDetalj].[sysdate] AS [sysdate]
+      FROM [dbo].[vAplikacijeDetalj] AS [vAplikacijeDetalj]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vPrijaveAplikacija" EntityType="EvidencijaModel.Store.vPrijaveAplikacija" store:Type="Views" store:Schema="dbo" store:Name="vPrijaveAplikacija">
+            <DefiningQuery>SELECT 
+      [vPrijaveAplikacija].[id_prijave] AS [id_prijave], 
+      [vPrijaveAplikacija].[ImePrezime] AS [ImePrezime], 
+      [vPrijaveAplikacija].[OD] AS [OD], 
+      [vPrijaveAplikacija].[Voditelj] AS [Voditelj], 
+      [vPrijaveAplikacija].[RadnoMjesto] AS [RadnoMjesto], 
+      [vPrijaveAplikacija].[sysdate] AS [sysdate], 
+      [vPrijaveAplikacija].[potvrda_all] AS [potvrda_all], 
+      [vPrijaveAplikacija].[id_od] AS [id_od]
+      FROM [dbo].[vPrijaveAplikacija] AS [vPrijaveAplikacija]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_OD_Mjesta" Association="EvidencijaModel.Store.FK_OD_Mjesta">
+            <End Role="Mjesta" EntitySet="Mjesta" />
+            <End Role="OD" EntitySet="OD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OD_OD" Association="EvidencijaModel.Store.FK_OD_OD">
+            <End Role="OD" EntitySet="OD" />
+            <End Role="OD1" EntitySet="OD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OD_Zaposlenici" Association="EvidencijaModel.Store.FK_OD_Zaposlenici">
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+            <End Role="OD" EntitySet="OD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OD_Zaposlenici1" Association="EvidencijaModel.Store.FK_OD_Zaposlenici1">
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+            <End Role="OD" EntitySet="OD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Odjave_OD" Association="EvidencijaModel.Store.FK_Odjave_OD">
+            <End Role="OD" EntitySet="OD" />
+            <End Role="Odjave" EntitySet="Odjave" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Odjave_RadnaMjesta" Association="EvidencijaModel.Store.FK_Odjave_RadnaMjesta">
+            <End Role="RadnaMjesta" EntitySet="RadnaMjesta" />
+            <End Role="Odjave" EntitySet="Odjave" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Odjave_Voditelj" Association="EvidencijaModel.Store.FK_Odjave_Voditelj">
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+            <End Role="Odjave" EntitySet="Odjave" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Odjave_Zaposlenici" Association="EvidencijaModel.Store.FK_Odjave_Zaposlenici">
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+            <End Role="Odjave" EntitySet="Odjave" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OdjaveAplikacija_Odjave" Association="EvidencijaModel.Store.FK_OdjaveAplikacija_Odjave">
+            <End Role="Odjave" EntitySet="Odjave" />
+            <End Role="OdjaveAplikacija" EntitySet="OdjaveAplikacija" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OdjaveAplikacija_PrijaveAplikacija" Association="EvidencijaModel.Store.FK_OdjaveAplikacija_PrijaveAplikacija">
+            <End Role="PrijaveAplikacija" EntitySet="PrijaveAplikacija" />
+            <End Role="OdjaveAplikacija" EntitySet="OdjaveAplikacija" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prijave_OD" Association="EvidencijaModel.Store.FK_Prijave_OD">
+            <End Role="OD" EntitySet="OD" />
+            <End Role="Prijave" EntitySet="Prijave" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prijave_RadnaMjesta" Association="EvidencijaModel.Store.FK_Prijave_RadnaMjesta">
+            <End Role="RadnaMjesta" EntitySet="RadnaMjesta" />
+            <End Role="Prijave" EntitySet="Prijave" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prijave_Zaposlenici" Association="EvidencijaModel.Store.FK_Prijave_Zaposlenici">
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+            <End Role="Prijave" EntitySet="Prijave" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prijave_ZaposleniciVoditelj" Association="EvidencijaModel.Store.FK_Prijave_ZaposleniciVoditelj">
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+            <End Role="Prijave" EntitySet="Prijave" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PrijaveAplikacija_Prijave" Association="EvidencijaModel.Store.FK_PrijaveAplikacija_Prijave">
+            <End Role="Prijave" EntitySet="Prijave" />
+            <End Role="PrijaveAplikacija" EntitySet="PrijaveAplikacija" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zaposlenici_OD" Association="EvidencijaModel.Store.FK_Zaposlenici_OD">
+            <End Role="OD" EntitySet="OD" />
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zaposlenici_PripadnostUBihGrupi" Association="EvidencijaModel.Store.FK_Zaposlenici_PripadnostUBihGrupi">
+            <End Role="PripadnostUBihGrupi" EntitySet="PripadnostUBihGrupi" />
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zaposlenici_RadnaMjesta" Association="EvidencijaModel.Store.FK_Zaposlenici_RadnaMjesta">
+            <End Role="RadnaMjesta" EntitySet="RadnaMjesta" />
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Mjesta">
+          <Key>
+            <PropertyRef Name="id_mjesto" />
+          </Key>
+          <Property Name="id_mjesto" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="nvarchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="OD">
+          <Key>
+            <PropertyRef Name="id_od" />
+          </Key>
+          <Property Name="id_od" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="Oznaka" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Adresa" Type="nvarchar" MaxLength="255" />
+          <Property Name="id_mjesto" Type="int" />
+          <Property Name="id_opcina" Type="int" />
+          <Property Name="id_IzvSur" Type="int" />
+          <Property Name="id_voditelj" Type="int" Nullable="false" />
+          <Property Name="regob" Type="nvarchar" MaxLength="50" />
+          <Property Name="id_odnad" Type="int" />
+          <Property Name="nivo" Type="int" />
+        </EntityType>
+        <EntityType Name="Odjave">
+          <Key>
+            <PropertyRef Name="OdjaveId" />
+          </Key>
+          <Property Name="OdjaveId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="datum_iniciranja" Type="datetime" Nullable="false" />
+          <Property Name="datum_zavrsetka" Type="datetime" />
+          <Property Name="id_zaposlenik" Type="int" Nullable="false" />
+          <Property Name="id_voditelj" Type="int" Nullable="false" />
+          <Property Name="id_od" Type="int" Nullable="false" />
+          <Property Name="id_rm" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OdjaveAplikacija">
+          <Key>
+            <PropertyRef Name="id_odjave_apl" />
+          </Key>
+          <Property Name="id_odjave_apl" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_odjave" Type="int" Nullable="false" />
+          <Property Name="id_prijava_apl" Type="int" Nullable="false" />
+          <Property Name="potvrda_it" Type="bit" Nullable="false" />
+          <Property Name="datum_it" Type="datetime" />
+          <Property Name="potvrda_vod" Type="bit" Nullable="false" />
+          <Property Name="datum_voditelj" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Prijave">
+          <Key>
+            <PropertyRef Name="id_prijave" />
+          </Key>
+          <Property Name="id_prijave" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_zaposlenik" Type="int" Nullable="false" />
+          <Property Name="id_od" Type="int" Nullable="false" />
+          <Property Name="id_rm" Type="int" Nullable="false" />
+          <Property Name="sysdate" Type="datetime" Nullable="false" />
+          <Property Name="potvrda_em_ad" Type="bit" Nullable="false" />
+          <Property Name="potvrda_bmc" Type="bit" Nullable="false" />
+          <Property Name="potvrda_vod" Type="bit" Nullable="false" />
+          <Property Name="potvrda_ostale_app" Type="bit" Nullable="false" />
+          <Property Name="potvrda_all" Type="bit" Nullable="false" />
+          <Property Name="id_voditelj" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PrijaveAplikacija">
+          <Key>
+            <PropertyRef Name="id_prapl" />
+          </Key>
+          <Property Name="id_prapl" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_prijave" Type="int" Nullable="false" />
+          <Property Name="id_aplikacije" Type="int" Nullable="false" />
+          <Property Name="profil" Type="int" />
+          <Property Name="profili" Type="varchar" MaxLength="512" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+          <Property Name="server" Type="varchar" MaxLength="128" />
+          <Property Name="sysdate" Type="datetime" Nullable="false" />
+          <Property Name="dat_it_potvrde" Type="datetime" />
+          <Property Name="ad_it" Type="varchar" MaxLength="128" />
+          <Property Name="potvrda_it" Type="bit" />
+          <Property Name="dat_odg_osobe" Type="datetime" />
+          <Property Name="ad_odg_osobe" Type="varchar" MaxLength="128" />
+          <Property Name="potvrda_odg_osobe" Type="bit" />
+          <Property Name="access_code" Type="varchar" MaxLength="32" />
+          <Property Name="dat_voditelj" Type="datetime" />
+          <Property Name="potvrda_voditelj" Type="bit" />
+          <Property Name="potvrde_all" Type="bit" Nullable="false" />
+          <Property Name="komentar" Type="nvarchar(max)" />
+          <Property Name="aktivna" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PripadnostUBihGrupi">
+          <Key>
+            <PropertyRef Name="id_pripadnost" />
+          </Key>
+          <Property Name="id_pripadnost" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="naziv" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RadnaMjesta">
+          <Key>
+            <PropertyRef Name="id_rm" />
+          </Key>
+          <Property Name="id_rm" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="StrucnaSprema" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TipOD">
+          <Key>
+            <PropertyRef Name="id_TipOd" />
+          </Key>
+          <Property Name="id_TipOd" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Zaposlenici">
+          <Key>
+            <PropertyRef Name="id_zaposlenici" />
+          </Key>
+          <Property Name="id_zaposlenici" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Ime" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Prezime" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="ImePrezime" Type="nvarchar" Nullable="false" MaxLength="511" StoreGeneratedPattern="Computed" />
+          <Property Name="id_od" Type="int" Nullable="false" />
+          <Property Name="id_rm" Type="int" Nullable="false" />
+          <Property Name="id_pripadnost" Type="int" Nullable="false" />
+          <Property Name="jmbg" Type="char" Nullable="false" MaxLength="13" />
+          <Property Name="datum_pocetka_rada" Type="datetime" Nullable="false" />
+          <Property Name="privremeno" Type="bit" />
+          <Property Name="datum_prestanka" Type="datetime" />
+          <Property Name="hrm_broj" Type="int" />
+          <Property Name="tip_zaposlenja" Type="int" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="255" />
+          <Property Name="ad" Type="varchar" MaxLength="128" />
+          <Property Name="sysdate" Type="datetime" />
+          <Property Name="Napomena" Type="nvarchar" MaxLength="500" />
+          <Property Name="NotesEmail" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'Evidencija.dbo.vAplikacijeDetalj' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vAplikacijeDetalj">
+          <Key>
+            <PropertyRef Name="id_prapl" />
+            <PropertyRef Name="id_prijave" />
+            <PropertyRef Name="naziv" />
+            <PropertyRef Name="potvrde_all" />
+            <PropertyRef Name="aktivna" />
+            <PropertyRef Name="sysdate" />
+          </Key>
+          <Property Name="id_prapl" Type="int" Nullable="false" />
+          <Property Name="id_prijave" Type="int" Nullable="false" />
+          <Property Name="naziv" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="dat_it_potvrde" Type="datetime" />
+          <Property Name="potvrda_it" Type="bit" />
+          <Property Name="dat_voditelj" Type="datetime" />
+          <Property Name="potvrda_voditelj" Type="bit" />
+          <Property Name="potvrde_all" Type="bit" Nullable="false" />
+          <Property Name="aktivna" Type="bit" Nullable="false" />
+          <Property Name="sysdate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'Evidencija.dbo.vPrijaveAplikacija' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vPrijaveAplikacija">
+          <Key>
+            <PropertyRef Name="id_prijave" />
+            <PropertyRef Name="ImePrezime" />
+            <PropertyRef Name="OD" />
+            <PropertyRef Name="Voditelj" />
+            <PropertyRef Name="RadnoMjesto" />
+            <PropertyRef Name="sysdate" />
+            <PropertyRef Name="potvrda_all" />
+            <PropertyRef Name="id_od" />
+          </Key>
+          <Property Name="id_prijave" Type="int" Nullable="false" />
+          <Property Name="ImePrezime" Type="nvarchar" Nullable="false" MaxLength="511" />
+          <Property Name="OD" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="Voditelj" Type="nvarchar" Nullable="false" MaxLength="511" />
+          <Property Name="RadnoMjesto" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="sysdate" Type="datetime" Nullable="false" />
+          <Property Name="potvrda_all" Type="bit" Nullable="false" />
+          <Property Name="id_od" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_OD_Mjesta">
+          <End Role="Mjesta" Type="EvidencijaModel.Store.Mjesta" Multiplicity="0..1" />
+          <End Role="OD" Type="EvidencijaModel.Store.OD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mjesta">
+              <PropertyRef Name="id_mjesto" />
+            </Principal>
+            <Dependent Role="OD">
+              <PropertyRef Name="id_mjesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OD_OD">
+          <End Role="OD" Type="EvidencijaModel.Store.OD" Multiplicity="0..1" />
+          <End Role="OD1" Type="EvidencijaModel.Store.OD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OD">
+              <PropertyRef Name="id_od" />
+            </Principal>
+            <Dependent Role="OD1">
+              <PropertyRef Name="id_odnad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OD_Zaposlenici">
+          <End Role="Zaposlenici" Type="EvidencijaModel.Store.Zaposlenici" Multiplicity="1" />
+          <End Role="OD" Type="EvidencijaModel.Store.OD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenici">
+              <PropertyRef Name="id_zaposlenici" />
+            </Principal>
+            <Dependent Role="OD">
+              <PropertyRef Name="id_voditelj" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OD_Zaposlenici1">
+          <End Role="Zaposlenici" Type="EvidencijaModel.Store.Zaposlenici" Multiplicity="0..1" />
+          <End Role="OD" Type="EvidencijaModel.Store.OD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenici">
+              <PropertyRef Name="id_zaposlenici" />
+            </Principal>
+            <Dependent Role="OD">
+              <PropertyRef Name="id_IzvSur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Odjave_OD">
+          <End Role="OD" Type="EvidencijaModel.Store.OD" Multiplicity="1" />
+          <End Role="Odjave" Type="EvidencijaModel.Store.Odjave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OD">
+              <PropertyRef Name="id_od" />
+            </Principal>
+            <Dependent Role="Odjave">
+              <PropertyRef Name="id_od" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Odjave_RadnaMjesta">
+          <End Role="RadnaMjesta" Type="EvidencijaModel.Store.RadnaMjesta" Multiplicity="1" />
+          <End Role="Odjave" Type="EvidencijaModel.Store.Odjave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RadnaMjesta">
+              <PropertyRef Name="id_rm" />
+            </Principal>
+            <Dependent Role="Odjave">
+              <PropertyRef Name="id_rm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Odjave_Voditelj">
+          <End Role="Zaposlenici" Type="EvidencijaModel.Store.Zaposlenici" Multiplicity="1" />
+          <End Role="Odjave" Type="EvidencijaModel.Store.Odjave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenici">
+              <PropertyRef Name="id_zaposlenici" />
+            </Principal>
+            <Dependent Role="Odjave">
+              <PropertyRef Name="id_voditelj" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Odjave_Zaposlenici">
+          <End Role="Zaposlenici" Type="EvidencijaModel.Store.Zaposlenici" Multiplicity="1" />
+          <End Role="Odjave" Type="EvidencijaModel.Store.Odjave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenici">
+              <PropertyRef Name="id_zaposlenici" />
+            </Principal>
+            <Dependent Role="Odjave">
+              <PropertyRef Name="id_zaposlenik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OdjaveAplikacija_Odjave">
+          <End Role="Odjave" Type="EvidencijaModel.Store.Odjave" Multiplicity="1" />
+          <End Role="OdjaveAplikacija" Type="EvidencijaModel.Store.OdjaveAplikacija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Odjave">
+              <PropertyRef Name="OdjaveId" />
+            </Principal>
+            <Dependent Role="OdjaveAplikacija">
+              <PropertyRef Name="id_odjave" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OdjaveAplikacija_PrijaveAplikacija">
+          <End Role="PrijaveAplikacija" Type="EvidencijaModel.Store.PrijaveAplikacija" Multiplicity="1" />
+          <End Role="OdjaveAplikacija" Type="EvidencijaModel.Store.OdjaveAplikacija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PrijaveAplikacija">
+              <PropertyRef Name="id_prapl" />
+            </Principal>
+            <Dependent Role="OdjaveAplikacija">
+              <PropertyRef Name="id_prijava_apl" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prijave_OD">
+          <End Role="OD" Type="EvidencijaModel.Store.OD" Multiplicity="1" />
+          <End Role="Prijave" Type="EvidencijaModel.Store.Prijave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OD">
+              <PropertyRef Name="id_od" />
+            </Principal>
+            <Dependent Role="Prijave">
+              <PropertyRef Name="id_od" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prijave_RadnaMjesta">
+          <End Role="RadnaMjesta" Type="EvidencijaModel.Store.RadnaMjesta" Multiplicity="1" />
+          <End Role="Prijave" Type="EvidencijaModel.Store.Prijave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RadnaMjesta">
+              <PropertyRef Name="id_rm" />
+            </Principal>
+            <Dependent Role="Prijave">
+              <PropertyRef Name="id_rm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prijave_Zaposlenici">
+          <End Role="Zaposlenici" Type="EvidencijaModel.Store.Zaposlenici" Multiplicity="1" />
+          <End Role="Prijave" Type="EvidencijaModel.Store.Prijave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenici">
+              <PropertyRef Name="id_zaposlenici" />
+            </Principal>
+            <Dependent Role="Prijave">
+              <PropertyRef Name="id_zaposlenik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prijave_ZaposleniciVoditelj">
+          <End Role="Zaposlenici" Type="EvidencijaModel.Store.Zaposlenici" Multiplicity="1" />
+          <End Role="Prijave" Type="EvidencijaModel.Store.Prijave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenici">
+              <PropertyRef Name="id_zaposlenici" />
+            </Principal>
+            <Dependent Role="Prijave">
+              <PropertyRef Name="id_voditelj" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PrijaveAplikacija_Prijave">
+          <End Role="Prijave" Type="EvidencijaModel.Store.Prijave" Multiplicity="1" />
+          <End Role="PrijaveAplikacija" Type="EvidencijaModel.Store.PrijaveAplikacija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prijave">
+              <PropertyRef Name="id_prijave" />
+            </Principal>
+            <Dependent Role="PrijaveAplikacija">
+              <PropertyRef Name="id_prijave" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zaposlenici_OD">
+          <End Role="OD" Type="EvidencijaModel.Store.OD" Multiplicity="1" />
+          <End Role="Zaposlenici" Type="EvidencijaModel.Store.Zaposlenici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OD">
+              <PropertyRef Name="id_od" />
+            </Principal>
+            <Dependent Role="Zaposlenici">
+              <PropertyRef Name="id_od" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zaposlenici_PripadnostUBihGrupi">
+          <End Role="PripadnostUBihGrupi" Type="EvidencijaModel.Store.PripadnostUBihGrupi" Multiplicity="1" />
+          <End Role="Zaposlenici" Type="EvidencijaModel.Store.Zaposlenici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PripadnostUBihGrupi">
+              <PropertyRef Name="id_pripadnost" />
+            </Principal>
+            <Dependent Role="Zaposlenici">
+              <PropertyRef Name="id_pripadnost" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zaposlenici_RadnaMjesta">
+          <End Role="RadnaMjesta" Type="EvidencijaModel.Store.RadnaMjesta" Multiplicity="1" />
+          <End Role="Zaposlenici" Type="EvidencijaModel.Store.Zaposlenici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RadnaMjesta">
+              <PropertyRef Name="id_rm" />
+            </Principal>
+            <Dependent Role="Zaposlenici">
+              <PropertyRef Name="id_rm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="vProvjeraAuta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="lokacija" Type="int" Mode="In" />
+          <Parameter Name="polazak" Type="datetime" Mode="In" />
+          <Parameter Name="dolazak" Type="datetime" Mode="In" />
+          <Parameter Name="idzap" Type="int" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EvidencijaModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="EvidencijaEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+          <EntitySet Name="Mjesta" EntityType="EvidencijaModel.Mjesta" />
+          <EntitySet Name="OD" EntityType="EvidencijaModel.OD" />
+          <EntitySet Name="PripadnostUBihGrupi" EntityType="EvidencijaModel.PripadnostUBihGrupi" />
+          <EntitySet Name="RadnaMjesta" EntityType="EvidencijaModel.RadnaMjesta" />
+          <EntitySet Name="TipOD" EntityType="EvidencijaModel.TipOD" />
+          <EntitySet Name="Zaposlenici" EntityType="EvidencijaModel.Zaposlenici" />
+          <AssociationSet Name="FK_OD_Mjesta" Association="EvidencijaModel.FK_OD_Mjesta">
+            <End Role="Mjesta" EntitySet="Mjesta" />
+            <End Role="OD" EntitySet="OD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OD_OD" Association="EvidencijaModel.FK_OD_OD">
+            <End Role="OD" EntitySet="OD" />
+            <End Role="OD1" EntitySet="OD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OD_Zaposlenici" Association="EvidencijaModel.FK_OD_Zaposlenici">
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+            <End Role="OD" EntitySet="OD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OD_Zaposlenici1" Association="EvidencijaModel.FK_OD_Zaposlenici1">
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+            <End Role="OD" EntitySet="OD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zaposlenici_OD" Association="EvidencijaModel.FK_Zaposlenici_OD">
+            <End Role="OD" EntitySet="OD" />
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zaposlenici_PripadnostUBihGrupi" Association="EvidencijaModel.FK_Zaposlenici_PripadnostUBihGrupi">
+            <End Role="PripadnostUBihGrupi" EntitySet="PripadnostUBihGrupi" />
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zaposlenici_RadnaMjesta" Association="EvidencijaModel.FK_Zaposlenici_RadnaMjesta">
+            <End Role="RadnaMjesta" EntitySet="RadnaMjesta" />
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+          </AssociationSet>
+          <EntitySet Name="vPrijaveAplikacija" EntityType="EvidencijaModel.vPrijaveAplikacija" />
+          <EntitySet Name="Prijave" EntityType="EvidencijaModel.Prijave" />
+          <EntitySet Name="PrijaveAplikacija" EntityType="EvidencijaModel.PrijaveAplikacija" />
+          <AssociationSet Name="FK_Prijave_OD" Association="EvidencijaModel.FK_Prijave_OD">
+            <End Role="OD" EntitySet="OD" />
+            <End Role="Prijave" EntitySet="Prijave" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prijave_RadnaMjesta" Association="EvidencijaModel.FK_Prijave_RadnaMjesta">
+            <End Role="RadnaMjesta" EntitySet="RadnaMjesta" />
+            <End Role="Prijave" EntitySet="Prijave" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prijave_Zaposlenici" Association="EvidencijaModel.FK_Prijave_Zaposlenici">
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+            <End Role="Prijave" EntitySet="Prijave" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prijave_ZaposleniciVoditelj" Association="EvidencijaModel.FK_Prijave_ZaposleniciVoditelj">
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+            <End Role="Prijave" EntitySet="Prijave" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PrijaveAplikacija_Prijave" Association="EvidencijaModel.FK_PrijaveAplikacija_Prijave">
+            <End Role="Prijave" EntitySet="Prijave" />
+            <End Role="PrijaveAplikacija" EntitySet="PrijaveAplikacija" />
+          </AssociationSet>
+          <EntitySet Name="vAplikacijeDetalj" EntityType="EvidencijaModel.vAplikacijeDetalj" />
+          <EntitySet Name="Odjave" EntityType="EvidencijaModel.Odjave" />
+          <EntitySet Name="OdjaveAplikacija" EntityType="EvidencijaModel.OdjaveAplikacija" />
+          <AssociationSet Name="FK_Odjave_OD" Association="EvidencijaModel.FK_Odjave_OD">
+            <End Role="OD" EntitySet="OD" />
+            <End Role="Odjave" EntitySet="Odjave" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Odjave_RadnaMjesta" Association="EvidencijaModel.FK_Odjave_RadnaMjesta">
+            <End Role="RadnaMjesta" EntitySet="RadnaMjesta" />
+            <End Role="Odjave" EntitySet="Odjave" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Odjave_Voditelj" Association="EvidencijaModel.FK_Odjave_Voditelj">
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+            <End Role="Odjave" EntitySet="Odjave" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Odjave_Zaposlenici" Association="EvidencijaModel.FK_Odjave_Zaposlenici">
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+            <End Role="Odjave" EntitySet="Odjave" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OdjaveAplikacija_Odjave" Association="EvidencijaModel.FK_OdjaveAplikacija_Odjave">
+            <End Role="Odjave" EntitySet="Odjave" />
+            <End Role="OdjaveAplikacija" EntitySet="OdjaveAplikacija" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OdjaveAplikacija_PrijaveAplikacija" Association="EvidencijaModel.FK_OdjaveAplikacija_PrijaveAplikacija">
+            <End Role="PrijaveAplikacija" EntitySet="PrijaveAplikacija" />
+            <End Role="OdjaveAplikacija" EntitySet="OdjaveAplikacija" />
+          </AssociationSet>
+          <FunctionImport Name="vProvjeraAuta" ReturnType="Collection(EvidencijaModel.vProvjeraAuta_Result)">
+            <Parameter Name="lokacija" Mode="In" Type="Int32" />
+            <Parameter Name="polazak" Mode="In" Type="DateTime" />
+            <Parameter Name="dolazak" Mode="In" Type="DateTime" />
+            <Parameter Name="idzap" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="Mjesta">
+          <Key>
+            <PropertyRef Name="id_mjesto" />
+          </Key>
+          <Property Name="id_mjesto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Naziv" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="OD" Relationship="EvidencijaModel.FK_OD_Mjesta" FromRole="Mjesta" ToRole="OD" />
+        </EntityType>
+        <EntityType Name="OD">
+          <Key>
+            <PropertyRef Name="id_od" />
+          </Key>
+          <Property Name="id_od" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Naziv" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="Oznaka" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Adresa" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="id_mjesto" Type="Int32" />
+          <Property Name="id_opcina" Type="Int32" />
+          <Property Name="id_IzvSur" Type="Int32" />
+          <Property Name="id_voditelj" Type="Int32" Nullable="false" />
+          <Property Name="regob" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="id_odnad" Type="Int32" />
+          <NavigationProperty Name="Mjesta" Relationship="EvidencijaModel.FK_OD_Mjesta" FromRole="OD" ToRole="Mjesta" />
+          <NavigationProperty Name="OD1" Relationship="EvidencijaModel.FK_OD_OD" FromRole="OD" ToRole="OD1" />
+          <NavigationProperty Name="OD2" Relationship="EvidencijaModel.FK_OD_OD" FromRole="OD1" ToRole="OD" />
+          <NavigationProperty Name="Zaposlenici" Relationship="EvidencijaModel.FK_OD_Zaposlenici" FromRole="OD" ToRole="Zaposlenici" />
+          <NavigationProperty Name="Zaposlenici1" Relationship="EvidencijaModel.FK_OD_Zaposlenici1" FromRole="OD" ToRole="Zaposlenici" />
+          <NavigationProperty Name="Zaposlenici2" Relationship="EvidencijaModel.FK_Zaposlenici_OD" FromRole="OD" ToRole="Zaposlenici" />
+          <NavigationProperty Name="Prijave" Relationship="EvidencijaModel.FK_Prijave_OD" FromRole="OD" ToRole="Prijave" />
+          <Property Type="Int32" Name="nivo" />
+          <NavigationProperty Name="Odjave" Relationship="EvidencijaModel.FK_Odjave_OD" FromRole="OD" ToRole="Odjave" />
+        </EntityType>
+        <EntityType Name="PripadnostUBihGrupi">
+          <Key>
+            <PropertyRef Name="id_pripadnost" />
+          </Key>
+          <Property Name="id_pripadnost" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="naziv" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Zaposlenici" Relationship="EvidencijaModel.FK_Zaposlenici_PripadnostUBihGrupi" FromRole="PripadnostUBihGrupi" ToRole="Zaposlenici" />
+        </EntityType>
+        <EntityType Name="RadnaMjesta">
+          <Key>
+            <PropertyRef Name="id_rm" />
+          </Key>
+          <Property Name="id_rm" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Naziv" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="StrucnaSprema" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Zaposlenici" Relationship="EvidencijaModel.FK_Zaposlenici_RadnaMjesta" FromRole="RadnaMjesta" ToRole="Zaposlenici" />
+          <NavigationProperty Name="Prijave" Relationship="EvidencijaModel.FK_Prijave_RadnaMjesta" FromRole="RadnaMjesta" ToRole="Prijave" />
+          <NavigationProperty Name="Odjave" Relationship="EvidencijaModel.FK_Odjave_RadnaMjesta" FromRole="RadnaMjesta" ToRole="Odjave" />
+        </EntityType>
+        <EntityType Name="TipOD">
+          <Key>
+            <PropertyRef Name="id_TipOd" />
+          </Key>
+          <Property Name="id_TipOd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Naziv" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Zaposlenici">
+          <Key>
+            <PropertyRef Name="id_zaposlenici" />
+          </Key>
+          <Property Name="id_zaposlenici" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Ime" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Prezime" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="ImePrezime" Type="String" Nullable="false" MaxLength="511" Unicode="true" FixedLength="false" annotation:StoreGeneratedPattern="Computed" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="id_od" Type="Int32" Nullable="false" />
+          <Property Name="id_rm" Type="Int32" Nullable="false" />
+          <Property Name="id_pripadnost" Type="Int32" Nullable="false" />
+          <Property Name="jmbg" Type="String" Nullable="false" MaxLength="13" Unicode="false" FixedLength="true" />
+          <Property Name="datum_pocetka_rada" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="privremeno" Type="Boolean" />
+          <Property Name="datum_prestanka" Type="DateTime" Precision="3" />
+          <Property Name="hrm_broj" Type="Int32" />
+          <Property Name="tip_zaposlenja" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="ad" Type="String" MaxLength="128" Unicode="false" FixedLength="false" />
+          <Property Name="sysdate" Type="DateTime" Precision="3" />
+          <Property Name="Napomena" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="NotesEmail" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="OD" Relationship="EvidencijaModel.FK_OD_Zaposlenici" FromRole="Zaposlenici" ToRole="OD" />
+          <NavigationProperty Name="OD1" Relationship="EvidencijaModel.FK_OD_Zaposlenici1" FromRole="Zaposlenici" ToRole="OD" />
+          <NavigationProperty Name="OD2" Relationship="EvidencijaModel.FK_Zaposlenici_OD" FromRole="Zaposlenici" ToRole="OD" />
+          <NavigationProperty Name="PripadnostUBihGrupi" Relationship="EvidencijaModel.FK_Zaposlenici_PripadnostUBihGrupi" FromRole="Zaposlenici" ToRole="PripadnostUBihGrupi" />
+          <NavigationProperty Name="RadnaMjesta" Relationship="EvidencijaModel.FK_Zaposlenici_RadnaMjesta" FromRole="Zaposlenici" ToRole="RadnaMjesta" />
+          <NavigationProperty Name="Prijave" Relationship="EvidencijaModel.FK_Prijave_Zaposlenici" FromRole="Zaposlenici" ToRole="Prijave" />
+          <NavigationProperty Name="Prijave1" Relationship="EvidencijaModel.FK_Prijave_ZaposleniciVoditelj" FromRole="Zaposlenici" ToRole="Prijave" />
+          <NavigationProperty Name="Odjave" Relationship="EvidencijaModel.FK_Odjave_Voditelj" FromRole="Zaposlenici" ToRole="Odjave" />
+          <NavigationProperty Name="Odjave1" Relationship="EvidencijaModel.FK_Odjave_Zaposlenici" FromRole="Zaposlenici" ToRole="Odjave" />
+        </EntityType>
+        <Association Name="FK_OD_Mjesta">
+          <End Role="Mjesta" Type="EvidencijaModel.Mjesta" Multiplicity="0..1" />
+          <End Role="OD" Type="EvidencijaModel.OD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mjesta">
+              <PropertyRef Name="id_mjesto" />
+            </Principal>
+            <Dependent Role="OD">
+              <PropertyRef Name="id_mjesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OD_OD">
+          <End Role="OD" Type="EvidencijaModel.OD" Multiplicity="0..1" />
+          <End Role="OD1" Type="EvidencijaModel.OD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OD">
+              <PropertyRef Name="id_od" />
+            </Principal>
+            <Dependent Role="OD1">
+              <PropertyRef Name="id_odnad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OD_Zaposlenici">
+          <End Role="Zaposlenici" Type="EvidencijaModel.Zaposlenici" Multiplicity="1" />
+          <End Role="OD" Type="EvidencijaModel.OD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenici">
+              <PropertyRef Name="id_zaposlenici" />
+            </Principal>
+            <Dependent Role="OD">
+              <PropertyRef Name="id_voditelj" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OD_Zaposlenici1">
+          <End Role="Zaposlenici" Type="EvidencijaModel.Zaposlenici" Multiplicity="0..1" />
+          <End Role="OD" Type="EvidencijaModel.OD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenici">
+              <PropertyRef Name="id_zaposlenici" />
+            </Principal>
+            <Dependent Role="OD">
+              <PropertyRef Name="id_IzvSur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zaposlenici_OD">
+          <End Role="OD" Type="EvidencijaModel.OD" Multiplicity="1" />
+          <End Role="Zaposlenici" Type="EvidencijaModel.Zaposlenici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OD">
+              <PropertyRef Name="id_od" />
+            </Principal>
+            <Dependent Role="Zaposlenici">
+              <PropertyRef Name="id_od" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zaposlenici_PripadnostUBihGrupi">
+          <End Role="PripadnostUBihGrupi" Type="EvidencijaModel.PripadnostUBihGrupi" Multiplicity="1" />
+          <End Role="Zaposlenici" Type="EvidencijaModel.Zaposlenici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PripadnostUBihGrupi">
+              <PropertyRef Name="id_pripadnost" />
+            </Principal>
+            <Dependent Role="Zaposlenici">
+              <PropertyRef Name="id_pripadnost" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zaposlenici_RadnaMjesta">
+          <End Role="RadnaMjesta" Type="EvidencijaModel.RadnaMjesta" Multiplicity="1" />
+          <End Role="Zaposlenici" Type="EvidencijaModel.Zaposlenici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RadnaMjesta">
+              <PropertyRef Name="id_rm" />
+            </Principal>
+            <Dependent Role="Zaposlenici">
+              <PropertyRef Name="id_rm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="vPrijaveAplikacija">
+          <Key>
+            <PropertyRef Name="id_prijave" />
+            <PropertyRef Name="ImePrezime" />
+            <PropertyRef Name="OD" />
+            <PropertyRef Name="Voditelj" />
+            <PropertyRef Name="RadnoMjesto" />
+            <PropertyRef Name="sysdate" />
+            <PropertyRef Name="potvrda_all" />
+            <PropertyRef Name="id_od" />
+          </Key>
+          <Property Type="Int32" Name="id_prijave" Nullable="false" />
+          <Property Type="String" Name="ImePrezime" Nullable="false" MaxLength="511" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OD" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Voditelj" Nullable="false" MaxLength="511" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RadnoMjesto" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="sysdate" Nullable="false" Precision="3" />
+          <Property Type="Boolean" Name="potvrda_all" Nullable="false" />
+          <Property Type="Int32" Name="id_od" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Prijave">
+          <Key>
+            <PropertyRef Name="id_prijave" />
+          </Key>
+          <Property Type="Int32" Name="id_prijave" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="id_zaposlenik" Nullable="false" />
+          <Property Type="Int32" Name="id_od" Nullable="false" />
+          <Property Type="Int32" Name="id_rm" Nullable="false" />
+          <Property Type="DateTime" Name="sysdate" Nullable="false" Precision="3" />
+          <Property Type="Boolean" Name="potvrda_em_ad" Nullable="false" />
+          <Property Type="Boolean" Name="potvrda_bmc" Nullable="false" />
+          <Property Type="Boolean" Name="potvrda_vod" Nullable="false" />
+          <Property Type="Boolean" Name="potvrda_ostale_app" Nullable="false" />
+          <Property Type="Boolean" Name="potvrda_all" Nullable="false" />
+          <Property Type="Int32" Name="id_voditelj" Nullable="false" />
+          <NavigationProperty Name="OD" Relationship="EvidencijaModel.FK_Prijave_OD" FromRole="Prijave" ToRole="OD" />
+          <NavigationProperty Name="RadnaMjesta" Relationship="EvidencijaModel.FK_Prijave_RadnaMjesta" FromRole="Prijave" ToRole="RadnaMjesta" />
+          <NavigationProperty Name="Zaposlenici" Relationship="EvidencijaModel.FK_Prijave_Zaposlenici" FromRole="Prijave" ToRole="Zaposlenici" />
+          <NavigationProperty Name="Zaposlenici1" Relationship="EvidencijaModel.FK_Prijave_ZaposleniciVoditelj" FromRole="Prijave" ToRole="Zaposlenici" />
+          <NavigationProperty Name="PrijaveAplikacija" Relationship="EvidencijaModel.FK_PrijaveAplikacija_Prijave" FromRole="Prijave" ToRole="PrijaveAplikacija" />
+        </EntityType>
+        <EntityType Name="PrijaveAplikacija">
+          <Key>
+            <PropertyRef Name="id_prapl" />
+          </Key>
+          <Property Type="Int32" Name="id_prapl" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="id_prijave" Nullable="false" />
+          <Property Type="Int32" Name="id_aplikacije" Nullable="false" />
+          <Property Type="Int32" Name="profil" />
+          <Property Type="String" Name="profili" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="username" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="password" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="server" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="sysdate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="dat_it_potvrde" Precision="3" />
+          <Property Type="String" Name="ad_it" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="potvrda_it" />
+          <Property Type="DateTime" Name="dat_odg_osobe" Precision="3" />
+          <Property Type="String" Name="ad_odg_osobe" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="potvrda_odg_osobe" />
+          <Property Type="String" Name="access_code" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dat_voditelj" Precision="3" />
+          <Property Type="Boolean" Name="potvrda_voditelj" />
+          <Property Type="Boolean" Name="potvrde_all" Nullable="false" />
+          <Property Type="String" Name="komentar" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="aktivna" Nullable="false" />
+          <NavigationProperty Name="Prijave" Relationship="EvidencijaModel.FK_PrijaveAplikacija_Prijave" FromRole="PrijaveAplikacija" ToRole="Prijave" />
+          <NavigationProperty Name="OdjaveAplikacija" Relationship="EvidencijaModel.FK_OdjaveAplikacija_PrijaveAplikacija" FromRole="PrijaveAplikacija" ToRole="OdjaveAplikacija" />
+        </EntityType>
+        <Association Name="FK_Prijave_OD">
+          <End Type="EvidencijaModel.OD" Role="OD" Multiplicity="1" />
+          <End Type="EvidencijaModel.Prijave" Role="Prijave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OD">
+              <PropertyRef Name="id_od" />
+            </Principal>
+            <Dependent Role="Prijave">
+              <PropertyRef Name="id_od" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prijave_RadnaMjesta">
+          <End Type="EvidencijaModel.RadnaMjesta" Role="RadnaMjesta" Multiplicity="1" />
+          <End Type="EvidencijaModel.Prijave" Role="Prijave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RadnaMjesta">
+              <PropertyRef Name="id_rm" />
+            </Principal>
+            <Dependent Role="Prijave">
+              <PropertyRef Name="id_rm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prijave_Zaposlenici">
+          <End Type="EvidencijaModel.Zaposlenici" Role="Zaposlenici" Multiplicity="1" />
+          <End Type="EvidencijaModel.Prijave" Role="Prijave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenici">
+              <PropertyRef Name="id_zaposlenici" />
+            </Principal>
+            <Dependent Role="Prijave">
+              <PropertyRef Name="id_zaposlenik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prijave_ZaposleniciVoditelj">
+          <End Type="EvidencijaModel.Zaposlenici" Role="Zaposlenici" Multiplicity="1" />
+          <End Type="EvidencijaModel.Prijave" Role="Prijave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenici">
+              <PropertyRef Name="id_zaposlenici" />
+            </Principal>
+            <Dependent Role="Prijave">
+              <PropertyRef Name="id_voditelj" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PrijaveAplikacija_Prijave">
+          <End Type="EvidencijaModel.Prijave" Role="Prijave" Multiplicity="1" />
+          <End Type="EvidencijaModel.PrijaveAplikacija" Role="PrijaveAplikacija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prijave">
+              <PropertyRef Name="id_prijave" />
+            </Principal>
+            <Dependent Role="PrijaveAplikacija">
+              <PropertyRef Name="id_prijave" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="vAplikacijeDetalj">
+          <Key>
+            <PropertyRef Name="id_prapl" />
+            <PropertyRef Name="id_prijave" />
+            <PropertyRef Name="naziv" />
+            <PropertyRef Name="potvrde_all" />
+            <PropertyRef Name="aktivna" />
+            <PropertyRef Name="sysdate" />
+          </Key>
+          <Property Type="Int32" Name="id_prapl" Nullable="false" />
+          <Property Type="Int32" Name="id_prijave" Nullable="false" />
+          <Property Type="String" Name="naziv" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="dat_it_potvrde" Precision="3" />
+          <Property Type="Boolean" Name="potvrda_it" />
+          <Property Type="DateTime" Name="dat_voditelj" Precision="3" />
+          <Property Type="Boolean" Name="potvrda_voditelj" />
+          <Property Type="Boolean" Name="potvrde_all" Nullable="false" />
+          <Property Type="Boolean" Name="aktivna" Nullable="false" />
+          <Property Type="DateTime" Name="sysdate" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Odjave">
+          <Key>
+            <PropertyRef Name="OdjaveId" />
+          </Key>
+          <Property Type="Int32" Name="OdjaveId" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="DateTime" Name="datum_iniciranja" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="datum_zavrsetka" Precision="3" />
+          <Property Type="Int32" Name="id_zaposlenik" Nullable="false" />
+          <Property Type="Int32" Name="id_voditelj" Nullable="false" />
+          <Property Type="Int32" Name="id_od" Nullable="false" />
+          <Property Type="Int32" Name="id_rm" Nullable="false" />
+          <NavigationProperty Name="OD" Relationship="EvidencijaModel.FK_Odjave_OD" FromRole="Odjave" ToRole="OD" />
+          <NavigationProperty Name="RadnaMjesta" Relationship="EvidencijaModel.FK_Odjave_RadnaMjesta" FromRole="Odjave" ToRole="RadnaMjesta" />
+          <NavigationProperty Name="Zaposlenici" Relationship="EvidencijaModel.FK_Odjave_Voditelj" FromRole="Odjave" ToRole="Zaposlenici" />
+          <NavigationProperty Name="Zaposlenici1" Relationship="EvidencijaModel.FK_Odjave_Zaposlenici" FromRole="Odjave" ToRole="Zaposlenici" />
+          <NavigationProperty Name="OdjaveAplikacija" Relationship="EvidencijaModel.FK_OdjaveAplikacija_Odjave" FromRole="Odjave" ToRole="OdjaveAplikacija" />
+        </EntityType>
+        <EntityType Name="OdjaveAplikacija">
+          <Key>
+            <PropertyRef Name="id_odjave_apl" />
+          </Key>
+          <Property Type="Int32" Name="id_odjave_apl" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="id_odjave" Nullable="false" />
+          <Property Type="Int32" Name="id_prijava_apl" Nullable="false" />
+          <Property Type="Boolean" Name="potvrda_it" Nullable="false" />
+          <Property Type="DateTime" Name="datum_it" Precision="3" />
+          <Property Type="Boolean" Name="potvrda_vod" Nullable="false" />
+          <Property Type="DateTime" Name="datum_voditelj" Precision="3" />
+          <NavigationProperty Name="Odjave" Relationship="EvidencijaModel.FK_OdjaveAplikacija_Odjave" FromRole="OdjaveAplikacija" ToRole="Odjave" />
+          <NavigationProperty Name="PrijaveAplikacija" Relationship="EvidencijaModel.FK_OdjaveAplikacija_PrijaveAplikacija" FromRole="OdjaveAplikacija" ToRole="PrijaveAplikacija" />
+        </EntityType>
+        <Association Name="FK_Odjave_OD">
+          <End Type="EvidencijaModel.OD" Role="OD" Multiplicity="1" />
+          <End Type="EvidencijaModel.Odjave" Role="Odjave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OD">
+              <PropertyRef Name="id_od" />
+            </Principal>
+            <Dependent Role="Odjave">
+              <PropertyRef Name="id_od" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Odjave_RadnaMjesta">
+          <End Type="EvidencijaModel.RadnaMjesta" Role="RadnaMjesta" Multiplicity="1" />
+          <End Type="EvidencijaModel.Odjave" Role="Odjave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RadnaMjesta">
+              <PropertyRef Name="id_rm" />
+            </Principal>
+            <Dependent Role="Odjave">
+              <PropertyRef Name="id_rm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Odjave_Voditelj">
+          <End Type="EvidencijaModel.Zaposlenici" Role="Zaposlenici" Multiplicity="1" />
+          <End Type="EvidencijaModel.Odjave" Role="Odjave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenici">
+              <PropertyRef Name="id_zaposlenici" />
+            </Principal>
+            <Dependent Role="Odjave">
+              <PropertyRef Name="id_voditelj" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Odjave_Zaposlenici">
+          <End Type="EvidencijaModel.Zaposlenici" Role="Zaposlenici" Multiplicity="1" />
+          <End Type="EvidencijaModel.Odjave" Role="Odjave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenici">
+              <PropertyRef Name="id_zaposlenici" />
+            </Principal>
+            <Dependent Role="Odjave">
+              <PropertyRef Name="id_zaposlenik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OdjaveAplikacija_Odjave">
+          <End Type="EvidencijaModel.Odjave" Role="Odjave" Multiplicity="1" />
+          <End Type="EvidencijaModel.OdjaveAplikacija" Role="OdjaveAplikacija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Odjave">
+              <PropertyRef Name="OdjaveId" />
+            </Principal>
+            <Dependent Role="OdjaveAplikacija">
+              <PropertyRef Name="id_odjave" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OdjaveAplikacija_PrijaveAplikacija">
+          <End Type="EvidencijaModel.PrijaveAplikacija" Role="PrijaveAplikacija" Multiplicity="1" />
+          <End Type="EvidencijaModel.OdjaveAplikacija" Role="OdjaveAplikacija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PrijaveAplikacija">
+              <PropertyRef Name="id_prapl" />
+            </Principal>
+            <Dependent Role="OdjaveAplikacija">
+              <PropertyRef Name="id_prijava_apl" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="vProvjeraAuta_Result">
+          <Property Type="Int32" Name="id_auto" Nullable="false" />
+          <Property Type="String" Name="Lokacija" Nullable="true" MaxLength="354" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EvidencijaModelStoreContainer" CdmEntityContainer="EvidencijaEntities">
+          <EntitySetMapping Name="Mjesta"><EntityTypeMapping TypeName="EvidencijaModel.Mjesta"><MappingFragment StoreEntitySet="Mjesta">
+            <ScalarProperty Name="id_mjesto" ColumnName="id_mjesto" />
+            <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="OD"><EntityTypeMapping TypeName="EvidencijaModel.OD"><MappingFragment StoreEntitySet="OD">
+            <ScalarProperty Name="nivo" ColumnName="nivo" />
+                <ScalarProperty Name="id_od" ColumnName="id_od" />
+            <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+            <ScalarProperty Name="Oznaka" ColumnName="Oznaka" />
+            <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+            <ScalarProperty Name="id_mjesto" ColumnName="id_mjesto" />
+            <ScalarProperty Name="id_opcina" ColumnName="id_opcina" />
+            <ScalarProperty Name="id_IzvSur" ColumnName="id_IzvSur" />
+            <ScalarProperty Name="id_voditelj" ColumnName="id_voditelj" />
+            <ScalarProperty Name="regob" ColumnName="regob" />
+            <ScalarProperty Name="id_odnad" ColumnName="id_odnad" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="PripadnostUBihGrupi"><EntityTypeMapping TypeName="EvidencijaModel.PripadnostUBihGrupi"><MappingFragment StoreEntitySet="PripadnostUBihGrupi">
+            <ScalarProperty Name="id_pripadnost" ColumnName="id_pripadnost" />
+            <ScalarProperty Name="naziv" ColumnName="naziv" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="RadnaMjesta"><EntityTypeMapping TypeName="EvidencijaModel.RadnaMjesta"><MappingFragment StoreEntitySet="RadnaMjesta">
+            <ScalarProperty Name="id_rm" ColumnName="id_rm" />
+            <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+            <ScalarProperty Name="StrucnaSprema" ColumnName="StrucnaSprema" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TipOD"><EntityTypeMapping TypeName="EvidencijaModel.TipOD"><MappingFragment StoreEntitySet="TipOD">
+            <ScalarProperty Name="id_TipOd" ColumnName="id_TipOd" />
+            <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Zaposlenici"><EntityTypeMapping TypeName="EvidencijaModel.Zaposlenici"><MappingFragment StoreEntitySet="Zaposlenici">
+            <ScalarProperty Name="id_zaposlenici" ColumnName="id_zaposlenici" />
+            <ScalarProperty Name="Ime" ColumnName="Ime" />
+            <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+            <ScalarProperty Name="ImePrezime" ColumnName="ImePrezime" />
+            <ScalarProperty Name="id_od" ColumnName="id_od" />
+            <ScalarProperty Name="id_rm" ColumnName="id_rm" />
+            <ScalarProperty Name="id_pripadnost" ColumnName="id_pripadnost" />
+            <ScalarProperty Name="jmbg" ColumnName="jmbg" />
+            <ScalarProperty Name="datum_pocetka_rada" ColumnName="datum_pocetka_rada" />
+            <ScalarProperty Name="privremeno" ColumnName="privremeno" />
+            <ScalarProperty Name="datum_prestanka" ColumnName="datum_prestanka" />
+            <ScalarProperty Name="hrm_broj" ColumnName="hrm_broj" />
+            <ScalarProperty Name="tip_zaposlenja" ColumnName="tip_zaposlenja" />
+            <ScalarProperty Name="email" ColumnName="email" />
+            <ScalarProperty Name="ad" ColumnName="ad" />
+            <ScalarProperty Name="sysdate" ColumnName="sysdate" />
+            <ScalarProperty Name="Napomena" ColumnName="Napomena" />
+            <ScalarProperty Name="NotesEmail" ColumnName="NotesEmail" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="vPrijaveAplikacija">
+            <EntityTypeMapping TypeName="EvidencijaModel.vPrijaveAplikacija">
+              <MappingFragment StoreEntitySet="vPrijaveAplikacija">
+                <ScalarProperty Name="id_od" ColumnName="id_od" />
+                <ScalarProperty Name="potvrda_all" ColumnName="potvrda_all" />
+                <ScalarProperty Name="sysdate" ColumnName="sysdate" />
+                <ScalarProperty Name="RadnoMjesto" ColumnName="RadnoMjesto" />
+                <ScalarProperty Name="Voditelj" ColumnName="Voditelj" />
+                <ScalarProperty Name="OD" ColumnName="OD" />
+                <ScalarProperty Name="ImePrezime" ColumnName="ImePrezime" />
+                <ScalarProperty Name="id_prijave" ColumnName="id_prijave" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prijave">
+            <EntityTypeMapping TypeName="EvidencijaModel.Prijave">
+              <MappingFragment StoreEntitySet="Prijave">
+                <ScalarProperty Name="id_voditelj" ColumnName="id_voditelj" />
+                <ScalarProperty Name="potvrda_all" ColumnName="potvrda_all" />
+                <ScalarProperty Name="potvrda_ostale_app" ColumnName="potvrda_ostale_app" />
+                <ScalarProperty Name="potvrda_vod" ColumnName="potvrda_vod" />
+                <ScalarProperty Name="potvrda_bmc" ColumnName="potvrda_bmc" />
+                <ScalarProperty Name="potvrda_em_ad" ColumnName="potvrda_em_ad" />
+                <ScalarProperty Name="sysdate" ColumnName="sysdate" />
+                <ScalarProperty Name="id_rm" ColumnName="id_rm" />
+                <ScalarProperty Name="id_od" ColumnName="id_od" />
+                <ScalarProperty Name="id_zaposlenik" ColumnName="id_zaposlenik" />
+                <ScalarProperty Name="id_prijave" ColumnName="id_prijave" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PrijaveAplikacija">
+            <EntityTypeMapping TypeName="EvidencijaModel.PrijaveAplikacija">
+              <MappingFragment StoreEntitySet="PrijaveAplikacija">
+                <ScalarProperty Name="aktivna" ColumnName="aktivna" />
+                <ScalarProperty Name="komentar" ColumnName="komentar" />
+                <ScalarProperty Name="potvrde_all" ColumnName="potvrde_all" />
+                <ScalarProperty Name="potvrda_voditelj" ColumnName="potvrda_voditelj" />
+                <ScalarProperty Name="dat_voditelj" ColumnName="dat_voditelj" />
+                <ScalarProperty Name="access_code" ColumnName="access_code" />
+                <ScalarProperty Name="potvrda_odg_osobe" ColumnName="potvrda_odg_osobe" />
+                <ScalarProperty Name="ad_odg_osobe" ColumnName="ad_odg_osobe" />
+                <ScalarProperty Name="dat_odg_osobe" ColumnName="dat_odg_osobe" />
+                <ScalarProperty Name="potvrda_it" ColumnName="potvrda_it" />
+                <ScalarProperty Name="ad_it" ColumnName="ad_it" />
+                <ScalarProperty Name="dat_it_potvrde" ColumnName="dat_it_potvrde" />
+                <ScalarProperty Name="sysdate" ColumnName="sysdate" />
+                <ScalarProperty Name="server" ColumnName="server" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="profili" ColumnName="profili" />
+                <ScalarProperty Name="profil" ColumnName="profil" />
+                <ScalarProperty Name="id_aplikacije" ColumnName="id_aplikacije" />
+                <ScalarProperty Name="id_prijave" ColumnName="id_prijave" />
+                <ScalarProperty Name="id_prapl" ColumnName="id_prapl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vAplikacijeDetalj">
+            <EntityTypeMapping TypeName="EvidencijaModel.vAplikacijeDetalj">
+              <MappingFragment StoreEntitySet="vAplikacijeDetalj">
+                <ScalarProperty Name="sysdate" ColumnName="sysdate" />
+                <ScalarProperty Name="aktivna" ColumnName="aktivna" />
+                <ScalarProperty Name="potvrde_all" ColumnName="potvrde_all" />
+                <ScalarProperty Name="potvrda_voditelj" ColumnName="potvrda_voditelj" />
+                <ScalarProperty Name="dat_voditelj" ColumnName="dat_voditelj" />
+                <ScalarProperty Name="potvrda_it" ColumnName="potvrda_it" />
+                <ScalarProperty Name="dat_it_potvrde" ColumnName="dat_it_potvrde" />
+                <ScalarProperty Name="naziv" ColumnName="naziv" />
+                <ScalarProperty Name="id_prijave" ColumnName="id_prijave" />
+                <ScalarProperty Name="id_prapl" ColumnName="id_prapl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Odjave">
+            <EntityTypeMapping TypeName="EvidencijaModel.Odjave">
+              <MappingFragment StoreEntitySet="Odjave">
+                <ScalarProperty Name="id_rm" ColumnName="id_rm" />
+                <ScalarProperty Name="id_od" ColumnName="id_od" />
+                <ScalarProperty Name="id_voditelj" ColumnName="id_voditelj" />
+                <ScalarProperty Name="id_zaposlenik" ColumnName="id_zaposlenik" />
+                <ScalarProperty Name="datum_zavrsetka" ColumnName="datum_zavrsetka" />
+                <ScalarProperty Name="datum_iniciranja" ColumnName="datum_iniciranja" />
+                <ScalarProperty Name="OdjaveId" ColumnName="OdjaveId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OdjaveAplikacija">
+            <EntityTypeMapping TypeName="EvidencijaModel.OdjaveAplikacija">
+              <MappingFragment StoreEntitySet="OdjaveAplikacija">
+                <ScalarProperty Name="datum_voditelj" ColumnName="datum_voditelj" />
+                <ScalarProperty Name="potvrda_vod" ColumnName="potvrda_vod" />
+                <ScalarProperty Name="datum_it" ColumnName="datum_it" />
+                <ScalarProperty Name="potvrda_it" ColumnName="potvrda_it" />
+                <ScalarProperty Name="id_prijava_apl" ColumnName="id_prijava_apl" />
+                <ScalarProperty Name="id_odjave" ColumnName="id_odjave" />
+                <ScalarProperty Name="id_odjave_apl" ColumnName="id_odjave_apl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="vProvjeraAuta" FunctionName="EvidencijaModel.Store.vProvjeraAuta">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EvidencijaModel.vProvjeraAuta_Result">
+                <ScalarProperty Name="id_auto" ColumnName="id_auto" />
+                <ScalarProperty Name="Lokacija" ColumnName="Lokacija" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="mdData">
+        <EntityTypeShape EntityType="EvidencijaModel.Mjesta" Width="1.5" PointX="3" PointY="9" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="EvidencijaModel.OD" Width="1.5" PointX="5.25" PointY="2.75" Height="4.0956022135416656" IsExpanded="true" />
+        <EntityTypeShape EntityType="EvidencijaModel.PripadnostUBihGrupi" Width="1.5" PointX="0.75" PointY="4" Height="1.5956835937500005" IsExpanded="true" />
+        <EntityTypeShape EntityType="EvidencijaModel.RadnaMjesta" Width="1.5" PointX="0.75" PointY="0.75" Height="1.7879850260416657" IsExpanded="true" />
+        <EntityTypeShape EntityType="EvidencijaModel.TipOD" Width="1.5" PointX="5.75" PointY="7.75" Height="1.4033821614583308" IsExpanded="true" />
+        <EntityTypeShape EntityType="EvidencijaModel.Zaposlenici" Width="1.5" PointX="3" PointY="2.125" Height="5.4417122395833317" IsExpanded="true" />
+        <AssociationConnector Association="EvidencijaModel.FK_OD_Mjesta" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="9.9057828776041656" />
+          <ConnectorPoint PointX="5.46875" PointY="9.9057828776041656" />
+          <ConnectorPoint PointX="5.46875" PointY="7.0379036458333317" />
+        </AssociationConnector>
+        <AssociationConnector Association="EvidencijaModel.FK_OD_OD" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.7819230769230767" PointY="2.75" />
+          <ConnectorPoint PointX="5.7819230769230767" PointY="2.5" />
+          <ConnectorPoint PointX="6.2284615384615378" PointY="2.5" />
+          <ConnectorPoint PointX="6.2284615384615378" PointY="2.75" />
+        </AssociationConnector>
+        <AssociationConnector Association="EvidencijaModel.FK_OD_Zaposlenici" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="4.7978011067708328" />
+          <ConnectorPoint PointX="5.25" PointY="4.7978011067708328" />
+        </AssociationConnector>
+        <AssociationConnector Association="EvidencijaModel.FK_OD_Zaposlenici1" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="3.7114005533854164" />
+          <ConnectorPoint PointX="5.25" PointY="3.7114005533854164" />
+        </AssociationConnector>
+        <AssociationConnector Association="EvidencijaModel.FK_Zaposlenici_OD" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.25" PointY="5.9803523763020827" />
+          <ConnectorPoint PointX="4.5" PointY="5.9803523763020827" />
+        </AssociationConnector>
+        <AssociationConnector Association="EvidencijaModel.FK_Zaposlenici_PripadnostUBihGrupi" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="4.797841796875" />
+          <ConnectorPoint PointX="3" PointY="4.797841796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="EvidencijaModel.FK_Zaposlenici_RadnaMjesta" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.4276432291666667" />
+          <ConnectorPoint PointX="3" PointY="2.4276432291666667" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="EvidencijaModel.vPrijaveAplikacija" Width="1.5" PointX="7.375" PointY="0.75" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="EvidencijaModel.Prijave" Width="1.5" PointX="8.5" PointY="4.25" Height="4.0956022135416683" />
+        <EntityTypeShape EntityType="EvidencijaModel.PrijaveAplikacija" Width="1.5" PointX="10.75" PointY="3.75" Height="5.249410807291671" />
+        <AssociationConnector Association="EvidencijaModel.FK_Prijave_OD">
+          <ConnectorPoint PointX="6.75" PointY="5.6439518229166659" />
+          <ConnectorPoint PointX="8.5" PointY="5.6439518229166659" />
+        </AssociationConnector>
+        <AssociationConnector Association="EvidencijaModel.FK_Prijave_RadnaMjesta">
+          <ConnectorPoint PointX="2.25" PointY="1.4062505" />
+          <ConnectorPoint PointX="7.125" PointY="1.4062505" />
+          <ConnectorPoint PointX="7.125" PointY="3.3648893229166674" />
+          <ConnectorPoint PointX="9.25" PointY="3.3648893229166674" />
+          <ConnectorPoint PointX="9.25" PointY="4.25" />
+        </AssociationConnector>
+        <AssociationConnector Association="EvidencijaModel.FK_Prijave_Zaposlenici">
+          <ConnectorPoint PointX="4.5" PointY="7.3939518229166659" />
+          <ConnectorPoint PointX="5.385416666666667" PointY="7.393951822916665" />
+          <ConnectorPoint PointX="5.552083333333333" PointY="7.3939518229166659" />
+          <ConnectorPoint PointX="8.5" PointY="7.3939518229166659" />
+        </AssociationConnector>
+        <AssociationConnector Association="EvidencijaModel.FK_Prijave_ZaposleniciVoditelj">
+          <ConnectorPoint PointX="4.5" PointY="7.1846777343749988" />
+          <ConnectorPoint PointX="5.385416666666667" PointY="7.1846777343749979" />
+          <ConnectorPoint PointX="5.552083333333333" PointY="7.1846777343749988" />
+          <ConnectorPoint PointX="8.5" PointY="7.1846777343749988" />
+        </AssociationConnector>
+        <AssociationConnector Association="EvidencijaModel.FK_PrijaveAplikacija_Prijave">
+          <ConnectorPoint PointX="10" PointY="6.2978011067708337" />
+          <ConnectorPoint PointX="10.75" PointY="6.2978011067708337" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="EvidencijaModel.vAplikacijeDetalj" Width="1.5" PointX="8.375" PointY="9.75" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="EvidencijaModel.Odjave" Width="1.5" PointX="4.3421152440561519" PointY="30.928065284587472" />
+        <EntityTypeShape EntityType="EvidencijaModel.OdjaveAplikacija" Width="1.5" PointX="9.859515872718541" PointY="11.760548001043754" />
+        <AssociationConnector Association="EvidencijaModel.FK_Odjave_OD" />
+        <AssociationConnector Association="EvidencijaModel.FK_Odjave_RadnaMjesta" />
+        <AssociationConnector Association="EvidencijaModel.FK_Odjave_Voditelj" />
+        <AssociationConnector Association="EvidencijaModel.FK_Odjave_Zaposlenici" />
+        <AssociationConnector Association="EvidencijaModel.FK_OdjaveAplikacija_Odjave" />
+        <AssociationConnector Association="EvidencijaModel.FK_OdjaveAplikacija_PrijaveAplikacija" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

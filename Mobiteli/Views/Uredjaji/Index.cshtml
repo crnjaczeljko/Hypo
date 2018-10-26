@@ -1,0 +1,94 @@
+﻿@model PagedList.IPagedList<Mobiteli.Models.Uredjaji>
+
+@{
+    ViewBag.Title = "Pregled uređaja";
+}
+<div class="blue">
+    @using (Html.BeginForm())
+    {
+        <table style="border: 0px none #FFFFFF;">
+            <tr style="border-style: none">
+                <td style="border-style: none" class="selected">
+                    &nbsp;&nbsp;Pretraga po operateru, nazivu ili IMEI: @Html.TextBox("SearchString") 
+                </td>
+                <td style="border-style: none">
+                    <input type="submit" value="Pretraga" /> 
+                </td>
+            </tr>
+        </table>
+    }
+
+</div> 
+<table id="hor-minimalist-b">
+    <tr>
+        <th></th>  
+        <th></th>
+        <th>Uredjaj</th>
+        <th>Model</th>
+        <th>IMEI</th>
+        <th>SN</th>
+        <th>Nabavljeno</th>
+        <th>ugovor</th>
+        <th>trajanje ugovora</th>
+        <th>Operater</th>
+        <th>Ugovor od</th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                <a href='@Url.Action("Edit", new {id = item.id_ur})' style="border-style: none">
+                    <img src="../../images/Edit.png" alt="Edit" style="border-style: none" />
+                </a>
+            </td>
+            <td>
+                <a href='@Url.Action("Delete", new {id = item.id_ur})'>
+                    <img src="../../images/delete.png" alt="Delete" style="border-style: none" />
+                </a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Uredjaj)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modeli_Uredjaja.Naziv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IMEI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dat_nabavke)
+            </td>
+            <td style="text-align: center">
+                @if (item.ugovor)
+                {
+                    <img src="../../images/green.png" alt="Edit" style="border-style: none" />
+                }
+                else
+                {
+                    <img src="../../images/red.png" alt="Edit" style="border-style: none" />
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.trajanje_ugovora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Operateri.Naziv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dat_ugovora)
+            </td>
+        </tr>
+    }
+</table>
+
+<hr/>
+@Html.Partial("PageListView",Model)
+
+
+@section link
+{
+       @Html.ActionLink("Novi", "Create")
+}

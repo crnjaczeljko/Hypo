@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Mobiteli.Models.Razduzenje>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table id="hor-minimalist-b">
+    <tr>
+        <th></th>
+        <th>Zaposlenik</th>
+        <th>Broj telefona</th>
+        <th>datum razduzenja</th>
+        <th>Status</th>
+        <th>Broj zadržan</th>
+        <th>datum potvrde</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "RazduzenjePotvrda", new { id=item.id_raz })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefonija.Zaposlenici.ImePrezime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefonija.broj_tel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.datum_razduzenja)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.zadrzati_broj)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.datum_potvrde)
+        </td>
+
+    </tr>
+}
+
+</table>

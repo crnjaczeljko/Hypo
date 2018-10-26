@@ -1,0 +1,35 @@
+﻿@model Mobiteli.Models.Zaduzenje_Uredjaja
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Zaduzenje_Uredjaja</legend>
+
+    <div class="display-label">Telefonija</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Telefonija.broj_tel)
+    </div>
+
+    <div class="display-label">Uredjaji</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Uredjaji.Uredjaj)
+    </div>
+
+    <div class="display-label">datum_zad</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.datum_zad)
+    </div>
+
+    <div class="display-label">datum_razd</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.datum_razd)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id_zad }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,22 @@
+﻿@using Vozila.Controllers
+@Html.DevExpress().ComboBox(
+    settings => {
+        settings.Name = "id_Putnik5";
+        settings.Width = 180;
+        settings.SelectedIndex = 0;
+        settings.Properties.IncrementalFilteringMode =
+                                               IncrementalFilteringMode.StartsWith;
+        settings.Properties.DropDownStyle = DropDownStyle.DropDown;
+        settings.CallbackRouteValues = new { Controller = "ComboBox", Action = "CbPutnik5Partial" };
+        settings.Properties.EnableCallbackMode = true;
+        settings.Properties.CallbackPageSize = 15;
+        settings.Properties.TextField = "ImePrezime";
+        settings.Properties.ValueField = "id_zaposlenici";
+        settings.Properties.NullDisplayText = "";
+        settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithTooltip;
+        settings.Properties.ValidationSettings.Assign(
+            EditorsDemosHelper.NameValidationSettings);
+        settings.Properties.ClientSideEvents.Validation =
+            "OnNameValidation";
+    }
+        ).BindList(ViewData["id_zaposlenik"]).GetHtml()

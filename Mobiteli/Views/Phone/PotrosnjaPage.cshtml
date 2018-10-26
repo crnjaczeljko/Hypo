@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Mobiteli.Models.spPotrosnja_Result>
+
+@{
+    ViewBag.Title = "Potrošnja po mjesecima - mobiteli";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table id="hor-minimalist-b">
+    <tr>
+        <th></th>
+        <th>godina</th>
+        <th>mjesec</th>
+        <th>Naziv</th>
+        <th>iznos</th>
+        <th>br. rn</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+                    <td>
+                <a href='@Url.Action("ReportPage", new { id = item.Naziv +"-" + item.godina +"-" + item.mjesec + "-" + item.Grupa_racuna })'>
+                    <img src="../../images/print.png" alt="Delete" style="border-style: none" />
+                </a>
+            </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.godina)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mjesec)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Naziv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.iznos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Grupa_racuna)
+        </td>
+    </tr>
+}
+
+</table>
+@section link
+{
+    @Html.ActionLink("Natrag", "Index")
+}
